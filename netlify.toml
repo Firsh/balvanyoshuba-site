@@ -20,12 +20,3 @@
   from = "/galeria/index.php"
   query = {cat = ":cat"}
   to = "/.netlify/functions/redirect/"
-
-[[plugins]]
-package = "@algolia/netlify-plugin-crawler"
-  [plugins.inputs]
-  # branches = ['dev']
-  branches = ['nonexistent']
-  disabled = true
-  # customDomain = "balvanyoshuba.hu"
-  # renderJavaScript = true
