@@ -1,1 +1,87 @@
-const fetch=require("node-fetch"),cyrb53=function(a,e=0){let o=3735928559^e,r=1103547991^e;for(let e=0,t;e<a.length;e++)t=a.charCodeAt(e),o=Math.imul(o^t,2654435761),r=Math.imul(r^t,1597334677);return o=Math.imul(o^o>>>16,2246822507)^Math.imul(r^r>>>13,3266489909),r=Math.imul(r^r>>>16,2246822507)^Math.imul(o^o>>>13,3266489909),4294967296*(2097151&r)+(o>>>0)},handler=async e=>{if("POST"!==e.httpMethod)return{statusCode:405,body:"Method Not Allowed"};if(null==e.body)return{statusCode:400,body:"Bad Request"};if(-1!==e.headers["user-agent"].indexOf("Algolia"))return{statusCode:200,body:"Not counting you!"};var t=JSON.parse(e.body),a=e.headers["x-nf-client-connection-ip"],o=a+";"+e.headers["user-agent"]+";"+t.language+";",o=cyrb53(o).toString(16);const r=[["v","1"],["t",t.type],["tid","UA-113124215-3"],["aip","1"],["uip",a],["cid",o],["geoid",e.headers["x-country"]],["ul",t.language],["ua",e.headers.useragent]];"pageview"===t.type?(r.push(["dt",t.title]),r.push(["dl",t.url]),r.push(["dr",t.ref]),r.push(["sr",t.resolution]),r.push(["vp",t.viewport])):"event"===t.type&&(r.push(["ec",t.eventCategory]),r.push(["ea",t.eventAction]),r.push(["el",t.eventLabel]));t=new URLSearchParams(r);try{var u=await fetch("https://www.google-analytics.com/collect?"+t,{method:"POST",cache:"no-cache"});if(u.ok)return{statusCode:u.status,body:u.statusText}}catch(e){}};module.exports={handler:handler};
+const fetch = require('node-fetch');
+
+const cyrb53 = function (str, seed = 0) {
+    let h1 = 0xdeadbeef ^ seed,
+        h2 = 0x41c6ce57 ^ seed;
+    for (let i = 0, ch; i < str.length; i++) {
+        ch = str.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+};
+
+const handler = async (event) => {
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            body: 'Method Not Allowed',
+        };
+    }
+    if (event.body == null) {
+        return {
+            statusCode: 400,
+            body: 'Bad Request',
+        };
+    }
+    if (event.headers['user-agent'].indexOf('Algolia') !== -1) {
+        return {
+            statusCode: 200,
+            body: 'Not counting you!',
+        };
+    }
+    const body = JSON.parse(event.body);
+    const endpoint = 'https://www.google-analytics.com/collect?';
+
+    const visitorIP = event.headers['x-nf-client-connection-ip'];
+    const rawClientID = visitorIP + ';' + event.headers['user-agent'] + ';' + body.language + ';';
+    const hashedClientID = cyrb53(rawClientID).toString(16);
+    const params = [
+        ['v', '1'],
+        ['t', body.type], // pageview/event (ec/ea - category/action required for event)
+        ['tid', 'UA-113124215-3'], // Netlifys temporary
+        //['tid', 'UA-4197479-3'], // Original
+        ['aip', '1'],
+        ['uip', visitorIP],
+        ['cid', hashedClientID],
+        ['geoid', event.headers['x-country']],
+        ['ul', body.language],
+        ['ua', event.headers['useragent']],
+    ];
+
+    if (body.type === 'pageview') {
+        params.push(['dt', body.title]);
+        params.push(['dl', body.url]);
+        params.push(['dr', body.ref]);
+        params.push(['sr', body.resolution]);
+        params.push(['vp', body.viewport]);
+    } else if (body.type === 'event') {
+        params.push(['ec', body.eventCategory]); // Eloadasok .. Hangok
+        params.push(['ea', body.eventAction]); // Letoltes .. Hallgatas
+        params.push(['el', body.eventLabel]); // Csontvary .. Kerenyi
+    }
+
+    const payload = new URLSearchParams(params);
+
+    try {
+        const response = await fetch(endpoint + payload, {
+            method: 'POST',
+            cache: 'no-cache',
+        });
+        if (response.ok) {
+            return {
+                statusCode: response.status,
+                body: response.statusText /*+
+                ' payload: ' +
+                payload +
+                ' stringified headers obj: ' +
+                JSON.stringify(event.headers),*/,
+            };
+        }
+    } catch (err) {
+        console.error('Error: ' + err);
+    }
+};
+module.exports = {handler};
