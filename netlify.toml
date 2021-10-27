@@ -1,0 +1,31 @@
+[[redirects]]
+  from = "/?kategoria=fooldal&oldal=fooldal"
+  to = "/?atiranyitva"
+  status = 301
+
+[[redirects]]
+  status = 301
+  from = "/"
+  query = {kategoria = ":kategoria", oldal = ":oldal"}
+  to = "/.netlify/functions/redirect/"
+
+[[redirects]]
+  status = 301
+  from = "/galeria/thumbnails.php"
+  query = {album = ":album"}
+  to = "/.netlify/functions/redirect/"
+
+[[redirects]]
+  status = 301
+  from = "/galeria/index.php"
+  query = {cat = ":cat"}
+  to = "/.netlify/functions/redirect/"
+
+[[plugins]]
+package = "@algolia/netlify-plugin-crawler"
+  [plugins.inputs]
+  # branches = ['dev']
+  branches = ['nonexistent']
+  disabled = true
+  # customDomain = "balvanyoshuba.hu"
+  # renderJavaScript = true
