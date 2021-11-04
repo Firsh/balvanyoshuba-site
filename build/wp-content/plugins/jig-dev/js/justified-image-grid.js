@@ -6,4 +6,3646 @@
  * Description: Create beautiful photo grids from sources you already use.
  * Copyright (c) 2020 Published by Belcovio. Developed by Firsh.
  */
-function loadJustifiedImageGrid(V){V.justifiedImageGrid=function(e,t){var e={targetHeight:190,heightDeviation:40,aspectRatio:"",disableCropping:"",randomizeWidth:"",margins:4,animSpeed:300,limit:0,initiallyLoad:"",maxRows:"",linkClass:"",linkRel:"jig[*instance*]",linkAttributeName:"",linkAttributeValue:"",linkAttribute:"",linkTitleField:"description",imgAltField:"title",wrapText:"no",readingDirection:"ltr",loadMore:"off",loadMoreText:"Load more",loadMoreCountText:"(*count* images remaining)",loadMoreOffset:100,loadMoreAutoWidth:"on",disableHover:"no",downloadLink:"no",lightboxLink:"no",verticalCenterCaptions:"off",customFonts:"yes",captionHeight:54,quality:90,retinaReady:"yes",retinaQuality:"auto",minRetinaQuality:30,maxRetinaDensity:3,caption:"fade",captionMatchWidth:"no",captionMatchWidthForceNo:!1,titleField:"title",captionField:"description",lightbox:"prettyphoto",lightboxInit:"jigAddLightbox1",overlay:"hovered",overlayIcon:"off",bordersTotal:0,innerBorder:"always",innerBorderWidth:0,innerBorderAnimate:"width",middleBorder:"always",middleBorderWidth:0,middleBorderColor:"white",outerBorder:"always",outerBorderColor:"black",specialFx:"off",specialFxType:"desaturate",specialFxOptions:"",specialFxBlend:1,incompleteLastRow:"normal",errorChecking:"yes",suppressErrors:"no",retryCount:0,resizeCount:0,errorChecked:!1,errorImages:[],filters:!1,filterMultiple:"no",filterStyle:"buttons",L2filters:!1,L2FilterMultiple:"no",L2FilterStyle:"buttons",filterSmallestColor:"#A3A3A3",filterSmallestSize:11,filterLargestColor:"#000000",filterLargestSize:22,separatorCharacter:" - ",thumbnailFilename:"normal",cropZone:"",instance:1,element:V(e),lastWindowWidth:V(window).width()},_=this,z=V.extend({},e,t),E="object"==typeof V.support&&"opacity"in V.support&&!V.support.opacity,O="",s=!!window.chrome&&!/opera|opr/i.test(navigator.userAgent);this.s=z;try{O=0<window.navigator.userAgent.indexOf("MSIE ")||!!navigator.userAgent.match(/Trident.*rv\:11\./),"Netscape"==navigator.appName&&-1===navigator.appVersion.indexOf("Trident")&&-1!==navigator.appVersion.indexOf("Edge")&&(O=!0)}catch(e){O=!1}var D=!1;"ontouchstart"in document.documentElement&&(D=!0),_.init=function(){if(z.originalTargetHeight=z.targetHeight,z.minHeight=z.originalMinHeight=z.targetHeight-z.heightDeviation,z.maxHeight=z.originalMaxHeight=z.targetHeight+z.heightDeviation,z.prevScreenHeightLimitRatio=-1,z.defaultHeightRatio=z.originalDefaultHeightRatio=z.targetHeight/z.maxHeight,z.originalLimit=z.limit,z.hiddenOpacity=E?.01:0,O&&z.element.addClass("jig-ua-ie"),E&&z.element.addClass("jig-ua-old-ie"),!1===D?z.element.addClass("jig-no-touch"):z.element.addClass("jig-touch"),"no"!==z.lightbox&&"links-off"!==z.lightbox&&"new_tab"!==z.lightbox)if(z.hiddenLinkClass=""!==z.linkClass?'class="jig-link jig-hiddenLink '+z.linkClass+'" ':'class="jig-link jig-hiddenLink" ',z.linkClass=""!==z.linkClass?'class="jig-link '+z.linkClass+'" ':'class="jig-link" ',-1!==z.linkRel.indexOf("*instance*"))z.linkRel='rel="'+z.linkRel.replace("*instance*",z.instance)+'" ';else if(-1!==z.linkRel.indexOf("auto"))switch(z.lightbox){case"prettyphoto":z.linkRel='rel="'+z.linkRel.replace("auto","prettyPhoto["+z.instance+"]")+'" ';break;case"colorbox":z.linkRel='rel="'+z.linkRel.replace("auto","colorBox["+z.instance+"]")+'" ';break;default:z.linkRel='rel="'+z.linkRel.replace("auto","gallery["+z.instance+"]")+'" '}else z.linkRel='rel="'+z.linkRel+'" ';else z.linkClass="",z.hiddenLinkClass="",z.linkRel="";var t,i,r,a;""!==z.linkAttributeName&&(""!==z.linkAttributeValue?z.linkAttribute=" "+z.linkAttributeName+'="'+z.linkAttributeValue+'"':z.linkAttribute=" "+z.linkAttributeName+'=""'),z.allItems=z.selectedItems=z.items.slice(),z.aspectRatio&&(z.maxWidth=Math.floor(z.maxHeight*parseFloat(z.aspectRatio)),"normal"==z.incompleteLastRow&&(z.incompleteLastRow="match","off"!==z.loadMore&&(z.incompleteLastRow="flexible-match"))),"yes"==z.retinaReady&&(void 0===window.devicePixelRatio||1==window.devicePixelRatio?(z.retinaReady="no",z.devicePixelRatio=1):window.devicePixelRatio>z.maxRetinaDensity?z.devicePixelRatio=z.maxRetinaDensity:z.devicePixelRatio=window.devicePixelRatio),"yes"==z.retinaReady&&("auto"==z.retinaQuality?(z.quality=Math.ceil(z.quality/z.devicePixelRatio),z.quality=z.quality>z.minRetinaQuality?z.quality:z.minRetinaQuality):z.quality=z.retinaQuality),"yes"==z.disableCropping&&(z.minHeight=z.originalMinHeight=50),"captions"==z.specialFx&&"below"==z.caption&&(z.specialFx="off"),"yes"!=z.customFonts||"off"===z.caption||"below"!=z.caption&&"off"===z.verticalCenterCaptions&&"captions"!=z.specialFx||0===(t=V("body").find(".jig-fontCheck")).length&&(V("body").append('<div class="jig-fontCheck">!"\'\\#$%&amp;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~ A quick brown fox jumps over the lazy dog.</div>'),i=(t=V("body").find(".jig-fontCheck")).width(),r=0,a=setInterval(function(){r++;var e=t.width();i!=e&&0!==e?(V("body").trigger("jig-fontLoaded"),t.remove(),clearInterval(a)):50<r&&(t.remove(),clearInterval(a))},100));function e(){return!1}var o,n,l,s,d=e,c=e,g=e,f=e,h=e,p=e,u=e,m=e,w=e,v=e,j=e,y=e,x=function(e,t,i,r){var a;"captions"!==z.specialFx||".jig-caption-wrapper .jig-caption"!==t?e.find(t).JIGhoverFlow(i,{opacity:r},z.animSpeed):(t=e.find(t),a=J(t,!0),t.JIGhoverFlow(i,{opacity:r},{duration:z.animSpeed,progress:function(){0!==V(this).closest(".jig-cw-role-real").length&&q(a)}}))},b=function(e,t,i,r){var a;"captions"!==z.specialFx?e.find(t).JIGhoverFlow(i,{height:r},z.animSpeed,"JIGeaseInOutQuad"):(t=e.find(t),a=J(t),t.JIGhoverFlow(i,{height:r},{duration:z.animSpeed,easing:"JIGeaseInOutQuad",progress:function(){0!==V(this).closest(".jig-cw-role-real").length&&q(a)}}))},I=function(i,e,t,r){var a,o,n;"captions"!==z.specialFx?i.find(e).JIGhoverFlow(t,{height:r},{duration:z.animSpeed,easing:"JIGeaseInOutQuad",progress:function(){var e=i.find(".jig-caption-wrapper"),t=i.parent();e.css("top",Math.round(t.height()/2-e.height()/2))}}):(a=i.find(e),o=J(a),n=a.closest(".jig-caption"),i.find(e).JIGhoverFlow(t,{height:r},{duration:z.animSpeed,easing:"JIGeaseInOutQuad",progress:function(){var e=i.find(".jig-caption-wrapper"),t=i.parent();e.css("top",Math.round(t.height()/2-n.height()/2)),0!==V(this).closest(".jig-cw-role-real").length&&q(o)},complete:function(){"slide"!=z.caption&&"reverse-slide"!=z.caption||"hide"!=r||i.find(".jig-cw-role-effect").height(.01)}}))},k=function(e,t,i,r){e.find(t).JIGhoverFlow(i,{opacity:r},z.animSpeed)},L=function(e,t,i,r){e.find(t).JIGhoverFlow(i,{borderLeftWidth:r,borderTopWidth:r,borderRightWidth:r,borderBottomWidth:r},z.animSpeed)};switch(z.overlay){case"hovered":c="on"===z.overlayIcon?(d=function(e){x(e,"div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper","mouseenter","show")},function(e){x(e,"div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper","mouseleave","hide")}):(d=function(e){x(e,"div.jig-overlay-wrapper","mouseenter","show")},function(e){x(e,"div.jig-overlay-wrapper","mouseleave","hide")});break;case"others":c="on"===z.overlayIcon?(d=function(e){x(e,"div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper","mouseenter","hide")},function(e){x(e,"div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper","mouseleave","show")}):(d=function(e){x(e,"div.jig-overlay-wrapper","mouseenter","hide")},function(e){x(e,"div.jig-overlay-wrapper","mouseleave","show")})}switch(z.innerBorder){case"hovered":switch(z.innerBorderAnimate){case"width":u=function(e){L(e,"div.jig-border","mouseenter",z.innerBorderWidth+"px")},m=function(e){L(e,"div.jig-border","mouseleave",0)};break;case"opacity":u=function(e){x(e,"div.jig-border","mouseenter","show")},m=function(e){x(e,"div.jig-border","mouseleave","hide")};break;case"off":u=function(e){V(e).find("div.jig-border").show()},m=function(e){V(e).find("div.jig-border").hide()}}break;case"others":switch(z.innerBorderAnimate){case"width":u=function(e){L(e,"div.jig-border","mouseenter",0)},m=function(e){L(e,"div.jig-border","mouseleave",z.innerBorderWidth+"px")};break;case"opacity":u=function(e){x(e,"div.jig-border","mouseenter","hide")},m=function(e){x(e,"div.jig-border","mouseleave","show")};break;case"off":u=function(e){V(e).find("div.jig-border").hide()},m=function(e){V(e).find("div.jig-border").show()}}}switch(z.middleBorder){case"hovered":w=function(e){V(e).parent().parent("div.jig-imageContainer").css("background",z.middleBorderColor)},v=function(e){V(e).parent().parent("div.jig-imageContainer").css("background","transparent")};break;case"others":w=function(e){V(e).parent().parent("div.jig-imageContainer").css("background","transparent")},v=function(e){V(e).parent().parent("div.jig-imageContainer").css("background",z.middleBorderColor)}}switch(z.outerBorder){case"hovered":j=function(e){V(e).parent().parent("div.jig-imageContainer").css("border-color",z.outerBorderColor)},y=function(e){V(e).parent().parent("div.jig-imageContainer").css("border-color","transparent")};break;case"others":j=function(e){V(e).parent().parent("div.jig-imageContainer").css("border-color","transparent")},y=function(e){V(e).parent().parent("div.jig-imageContainer").css("border-color",z.outerBorderColor)}}if(E)switch(z.specialFx){case"others":g=function(e){k(e,".jig-pixastic","mouseleave",.01)},f=function(e){k(e,".jig-pixastic","mouseleave",z.specialFxBlend)};break;case"hovered":g=function(e){k(e,".jig-pixastic","mouseenter",z.specialFxBlend)},f=function(e){k(e,".jig-pixastic","mouseleave",.01)}}else switch(z.specialFx){case"others":g=function(e){k(e,".jig-pixastic","mouseenter",.01)},f=function(e){k(e,".jig-pixastic","mouseleave",z.specialFxBlend)};break;case"hovered":g=function(e){k(e,".jig-pixastic","mouseenter",z.specialFxBlend)},f=function(e){k(e,".jig-pixastic","mouseleave",.01)}}switch(z.caption){case"fade":h=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseenter","show")},p=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseleave","hide")};break;case"reverse-fade":h=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseenter","hide")},p=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseleave","show")};break;case"slide":p=E?(h=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseenter","show")},function(e){x(e,".jig-caption-wrapper .jig-caption","mouseleave","hide")}):"off"==z.verticalCenterCaptions||"simple"==z.verticalCenterCaptions?(h=function(e){b(e,".jig-caption-wrapper .jig-caption","mouseenter","show")},function(e){b(e,".jig-caption-wrapper .jig-caption","mouseleave","hide")}):(h=function(e){I(e,".jig-caption-wrapper .jig-caption","mouseenter","show")},function(e){I(e,".jig-caption-wrapper .jig-caption","mouseleave","hide")});break;case"reverse-slide":p=E?(h=function(e){x(e,".jig-caption-wrapper .jig-caption","mouseenter","hide")},function(e){x(e,".jig-caption-wrapper .jig-caption","mouseleave","show")}):"off"==z.verticalCenterCaptions||"simple"==z.verticalCenterCaptions?(h=function(e){b(e,".jig-caption-wrapper .jig-caption","mouseenter","hide")},function(e){b(e,".jig-caption-wrapper .jig-caption","mouseleave","show")}):(h=function(e){I(e,".jig-caption-wrapper .jig-caption","mouseenter","hide")},function(e){I(e,".jig-caption-wrapper .jig-caption","mouseleave","show")});break;case"mixed":p="off"==z.verticalCenterCaptions||"simple"==z.verticalCenterCaptions?(h=function(e){b(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseenter","show")},function(e){b(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseleave","hide")}):(h=function(e){I(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseenter","show")},function(e){I(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseleave","hide")});break;case"reverse-mixed":p="off"==z.verticalCenterCaptions||"simple"==z.verticalCenterCaptions?(h=function(e){b(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseenter","hide")},function(e){b(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseleave","show")}):(h=function(e){I(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseenter","hide")},function(e){I(e,".jig-caption-wrapper .jig-caption-description-wrapper","mouseleave","show")})}if("yes"!==z.disableHover&&(z.element.on("mouseenter mouseleave","a",function(e){var t=V(this);"none"!==t.css("display")&&(e.stopImmediatePropagation(),"mouseenter"===e.type?(d(t),g(t),h(t),u(t),w(t),j(t),t.data("title",t.attr("title")),t.removeAttr("title")):(c(t),f(t),p(t),m(t),v(t),y(t),t.attr("title",t.data("title"))))}),z.element.on("mousedown","a",function(e){V(this).attr("title",V(this).data("title"))})),V("body").one("jig-fontLoaded",N),"off"!==z.loadMore&&(z.loadMoreCounter=0,"carousel"==z.lightbox&&z.element.on("click",function(e){V(e.target).hasClass("justified-image-grid")&&(e.stopPropagation(),e.preventDefault())}),z.element.on("click",".jig-loadMoreButton",$)),"prettyphoto"==z.lightbox&&"undefined"!=typeof jigOtherPrettyPhotoIsPresent&&V(document).ready(function(){setTimeout(function(){window[z.lightboxInit]()},10)}),z.filters||z.L2filters){if(z.filteredImages=[],z.filters){z.filterMultiple=z.filterMultiple||"no",z.filterStyle=z.filterStyle||"buttons";var C="buttons"==z.filterStyle?(z.filterType="Button","div"):(z.filterType="Tag","span"),T='<div id="jig'+z.instance+"-filter"+z.filterType+'s" class="jig-filter'+z.filterType+"s "+("no"!==z.filterMultiple?"jig-filterMultiple ":"jig-filterSingle ")+(D?"jig-touch ":"jig-no-touch ")+(O?"jig-ua-ie":"")+'jig-clearfix" data-filter-level="1">';for(o in z.filters)U(z.filters,o)&&(z.filteredImages[o]=[],T+="<"+C+' class="jig-filter'+z.filterType+'" data-filter-slug="'+o+'">'+z.filters[o]+"</"+C+">");z.element.before(T+="</div>"),void 0!==z.filteredImages["all-items-nofilter"]&&(z.filteredImages["all-items-nofilter"]=z.selectedItems.slice());for(var R=0,M=z.selectedItems.length;R<M;R+=1)if(z.selectedItems[R].filters)for(var W=0,H=z.selectedItems[R].filters.length;W<H;W+=1)void 0!==z.filteredImages[z.selectedItems[R].filters[W][0]]&&"function"==typeof z.filteredImages[z.selectedItems[R].filters[W][0]].push&&z.filteredImages[z.selectedItems[R].filters[W][0]].push(z.selectedItems[R]);var F=V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType+'[data-filter-slug="all-items-nofilter"]');if(0<F.length&&V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType).first().attr("data-filter-slug")!==F.attr("data-filter-slug")&&F.parent().prepend(F),"tags"==z.filterStyle){for(o in z.filters)U(z.filters,o)&&V("#jig"+z.instance+"-filter"+z.filterType+'s .jig-filterTag[data-filter-slug="'+o+'"]').attr("rel",z.filteredImages[o].length);V.fn.tagcloud.defaults={size:{start:z.filterSmallestSize,end:z.filterLargestSize,unit:"px"},color:{start:z.filterSmallestColor,end:z.filterLargestColor}},0<F.length?(F.css({"font-size":z.filterLargestSize,color:z.filterLargestColor}),V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType).slice(1).tagcloud()):V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType).tagcloud()}V("#jig"+z.instance+"-filter"+z.filterType+"s").on("click",".jig-filter"+z.filterType,Q)}if(z.L2filters){z.L2filterMultiple=z.L2filterMultiple||"no",z.L2filterStyle=z.L2filterStyle||"buttons",n="buttons"==z.L2filterStyle?(z.L2filterType="Button","div"):(z.L2filterType="Tag","span"),z.L2filteredImages=[];var S='<div id="jig'+z.instance+"-L2filter"+z.L2filterType+'s" class="jig-filter'+z.L2filterType+"s "+("no"!==z.L2filterMultiple?"jig-filterMultiple ":"jig-filterSingle ")+(D?"jig-touch ":"jig-no-touch ")+(O?"jig-ua-ie":"")+'jig-clearfix" data-filter-level="2">';for(l in z.L2filters)U(z.L2filters,l)&&(z.L2filteredImages[l]=[],S+="<"+n+' class="jig-filter'+z.L2filterType+'" data-filter-slug="'+l+'">'+z.L2filters[l]+"</"+n+">");z.element.before(S+="</div>"),void 0!==z.L2filteredImages["all-items-nofilter"]&&(z.L2filteredImages["all-items-nofilter"]=z.selectedItems.slice());for(var A=0,B=z.selectedItems.length;A<B;A+=1)if(z.selectedItems[A].L2filters)for(var G=0,P=z.selectedItems[A].L2filters.length;G<P;G+=1)void 0!==z.L2filteredImages[z.selectedItems[A].L2filters[G][0]]&&"function"==typeof z.L2filteredImages[z.selectedItems[A].L2filters[G][0]].push&&z.L2filteredImages[z.selectedItems[A].L2filters[G][0]].push(z.selectedItems[A]);F=V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType+'[data-filter-slug="all-items-nofilter"]');if(0<F.length&&V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).first().attr("data-filter-slug")!==F.attr("data-filter-slug")&&F.parent().prepend(F),"tags"==z.L2filterStyle){for(l in z.L2filters)U(z.L2filters,l)&&V("#jig"+z.instance+"-L2filter"+z.L2filterType+'s .jig-filterTag[data-filter-slug="'+l+'"]').attr("rel",z.L2filteredImages[l].length);V.fn.tagcloud.defaults={size:{start:z.filterSmallestSize,end:z.filterLargestSize,unit:"px"},color:{start:z.filterSmallestColor,end:z.filterLargestColor}},0<F.length?(F.css({"font-size":z.filterLargestSize,color:z.filterLargestColor}),V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).slice(1).tagcloud()):V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).tagcloud()}V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s").on("click",".jig-filter"+z.L2filterType,Q)}Q()}else _.createGallery();z.element.trigger("jig-created"),V(window).resize(function(){void 0!==s&&clearTimeout(s),s=setTimeout(function(){_.createGallery("resize"),z.element.trigger("jig-resized")},100)})},_.createGallery=function(e){if(!1===V.JIGjQueryMinVersion("1.7"))return JIGjQueryMinVersion("1.7",!0),!1;var a,t=Math.round(z.element.width()),o=V(window).width();void 0===z.fixedWidth?(z.element.css("width","").css("width",Math.round(z.element.width())),0===z.element.width()?void 0===z.fallbackWidth?0!==t&&o==z.lastWindowWidth?z.element.css("width",t+"px"):(a=0,z.element.parents().each(function(e,t){var i=V(t),r=V(t).parent(),t=i.width();if(i.is(":visible")&&0!==t)return z.element.css("width",t-a+"px"),void 0===r.data("jigAddedTabsHandler")&&(r.on("click",function(e){o!==V(window).width()&&r.find(".justified-image-grid").each(function(){var e=V(this);e.is(":visible")&&e.data("justifiedImageGrid").createGallery("resize")})}),r.data("jigAddedTabsHandler",!0)),!1;a+=i.outerWidth(!0)-i.width()})):z.element.css("width",z.fallbackWidth+"px"):1e4<z.element.width()&&(z.element.css("width",o),V(window).on("load",function(){_.createGallery("resize")}))):z.element.css("width","").css("width",z.fixedWidth);t=Math.round(z.element.width());if(t<9)return 10<z.retryCount?void z.element.find(".jig-clearfix").html("The element is invisible or too thin, upon page loading. In case of using tabs, try a Custom width in the General settings and you may also use a fixed width. (Justified Image Grid)"):void(z.retryBuilding=setTimeout(function(){z.retryCount++,_.createGallery()},100));if(z.retryBuilding&&clearTimeout(z.retryBuilding),z.element.find(".jig-clearfix").empty(),z.justResized=!1,"resize"===e){if(z.areaWidth&&z.areaWidth==t)return;z.justResized=!0}if(z.element.find(".jig-overflow a *:not(div)").off(),z.areaWidth=t,z.row=[],z.fullWidth=z.extra=0,z.rows=[],z.unshifts=[],z.screenHeight=V(window).height(),z.screenHeightLimitRatio=Math.min(z.screenHeight/z.originalMaxHeight,1),z.prevScreenHeightLimitRatio!==z.screenHeightLimitRatio){if(z.screenHeightLimitRatio<1?(z.maxHeight=z.screenHeight,z.targetHeight=Math.round(z.maxHeight-z.heightDeviation*z.screenHeightLimitRatio),z.minHeight=50!=z.minHeight?Math.round(z.targetHeight-z.heightDeviation*z.screenHeightLimitRatio):50,z.defaultHeightRatio=z.targetHeight/z.maxHeight):(z.maxHeight=z.originalMaxHeight,z.targetHeight=z.originalTargetHeight,z.minHeight=z.originalMinHeight,z.defaultHeightRatio=z.originalDefaultHeightRatio),-1!=z.prevScreenHeightLimitRatio||1!=z.screenHeightLimitRatio)for(var i in z.selectedItems)U(z.selectedItems,i)&&(void 0===z.selectedItems[i].originalWidth&&(z.selectedItems[i].originalWidth=z.selectedItems[i].width),z.selectedItems[i].width=Math.round(z.selectedItems[i].originalWidth*z.screenHeightLimitRatio));z.prevScreenHeightLimitRatio=z.screenHeightLimitRatio}if(z.items=z.selectedItems.slice(),!0===z.errorChecked&&!1===z.justResized){for(var r in z.items)if(U(z.items,r)&&-1!=V.inArray(void 0===z.items[r].photon?void 0===z.items[r].thumbUrl?z.items[r].url:z.items[r].thumbUrl:z.items[r].photon,z.errorImages)){var n=z.items[r];if(z.items.splice(r,1),z.filters){r=V("#jig"+z.instance+"-filterButtons .jig-filterButtonSelected").attr("data-filter-slug");z.filteredImages[r]=z.items.slice();for(var l=1,s=z.filters.length;l<s;l+=1)for(var d=0,c=z.filteredImages[z.filters[l][0]].length;d<c;d+=1){var g=V.inArray(n,z.filteredImages[z.filters[l][0]]);-1!=g&&z.filteredImages[z.filters[l][0]].splice(g,1)}}}if(z.selectedItems=z.items.slice(),z.errorImages=[],0===z.selectedItems.length)return void R();z.errorChecked=!1}for(""!==z.maxRows&&0!==z.maxRows||(z.maxRows=1e3),z.rowcount=0,z.imagesShown=0,""!==z.initiallyLoad&&"off"!==z.loadMore&&0===z.loadMoreCounter&&(z.limit=parseInt(z.initiallyLoad,10)),0!==z.limit&&z.limit<z.selectedItems.length?z.whileUntil=z.items.length-z.limit:z.whileUntil=0;z.items.length>z.whileUntil&&z.rowcount<z.maxRows;){var f=b();!1!==f&&(z.rows.push(f),z.rowcount++)}z.imagesShown+=z.selectedItems.length-z.items.length,z.element.find(".jig-imageContainer").slice(z.imagesShown).remove(),z.imagesAlreadyAdded=z.element.find(".jig-imageContainer").length;for(var h,p,u,m=0,w=0,v=z.rows.length;w<v;w+=1)for(var j=0,y=z.rows[w].length;j<y;j+=1)m++,((h=z.rows[w][j]).container&&m<=z.imagesAlreadyAdded?k:I)(h,z.rows[w].length,j);if("links-off"!==z.lightbox&&"no"!==z.lightbox&&"new_tab"!==z.lightbox&&""!==z.linkrel){for(;0<z.unshifts.length;)void 0===(h=z.unshifts.shift()).linkContainer?L(h):z.currentHiddenLink=h.linkContainer;for(;0<z.items.length;)void 0===(h=z.items.shift()).linkContainer?L(h):z.currentHiddenLink=h.linkContainer;z.currentHiddenLink=void 0}if(void 0===z.fixedWidth&&(z.element.css("width","").css("width",Math.round(z.element.width())),0===z.element.width()&&z.element.css("width",z.areaWidth+"px")),V("img",z.element).not(".jig-hiddenImg").on("load",function(){var e,t;this.complete||void 0!==this.naturalWidth&&0!==this.naturalWidth||void 0!==this.readyState&&("complete"===this.readyState||4===this.readyState)||E?(e=V(this).closest("a"),t=V(this).closest(".jig-overflow"),0!==e.length&&!0!==e.hasClass("jig-loaded")&&(e.addClass("jig-loaded"),"0"===t.css("opacity")&&t.css("opacity",1),"off"!=z.specialFx&&V(this).clone().addClass("jig-pixastic").insertAfter(V(this)).on("load",C).each(function(){(this.complete||void 0!==this.naturalWidth&&0!==this.naturalWidth||void 0!==this.readyState&&("complete"===this.readyState||4===this.readyState))&&V(this).trigger("load")})),V(this).off("load")):"yes"==z.errorChecking&&(null!==(t=/(?:\?src=)(.*)(?:&h=)|^(https?:\/\/.+?wp\.com.*)$/g.exec(V(this).attr("src")))?void 0!==t[1]?z.errorImages.push(t[1]):void 0!==t[2]&&z.errorImages.push(t[2]):z.errorImages.push(V(this).attr("src")),V(this).closest(".jig-imageContainer").addClass("jig-unloadable"),T())}).on("error",function(){var e;"yes"==z.errorChecking&&(null!==(e=/(?:\?src=)(.*)(?:&h=)|^(https?:\/\/.+?wp\.com.*)$/g.exec(V(this).attr("src")))?void 0!==e[1]?z.errorImages.push(e[1]):void 0!==e[2]&&z.errorImages.push(e[2]):z.errorImages.push(V(this).attr("src")),V(this).closest(".jig-imageContainer").addClass("jig-unloadable"),T())}).each(function(){(this.complete||void 0!==this.naturalWidth&&0!==this.naturalWidth||void 0!==this.readyState&&("complete"===this.readyState||4===this.readyState))&&V(this).trigger("load")}),"resize"!==e?x():"prettyphoto"==z.lightbox&&"undefined"!=typeof jigReCallPrettyPhotoAfterPossibleResize?setTimeout(function(){window[z.lightboxInit](),jigReCallPrettyPhotoAfterPossibleResize=void 0},10):z.visibleImageCount!=V(".jig-imageContainer",z.element).length&&x(),"click"!=z.loadMore&&"scroll"!=z.loadMore&&"hybrid"!=z.loadMore&&"once"!=z.loadMore||(z.loadMoreButton=z.element.find(".jig-loadMoreButton"),t=z.selectedItems.length-z.limit,e=z.element.find(".jig-hiddenLink").length,1==z.loadMoreButton.length?0<t?(z.loadMoreButton.find(".jig-loadMoreButton-count").text(0!==e?e:t),"yes"===z.loadMoreAutoWidth&&z.loadMoreButton.css("width",z.loadMoreButton.find(".jig-loadMoreButton-inner").width())):z.loadMoreButton.remove():0<t&&(p="",z.loadMoreCountText&&"none"!==z.loadMoreCountText&&(p=(p=z.loadMoreCountText).replace("*count*",'<span class="jig-loadMoreButton-count">'+(0!==e?e:t)+"</span>")),z.loadMoreButton=V('<div class="jig-loadMoreButton"><span class="jig-loadMoreButton-inner">'+z.loadMoreText+(""!==p?"<br />"+p:"")+"</span></div>"),z.element.find(".jig-clearfix").after(z.loadMoreButton),"yes"===z.loadMoreAutoWidth&&z.loadMoreButton.css("width",z.loadMoreButton.find(".jig-loadMoreButton-inner").width())),"scroll"!=z.loadMore&&"hybrid"!=z.loadMore||V(window).scroll(function(){var e;("scroll"==z.loadMore||"hybrid"==z.loadMore&&0<z.loadMoreCounter)&&0<z.selectedItems.length-z.limit&&(e=z.element.find(".jig-loadMoreButton").offset(),V(window).scrollTop()>=e.top-parseInt(z.loadMoreOffset,10)-V(window).height()&&$())})),"no"!==z.wrapText&&(p=z.element.find(".jig-imageContainer").last(),0===z.element.find(".jig-flowSpacer").length&&z.element.find(".jig-imageContainer").last().after('<div class="jig-flowSpacer"></div>'),u=z.element.find(".jig-flowSpacer").css({width:"1px",height:p.height()+3,float:"ltr"==z.readingDirection?"left":"right"}),setTimeout(function(){"ltr"==z.readingDirection?z.element.offset().left==u.offset().left?u.css("margin-right",0):u.css("margin-right",2*z.margins):z.element.offset().left==u.offset().left?u.css("margin-left",0):u.css("margin-left",2*z.margins)},1)),"yes"!=z.customFonts||"off"===z.caption||"below"!=z.caption&&"off"===z.verticalCenterCaptions&&"captions"!=z.specialFx||N(!0),z.prevInstanceID="#jig"+(z.instance-1),V(window).width()!=o||z.areaWidth!=Math.round(z.element.width()))return z.resizeCount++,1<z.resizeCount&&z.element.css("min-height",z.element.height()),_.createGallery("resize"),1<z.instance&&0!==V(z.prevInstanceID).length&&V(z.prevInstanceID).data("justifiedImageGrid").createGallery("resize"),void z.element.css("min-height","");1<z.instance&&0!==V(z.prevInstanceID).length&&(z.prevInstanceData=V(z.prevInstanceID).data("justifiedImageGrid"),z.prevInstanceData.s.element.css("width","").css("width",z.prevInstanceData.s.element.width()),z.prevInstanceData.s.areaWidth!=z.prevInstanceData.s.element.width()&&z.prevInstanceData.createGallery("resize")),z.resizeCount=0,z.lastWindowWidth=o,z.visibleImageCount=V(".jig-imageContainer",z.element).length};var N=function(l){!0!==l&&(l="captions"==z.specialFx),z.element.find(".jig-imageContainer").each(function(e,t){var i,r,a,o,n,t=V(t);"off"!==z.verticalCenterCaptions&&(r=(i=t.find(".jig-caption-wrapper")).filter(".jig-cw-role-real"),a=r.height(),o=r.find(".jig-caption"),n=("mixed"==z.caption||"reverse-mixed"==z.caption)&&r.find(".jig-caption-description-wrapper"),"slide"!=z.caption&&"reverse-slide"!=z.caption||!o.is(":animated")?"mixed"!=z.caption&&"reverse-mixed"!=z.caption||!n.is(":animated")?(0===a&&(o.css({opacity:0,display:"block"}),a=r.height(),o.removeAttr("style")),!0===l?i.css({bottom:"auto",top:Math.round(r.closest(".jig-imageContainer").height()/2-a/2)}):i.css({bottom:"auto"}).animate({top:Math.round(r.closest(".jig-imageContainer").height()/2-a/2)},z.animSpeed,"JIGeaseInOutQuad")):n.promise().done(function(){a=r.height();var e=n.height();"mixed"==z.caption&&0!==e?(n.css({display:"none"}),a=r.height(),n.css({display:"block"})):"reverse-mixed"==z.caption&&0===e&&(n.css({display:"block"}),a=r.height(),n.css({display:"none"})),i.css({bottom:"auto"}).animate({top:Math.round(r.closest(".jig-imageContainer").height()/2-a/2)},z.animSpeed,"JIGeaseInOutQuad")}):o.promise().done(function(){0===(a=r.height())&&(o.css({opacity:0,display:"block"}),a=r.height(),o.removeAttr("style")),i.css({bottom:"auto"}).animate({top:Math.round(r.closest(".jig-imageContainer").height()/2-a/2)},z.animSpeed,"JIGeaseInOutQuad")})),"below"==z.caption&&w(t,!0),"captions"==z.specialFx&&(s&&"no"!==z.captionMatchWidth&&t.find(".jig-caption-title, .jig-caption-wrapper").each(function(){var e=V(this),t=e.css("width","")[0].getBoundingClientRect().width;t%2!=0&&(t=Math.ceil(t),e.css({width:t%2!=0?t+1:t}))}),i=i||t.find(".jig-caption-wrapper"),q(J(i)))})},x=function(){switch(z.lightbox){case"prettyphoto":case"colorbox":case"magnific":case"photoswipe":case"photoswipe3":case"foobox":case"custom":window[z.lightboxInit]();break;case"links-off":z.element.find("a").css("cursor","default"),z.element.on("click","a",function(e){e.preventDefault()}),V(z.element).on("click","a",function(e){2===e.which&&e.preventDefault()})}},Q=function(e){var t,i,r=V(this),a=r.attr("data-filter-slug"),o=!1;if(void 0===e&&(a=(r=(!1!==z.filters?V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType):V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType)).first()).attr("data-filter-slug")),1==(g=r.parent().attr("data-filter-level"))){if("no"==z.filterMultiple||"all-items-nofilter"==a)!1===r.hasClass("jig-filter"+z.filterType+"Selected")&&(r.siblings(".jig-filter"+z.filterType+"Selected").removeClass("jig-filter"+z.filterType+"Selected"),r.addClass("jig-filter"+z.filterType+"Selected"),z.selectedItems=z.filteredImages[a],o=!0);else{var n=r.parent().find(".jig-filter"+z.filterType+"Selected").length;if(1==n&&"all-items-nofilter"==r.siblings(".jig-filter"+z.filterType+"Selected").attr("data-filter-slug")&&r.siblings(".jig-filter"+z.filterType+"Selected").removeClass("jig-filter"+z.filterType+"Selected"),!1===r.hasClass("jig-filter"+z.filterType+"Selected"))r.addClass("jig-filter"+z.filterType+"Selected"),n++;else{if(1==n){if("all-items-nofilter"!=V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType).first().attr("data-filter-slug"))return;V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType).first().click().addClass("jig-filter"+z.filterType+"Selected")}r.removeClass("jig-filter"+z.filterType+"Selected"),n--}var l=[];if(r.parent().find(".jig-filter"+z.filterType+"Selected").each(function(){l.push(V(this).attr("data-filter-slug"))}),a=l.toString(),void 0===z.filteredImages[a]){z.filteredImages[a]=[];for(var s=0,d=z.allItems.length,c=0;c<d;c+=1)if(z.allItems[c].filters)for(i=z.allItems[c].filters.length,t=s=0;t<i;t+=1)"or"==z.filterMultiple?-1<V.inArray(z.allItems[c].filters[t][0],l)&&-1==V.inArray(z.allItems[c],z.filteredImages[a])&&z.filteredImages[a].push(z.allItems[c]):(-1<V.inArray(z.allItems[c].filters[t][0],l)&&s++,s==l.length&&-1==V.inArray(z.allItems[c],z.filteredImages[a])&&z.filteredImages[a].push(z.allItems[c]))}z.selectedItems=z.filteredImages[a],o=!0}o&&z.L2filters&&(z.L1selectedItems=z.selectedItems)}if(z.L2filters){if(2==(g=void 0===e?(r=V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).first()).parent().attr("data-filter-level"):g))if("no"==z.L2filterMultiple||"all-items-nofilter"==a)r.siblings(".jig-filter"+z.L2filterType+"Selected").removeClass("jig-filter"+z.L2filterType+"Selected"),r.addClass("jig-filter"+z.L2filterType+"Selected");else{var g=r.parent().find(".jig-filter"+z.L2filterType+"Selected").length;if(1==g&&"all-items-nofilter"==r.siblings(".jig-filter"+z.L2filterType+"Selected").attr("data-filter-slug")&&r.siblings(".jig-filter"+z.L2filterType+"Selected").removeClass("jig-filter"+z.L2filterType+"Selected"),!1===r.hasClass("jig-filter"+z.L2filterType+"Selected"))r.addClass("jig-filter"+z.L2filterType+"Selected"),g++;else{if(1==g){if("all-items-nofilter"!=V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).first().attr("data-filter-slug"))return;V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType).first().click().addClass("jig-filter"+z.L2filterType+"Selected")}r.removeClass("jig-filter"+z.L2filterType+"Selected"),g--}}var f=[];V("#jig"+z.instance+"-L2filter"+z.L2filterType+"s .jig-filter"+z.L2filterType+"Selected").each(function(){f.push(V(this).attr("data-filter-slug"))}),a=[],z.filters&&V("#jig"+z.instance+"-filter"+z.filterType+"s .jig-filter"+z.filterType+"Selected").each(function(){a.push(V(this).attr("data-filter-slug"))});var h=a.concat(f).toString();if(!1===z.filters&&(z.L1selectedItems=z.allItems),void 0===z.filteredImages[h])if(1==f.length&&"all-items-nofilter"==f[0])z.filteredImages[h]=z.L1selectedItems,z.selectedItems=z.filteredImages[h];else{z.filteredImages[h]=[];var p=0;for(d=z.L1selectedItems.length,c=0;c<d;c+=1)if(z.L1selectedItems[c].L2filters)for(i=z.L1selectedItems[c].L2filters.length,t=p=0;t<i;t+=1)"or"==z.L2filterMultiple?-1<V.inArray(z.L1selectedItems[c].L2filters[t][0],f)&&-1==V.inArray(z.L1selectedItems[c],z.filteredImages[h])&&z.filteredImages[h].push(z.L1selectedItems[c]):(-1<V.inArray(z.L1selectedItems[c].L2filters[t][0],f)&&p++,p==f.length&&-1==V.inArray(z.L1selectedItems[c],z.filteredImages[h])&&z.filteredImages[h].push(z.L1selectedItems[c]))}z.selectedItems=z.filteredImages[h],o=!0}if(o){z.element.find(".jig-imageContainer, .jig-hiddenLink").remove();for(var u=0,m=z.selectedItems.length;u<m;u+=1)z.selectedItems[u].linkContainer=void 0;_.createGallery("filter")}},b=function(){for(z.row=[],z.validRow=!0,z.fullWidth=0,z.extra=0;z.items.length>z.whileUntil&&z.extra<z.areaWidth;){var e=z.items.shift();e.newHeight=e.newWidth=e.containerHeight=e.containerWidth=e.marLeft=void 0,e.ratio=e.width/z.maxHeight,z.row.push(e),z.fullWidth+=Math.round(e.width*z.defaultHeightRatio)+z.margins+z.bordersTotal,z.extra=z.fullWidth-z.margins}if(z.extra-=z.areaWidth,0<z.row.length&&0<z.extra||0===z.rows.length&&z.items.length>z.whileUntil){for(var t="landscape",i=0,r=z.row.length;i<r;i+=1)if(z.row[i].ratio<1){t="portrait";break}("landscape"!=t&&"yes"!==z.disableCropping?l:o)()}else{if(0<z.rows.length&&z.items.length==z.whileUntil){switch(z.incompleteLastRow){case"flexible":l("flexible");break;case"flexible-center":l("flexible-center");break;case"hide":l("hide");break;case"flexible-match":"off"!==z.loadMore&&z.selectedItems.length-z.limit<=0?a():l("flexible");break;case"flexible-match-center":"off"!==z.loadMore&&z.selectedItems.length-z.limit<=0?a("center"):l("flexible-center");break;case"match":a();break;case"match-center":a("center");break;case"center":l("center");break;default:l("lastRow")}return!0===z.validRow?z.row:(z.imagesShown-=z.row.length,z.unshifts=z.row,z.whileUntil+=z.unshifts.length,!1)}"center"!==z.incompleteLastRow&&"match-center"!==z.incompleteLastRow&&"flexible-match-center"!==z.incompleteLastRow?l("lastRow"):l("center")}return z.row},a=function(e){for(var t,i=0,r=0,a=z.rows.length;r<a;r+=1)i=r;if(void 0!==z.rows[i]&&void 0!==z.rows[i][0]){t=z.rows[i][0].containerHeight||z.rows[i][0].newHeight,z.marginsTotal=(z.row.length-1)*z.margins+z.row.length*z.bordersTotal;for(var o=z.rowlen=0,n=z.row.length;o<n;o+=1)void 0!==z.rows[i][o]&&z.row[o].width==z.rows[i][o].width?(z.row[o].newHeight=z.rows[i][o].newHeight,z.row[o].containerHeight=z.rows[i][o].containerHeight,z.row[o].newWidth=z.rows[i][o].newWidth,z.row[o].containerWidth=z.rows[i][o].containerWidth,z.row[o].marLeft=z.rows[i][o].marLeft):(z.row[o].newHeight=t,z.row[o].newWidth=Math.round(z.row[o].newHeight*z.row[o].ratio)),z.rowlen+=z.row[o].newWidth,void 0!==z.row[o].marLeft&&(z.rowlen-=2*z.row[o].marLeft);t>z.targetHeight&&(z.remaining=z.rowlen+z.marginsTotal-z.areaWidth,0<z.remaining&&f()),void 0!==e&&z.rowlen+z.marginsTotal<z.areaWidth&&(z.row[0].spaceLeft=Math.floor(.5*(z.areaWidth-z.rowlen-z.marginsTotal)))}else l("lastRow")},o=function(){var e=!0;z.marginsTotal=(z.row.length-1)*z.margins+z.row.length*z.bordersTotal,z.rowlen=0,z.heights=[];for(var t=0,i=z.row.length;t<i;t+=1){var r=Math.round(z.row[t].width*z.defaultHeightRatio),a=Math.round((r+z.marginsTotal/z.row.length)/z.fullWidth*z.extra);if(z.row[t].newWidth=r-a,z.heights[t]=z.row[t].newWidth/z.row[t].ratio,z.heights[t]<z.minHeight)return void l();z.heights[t]>z.maxHeight?(z.row[t].newHeight=z.targetHeight,z.row[t].newWidth=Math.round(z.row[t].newHeight*z.row[t].ratio),e=!1):(z.row[t].newHeight=z.heights[t],z.rowlen+=z.row[t].newWidth)}e&&(z.remaining=z.rowlen+z.marginsTotal-z.areaWidth,f())},l=function(e){var t,i=!0;1!=z.row.length&&void 0===e&&(t=z.row.pop(),z.fullWidth-=Math.round(t.width*z.defaultHeightRatio)+z.margins+z.bordersTotal,z.items.unshift(t),z.extra=z.fullWidth-z.margins,z.extra-=z.areaWidth),z.marginsTotal=(z.row.length-1)*z.margins+z.row.length*z.bordersTotal,z.rowlen=0,z.heights=[];for(var r=0,a=z.row.length;r<a;r+=1){var o=Math.round(z.row[r].width*z.defaultHeightRatio),n=Math.round((o+z.marginsTotal/z.row.length)/z.fullWidth*z.extra);if(z.row[r].newWidth=o-n,z.heights[r]=z.row[r].newWidth/z.row[r].ratio,z.heights[r]>z.maxHeight){if(void 0===e){n=z.items.shift();return z.row.push(n),z.fullWidth+=Math.round(n.width*z.defaultHeightRatio)+z.margins+z.bordersTotal,z.extra=z.fullWidth-z.margins,z.extra-=z.areaWidth,void h()}if("off"!==z.loadMore&&z.selectedItems.length-z.limit<=0&&("flexible"==e?e="lastRow":"flexible-center"==e&&(e="center")),"lastRow"==e){for(var l=0,s=z.row.length;l<s;l+=1)z.row[l].newHeight=z.targetHeight,z.row[l].newWidth=Math.round(z.row[l].newHeight*z.row[l].ratio);return}if("center"==e){for(var d=0,c=0,g=z.row.length;c<g;c+=1)z.row[c].newHeight=z.targetHeight,z.row[c].newWidth=Math.round(z.row[c].newHeight*z.row[c].ratio),d+=z.row[c].newWidth;return void(z.row[0].spaceLeft=Math.floor(.5*(z.areaWidth-d-z.marginsTotal)))}z.validRow=!1,z.row[r].newWidth=void 0,i=!1}else if(z.heights[r]<z.minHeight&&void 0===e)return void h();void 0!==z.row[r].newWidth&&(z.row[r].newHeight=z.heights[r],z.rowlen+=z.row[r].newWidth)}i&&(z.remaining=z.rowlen+z.marginsTotal-z.areaWidth,f())},f=function(){if(0!==z.remaining)if(0<z.remaining)for(;0<z.remaining;)for(var e=0,t=z.row.length;e<t&&(z.row[e].newWidth--,z.row[e].newHeight=z.heights[e]=z.row[e].newWidth/z.row[e].ratio,z.remaining--,0!==z.remaining);e+=1);else for(;z.remaining<0;)for(var i=0,r=z.row.length;i<r&&(z.row[i].newWidth++,z.row[i].newHeight=z.heights[i]=z.row[i].newWidth/z.row[i].ratio,z.remaining++,0!==z.remaining);i+=1);for(var a=Math.floor(Math.min.apply(null,z.heights)),o=0,n=z.row.length;o<n;o+=1)z.row[o].containerHeight=a,z.row[o].newHeight=Math.round(z.row[o].newHeight)},h=function(){for(var e=n(),t=0,i=z.row.length;t<i;t+=1){var r=e[t],a=z.row[t];a.marLeft=Math.round(r/2),a.containerWidth=a.newWidth-r}},n=function(){var e=[],t=0;z.marginsTotal=(z.row.length-1)*z.margins+z.row.length*z.bordersTotal;for(var i=0,r=z.row.length;i<r;i+=1){var a=z.row[i],o=Math.round(z.row[i].width*z.defaultHeightRatio);a.newHeight=z.targetHeight,a.newWidth=o,e[i]=Math.round((o+z.marginsTotal/z.row.length)/z.fullWidth*z.extra),t+=e[i]}var n=z.extra-t;if(0!==n)if(0<n)for(;0<n;)for(var l=0,s=e.length;l<s&&(e[l]++,0!==--n);l+=1);else for(;n<0;)for(var d=0,c=e.length;d<c&&(e[d]--,0!==++n);d+=1);return e},I=function(e,t,i){if(isNaN(e.newWidth)||!e.width)return!1;void 0!==e.linkContainer&&(V(e.linkContainer).remove(),e.linkContainer=void 0),void 0===e[z.linkTitleField]&&(e[z.linkTitleField]=""),void 0===e[z.imgAltField]&&(e[z.imgAltField]=""),void 0===e[z.titleField]&&(e[z.titleField]=""),void 0===e[z.captionField]&&(e[z.captionField]=""),void 0===e.gallery&&(e.gallery="");var r="";e.carousel_data?(e.carousel_data=" "+e.carousel_data+" ",r=" tiled-gallery-item"):e.carousel_data="",e.extra_class&&(r+=" "+e.extra_class),e.off="",e.url=(e.link,e.url);var a,o=V('<div class="jig-imageContainer'+r+'"/>'),n=V('<div class="jig-overflow"/>'),l=e.url,s=e.link_target||"_self",d=z.linkClass,c=z.linkRel,g="",f="",r=!0;if(""!==e.gallery&&(o.append(e.gallery.html),c=' rel="'+e.gallery.rel+'" ',o.addClass(e.gallery.lightbox_class),o.attr("id",e.gallery.id)),e.link&&(l=e.link,"video"!==s&&"videoplayer"!==s?(d="foobox"!==s?'target="'+s+'" '+d.replace("jig-link","jig-customLink"):'target="'+s+'" '+d.replace("jig-link",""),c=e.link_rel?'rel="'+e.link_rel+'"':""):"magnific"==z.lightbox&&-1==d.indexOf("mfp-")&&(d=d.replace("jig-link","jig-link mfp-iframe")),"videoplayer"!=s&&"foobox"!=s||-1===l.indexOf("&poster=")&&-1===l.indexOf("|poster=")||(r=!1)),!0===r&&("https%3A%2F%2F"===(l=(l+"").replace(/\+/g,"%20")).substr(0,14)||"http%3A%2F%2F"===l.substr(0,13)))try{l=decodeURIComponent(l)}catch(e){}g=e[z.linkTitleField],f=e[z.imgAltField],e.download&&("yes"==z.downloadLink?g+=a=(0!==g.length?z.separatorCharacter:"")+e.download:"alt"==z.downloadLink&&(f+=a=(0!==f.length?z.separatorCharacter:"")+e.download)),e.lightbox_link&&("yes"==z.lightboxLink?g+=(0!==g.length?z.separatorCharacter:"")+e.lightbox_link:"alt"==z.lightboxLink&&(f+=(0!==f.length?z.separatorCharacter:"")+e.lightbox_link)),""!==g&&(g='title="'+g+'" '),""!==f&&(f='alt="'+f+'" '),"new_tab"==z.lightbox&&(d='target="_blank" ');r=z.linkAttribute;e.extra_class&&(r=r.replace("*content*",e.extra_class.replace(/.*jig-contentID-[A-Z]{2}-(\d+).*/gm,"$1")));var h,p,u,m,l=V("<a "+d+c+r+g+(e.wh?'data-wh="'+e.wh+'" ':"")+'href="'+("links-off"!=z.lightbox?l:"#")+'" />'),f=V("<img "+f+e.carousel_data+"/>");return e.carousel_data&&e.download&&("yes"==z.downloadLink?(a=(0!==f.attr("data-image-title").length?z.separatorCharacter:"")+V("<textarea />").html(e.download).val(),f.attr("data-image-title",f.attr("data-image-title")+a)):"alt"==z.downloadLink&&(a=(0!==f.attr("data-image-description").length?"<br />":"")+V("<textarea />").html(e.download).val(),f.attr("data-image-description",f.attr("data-image-description")+a))),void 0!==e.geo&&f.attr("data-geo",e.geo),i==t-1&&o.addClass("jig-last"),n.css("width",(e.containerWidth||e.newWidth)+"px"),n.css("height",(e.containerHeight||e.newHeight)+"px"),e.photon?f.attr("src",decodeURIComponent((e.photon+"").replace(/\+/g,"%20"))):(i=e.thumbUrl||e.url,t=z.originalMaxHeight,m="","normal"==z.thumbnailFilename&&null!==(p=/.*\.(jpe?g|gif|bmp|png|webp)/im.exec(i))&&(m="&f=."+p[1]),z.aspectRatio||z.randomizeWidth?(h=z.maxWidth,""!==z.randomizeWidth&&(h=void 0!==e.originalWidth?e.originalWidth:e.width),"yes"==z.retinaReady&&(t=Math.floor(t*z.devicePixelRatio),h=Math.floor(h*z.devicePixelRatio)),f.attr("src",z.timthumb+"?src="+i+"&h="+t+"&w="+h+"&q="+z.quality+z.cropZone+m)):"yes"==z.retinaReady?(t=Math.floor(t*z.devicePixelRatio),h=Math.floor((void 0!==e.originalWidth?e.originalWidth:e.width)*z.devicePixelRatio),f.attr("src",z.timthumb+"?src="+i+"&h="+t+"&w="+h+"&q="+z.quality+z.cropZone+m)):f.attr("src",z.timthumb+"?src="+i+"&h="+t+"&q="+z.quality+z.cropZone+m)),f.attr("width",e.newWidth).css("width",e.newWidth+"px"),f.attr("height",e.newHeight).css("height",e.newHeight+"px"),e.marLeft&&f.css("margin-left",-e.marLeft+"px"),("center"==z.incompleteLastRow||"flexible-center"==z.incompleteLastRow||"flexible-match-center"==z.incompleteLastRow||"match-center"==z.incompleteLastRow)&&e.spaceLeft&&0<e.spaceLeft&&(o.css("ltr"==z.readingDirection?"margin-left":"margin-right",e.spaceLeft+"px"),e.spaceLeft=0),f.css("margin-top",0),l.append(f),"off"!==z.overlay&&l.append('<div class="jig-overlay-wrapper"><div class="jig-overlay"></div></div>'+("on"===z.overlayIcon?'<div class="jig-overlay-icon-wrapper"><div class="jig-overlay-icon"></div></div>':"")),"off"!==z.caption&&(""!==e.gallery&&(e[z.titleField]=void 0!==e.gallery[z.titleField]&&""!==e.gallery[z.titleField]&&" "!==e.gallery[z.titleField]?e.gallery[z.titleField]:"",e[z.captionField]=void 0!==e.gallery[z.captionField]&&""!==e.gallery[z.captionField]&&" "!==e.gallery[z.captionField]?e.gallery[z.captionField]:""),(u="")!==e[z.titleField]&&" "!==e[z.titleField]&&(u+='<div class="jig-caption-title">'+v(e[z.titleField],"<br><hr><em><strong><mark><i><b><font><span><ul><ol><li>")+"</div>"),""!==e[z.captionField]&&" "!==e[z.captionField]&&(u+='<div class="jig-caption-description-wrapper"><div class="jig-caption-description'+(""!==u?"":" jig-alone")+'">'+v(e[z.captionField],"<br><hr><em><strong><mark><i><b><font><span><ul><ol><li>")+"</div></div>"),""!==u?(e.$captionWrapper=V('<div class="jig-caption-wrapper jig-cw-role-real"><div class="jig-caption">'+u+"</div></div>"),"below"!==z.caption?l.append(e.$captionWrapper):0!==z.middleBorderWidth&&"always"==z.innerBorder&&"always"!==z.middleBorder?o.append(e.$captionWrapper.width(n.width()-2*parseFloat(z.innerBorderWidth))):o.append(e.$captionWrapper.css({width:n.css("width")}))):"below"==z.caption&&(e.$captionWrapper=V('<div class="jig-caption-wrapper"></div>'),0!==z.middleBorderWidth&&"always"==z.innerBorder&&"always"!==z.middleBorder?o.append(e.$captionWrapper.width(n.width()-2*parseFloat(z.innerBorderWidth))):o.append(e.$captionWrapper.css({width:n.css("width")})))),0===z.bordersTotal&&0===z.innerBorderWidth||l.append('<div class="jig-border"></div>'),n.append(l),e.carousel_data&&e.caption&&n.append('<div class="tiled-gallery-caption">'+v(e.caption)+"</div>"),o.prepend(n),z.element.find(".jig-clearfix").before(o),"off"!==z.caption&&("below"==z.caption?w(o):"captions"!=z.specialFx||0!==(m=o.find(".jig-cw-role-real")).length&&((u="no"==z.captionMatchWidth||z.captionMatchWidthForceNo?V(m[0].cloneNode(!1)):m.clone()).removeClass("jig-cw-role-real").addClass("jig-cw-role-effect"),("off"!==z.overlay?o.find(".jig-overlay-wrapper"):m).before(u))),e.container=o,e.overflow=n,e.img=f,e.linkElement=l,o},k=function(e,t,i){i==t-1?e.container.addClass("jig-last"):e.container.removeClass("jig-last");var r,i=e.overflow,t=e.img;i.css("width",(e.containerWidth||e.newWidth)+"px").width(),i.css("height",(e.containerHeight||e.newHeight)+"px"),t.attr("width",e.newWidth).css("width",e.newWidth+"px"),t.attr("height",e.newHeight).css("height",e.newHeight+"px"),e.marLeft?t.css("margin-left",-e.marLeft+"px"):t.css("margin-left",""),"center"!=z.incompleteLastRow&&"flexible-center"!=z.incompleteLastRow&&"flexible-match-center"!=z.incompleteLastRow&&"match-center"!=z.incompleteLastRow||(e.spaceLeft&&0<e.spaceLeft?(e.container.css("ltr"==z.readingDirection?"margin-left":"margin-right",e.spaceLeft+"px"),e.spaceLeft=0):e.container.css("ltr"==z.readingDirection?"margin-left":"margin-right","")),"off"!=z.specialFx&&(0===(r=t.siblings(".jig-pixastic")).length&&"captions"==z.specialFx&&(r=t.siblings(".jig-cw-role-effect").find(".jig-pixastic")),d(r,t)),"below"==z.caption&&(0!==z.middleBorderWidth&&"always"==z.innerBorder&&"always"!==z.middleBorder?e.$captionWrapper.width((e.containerWidth||e.newWidth)-2*parseFloat(z.innerBorderWidth)):e.container.css({width:(e.containerWidth||e.newWidth)+"px"})),"off"!==z.caption&&"off"!==z.verticalCenterCaptions&&((r=e.container.find(".jig-cw-role-real").clone()).find(".jig-caption").css("display","block"),r.appendTo(e.linkElement).css({bottom:"auto",opacity:.01}).css("top",Math.round((e.containerHeight||e.newHeight)/2-r.height()/2)),t=r.css("top"),r.remove(),e.container.find(".jig-caption-wrapper").css({bottom:"auto"}).animate({top:t},z.animSpeed,"JIGeaseInOutQuad"))},L=function(e){void 0===e[z.linkTitleField]&&(e[z.linkTitleField]=""),void 0===e[z.imgAltField]&&(e[z.imgAltField]=""),void 0===e[z.titleField]&&(e[z.titleField]=""),void 0===e[z.captionField]&&(e[z.captionField]="");var t=e.off="";e.carousel_data?(e.carousel_data=" "+e.carousel_data+" ",t=" tiled-gallery-item"):e.carousel_data="",e.extra_class&&(t+=" "+e.extra_class);var i,r=e.url,a="",o="",n=z.hiddenLinkClass,l=e.link_target||"_self",s=z.linkRel,d=!0;if(""!==t&&(n=n.replace('jig-hiddenLink"',"jig-hiddenLink"+t+'"')),e.link&&(r=e.link,"video"!==l&&"videoplayer"!==l?(n="foobox"!==l?'target="'+l+'" '+n.replace("jig-link","jig-customLink jig-hiddenLink"):'target="'+l+'" '+n.replace("jig-link","jig-hiddenLink"),s=e.link_rel?'rel="'+e.link_rel+'"':""):"magnific"==z.lightbox&&-1==n.indexOf("mfp-")&&(n=n.replace("jig-link","jig-link mfp-iframe")),"videoplayer"!=l&&"foobox"!=l||-1===r.indexOf("&poster=")&&-1===r.indexOf("|poster=")||(d=!1)),!0===d&&("https%3A%2F%2F"===(r=(r+"").replace(/\+/g,"%20")).substr(0,14)||"http%3A%2F%2F"===r.substr(0,13)))try{r=decodeURIComponent(r)}catch(e){}a=e[z.linkTitleField],o=e[z.imgAltField],e.download&&("yes"==z.downloadLink?a+=i=(0!==a.length?z.separatorCharacter:"")+e.download:"alt"==z.downloadLink&&(o+=i=(0!==o.length?z.separatorCharacter:"")+e.download)),e.lightbox_link&&("yes"==z.lightboxLink?a+=(0!==a.length?z.separatorCharacter:"")+e.lightbox_link:"alt"==z.lightboxLink&&(o+=(0!==o.length?z.separatorCharacter:"")+e.lightbox_link)),""!==a&&(a='title="'+a+'" '),""!==o&&(o='alt="'+o+'" ');d=z.linkAttribute;e.extra_class&&(d=d.replace("*content*",e.extra_class.replace(/.*jig-contentID-[A-Z]{2}-(\d+).*/gm,"$1")));r=V("<a "+n+s+d+a+(e.wh?'data-wh="'+e.wh+'" ':"")+'href="'+("links-off"!=z.lightbox?r:"#")+'"/>'),o=V('<img class="jig-hiddenImg" '+o+e.carousel_data+"/>");e.carousel_data&&e.download&&("yes"==z.downloadLink?(i=(0!==o.attr("data-image-title").length?z.separatorCharacter:"")+V("<textarea />").html(e.download).val(),o.attr("data-image-title",o.attr("data-image-title")+i)):"alt"==z.downloadLink&&(i=(0!==o.attr("data-image-description").length?"<br />":"")+V("<textarea />").html(e.download).val(),o.attr("data-image-description",o.attr("data-image-description")+i))),o.attr("src","data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw%3D%3D"),r.append(o),e.linkContainer=r,(void 0!==z.currentHiddenLink?V(z.currentHiddenLink):z.element.find(".jig-clearfix")).after(r),z.currentHiddenLink=r},d=function(e,t){t.off("load"),0!==e.length&&e.off("load").remove(),t.clone().addClass("jig-pixastic").insertAfter(t).on("load",C).each(function(){(this.complete||void 0!==this.naturalWidth&&0!==this.naturalWidth)&&V(this).trigger("load")})},C=function(){if(!0!==V(this).hasClass("jig-specialfx-complete"))if(V(this).stop().css("display","block").css("opacity",1),""===z.specialFxOptions)switch(z.specialFxType){case"desaturate":Pixastic.process(this,"desaturate",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio,average:!1},i);break;case"blur":Pixastic.process(this,"blurfast",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio,amount:.5},i);break;case"glow":Pixastic.process(this,"glow",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio,amount:.3,radius:.2},i);break;case"sepia":Pixastic.process(this,"sepia",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio},i);break;case"laplace_dark":Pixastic.process(this,"laplace",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio,edgeStrength:2,invert:!1,greyLevel:0},i);break;case"laplace_light":Pixastic.process(this,"laplace",{retinaReady:z.retinaReady,devicePixelRatio:z.devicePixelRatio,edgeStrength:2,invert:!0,greyLevel:0},i)}else{var e=function(e){for(var t={},i=0,r=e.length;i<r;i+=1){var a=e[i].split(":");t[a[0]]=a[1]}return t.retinaReady=z.retinaReady,t.devicePixelRatio=z.devicePixelRatio,t}(z.specialFxOptions);switch(z.specialFxType){case"desaturate":Pixastic.process(this,"desaturate",e,i);break;case"blur":Pixastic.process(this,"blurfast",e,i);break;case"glow":Pixastic.process(this,"glow",e,i);break;case"sepia":Pixastic.process(this,"sepia",i);break;case"laplace_dark":case"laplace_light":Pixastic.process(this,"laplace",e,i)}}V(this).off("load")},i=function(t,e){if(!1===t){var i=V(e);return i.siblings(".jig-cw-role-effect").remove(),void i.remove()}if(t=V(t),"hovered"===z.specialFx?t.css("opacity",z.hiddenOpacity):t.css("opacity",z.specialFxBlend),t.addClass("jig-specialfx-complete"),"captions"==z.specialFx){i=t.closest(".jig-imageContainer").find(".jig-cw-role-effect");if("no"==z.captionMatchWidth)t.appendTo(i);else try{var r=t[0].toDataURL("image/jpeg"),a=t.css("width")+" "+t.css("height");t.remove(),i.find(".jig-caption-title").css({"background-image":"url("+r+")","background-size":a}),i.find(".jig-caption-description").css({"background-image":"url("+r+")","background-size":a})}catch(e){z.captionMatchWidthForceNo=!0;a=t.closest(".jig-imageContainer");a.find(".jig-cw-role-effect .jig-caption").remove(),a.find(".jig-caption-title").css({display:"block"}),t.appendTo(i)}q(J(i))}},J=function(e,t){var i={};if(i.roleEffect=e.eq(0).closest(".jig-caption-wrapper"),0===i.roleEffect.length)return!1;if("no"==z.captionMatchWidth||z.captionMatchWidthForceNo)i.roleEffect.hasClass("jig-cw-role-effect")?i.roleReal=i.roleEffect.siblings(".jig-cw-role-real"):(i.roleReal=i.roleEffect,i.roleEffect=i.roleEffect.siblings(".jig-cw-role-effect")),t&&(i.fadeZeroHeight=t),i.captionElement=i.roleReal.find(".jig-caption");else{if(i.roleEffect=i.roleEffect.filter(".jig-cw-role-effect"),!i.roleEffect.hasClass("jig-cw-role-effect"))return!1;i.img=i.roleEffect.siblings("img"),i.captionTitle=i.roleEffect.find(".jig-caption-title"),i.captionDescription=i.roleEffect.find(".jig-caption-description")}return i},q=function(e){if(!1===e)return!1;var t,i,r,a;"no"==z.captionMatchWidth||z.captionMatchWidthForceNo?(a=e.roleReal.position(),0!==e.roleReal.height()?(e.roleEffect.css({height:e.captionElement.height()+"px"}).find(".jig-pixastic").css({top:-a.top+"px"}),e.fadeZeroHeight&&e.roleEffect.css({opacity:e.captionElement.css("opacity")})):e.roleEffect.find(".jig-pixastic").css({top:-a.top+"px"})):(t=e.roleEffect.position(),i=e.captionTitle.position(),r=e.captionDescription.position(),a=parseInt(e.img.css("margin-left"),10),i&&e.captionTitle.css({"background-position":a-i.left+"px "+-t.top+"px"}),r&&e.captionDescription.css({"background-position":a+"px "+(-r.top-t.top)+"px"}))},w=function(e){e.find(".jig-caption-wrapper").dotdotdot({watch:!0,keep:"br"})};z.errorChecked=!1;var T=function(){0<V(".jig-unloadable").length&&(z.errorChecked=!0,z.element.find(".jig-unloadable").remove(),_.createGallery("errorCheck"))},R=function(){"yes"!==z.suppressErrors&&("publicly"===z.suppressErrors&&!V("body").hasClass("logged-in")||z.element.html('<a href="https://justifiedgrid.com/support/fix/all-of-the-images-have-failed-to-load/" target="_blank" rel="external nofollow" style="border-style:none; text-decoration: none; font-weight: bold;"><div style="background-color: #212121; color: white; padding: 10px; display: inline-block;">JIG</div><div style="background-color: #b71c1c; color:white; color: rgba(255, 255, 255, 0.87); padding: 10px; display: inline-block;">All of the images have failed to load. Please click here to reach the troubleshooting fix.</div></a>'))};function U(e,t){return"hasOwnProperty"in e?e.hasOwnProperty(t):Object.prototype.hasOwnProperty.call(e,t)}function v(e,i){if(e=function(e,t){if(void 0===e)return"";var i=0,r=!1;void 0===t&&(t=2);e=e.toString().replace(/&lt;/g,"<").replace(/&gt;/g,">");var a={ENT_NOQUOTES:0,ENT_HTML_QUOTE_SINGLE:1,ENT_HTML_QUOTE_DOUBLE:2,ENT_COMPAT:2,ENT_QUOTES:3,ENT_IGNORE:4};0===t&&(r=!0);if("number"!=typeof t){t=[].concat(t);for(var o=0,n=t.length;o<n;o+=1)0===a[t[o]]?r=!0:a[t[o]]&&(i|=a[t[o]]);t=i}t&a.ENT_HTML_QUOTE_SINGLE&&(e=e.replace(/&#0*39;/g,"'"));r||(e=e.replace(/&quot;/g,'"'));return e=e.replace(/&amp;/g,"&")}(e),"below"==z.caption)return e;i=(((i||"")+"").toLowerCase().match(/<[a-z][a-z0-9]*>/g)||[]).join("");return e.replace(/<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi,"").replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,function(e,t){return-1<i.indexOf("<"+t.toLowerCase()+">")?e:""})}function $(e){void 0!==e&&e.stopPropagation();var t=z.element.find(".jig-overflow > a.jig-loaded").length,e=z.element.find(".jig-imageContainer .jig-overflow > a").length;"no"==z.errorChecking&&(e-=5),void 0!==z.loadCheckTimeout&&clearTimeout(z.loadCheckTimeout),t<e?(z.loadCheckTimeout=setTimeout(function(){$()},500),z.loadMoreButton.animate({opacity:.5},300,"JIGswing")):(z.loadMoreButton.animate({opacity:1},300,"JIGswing"),z.limit+=z.originalLimit,z.loadMoreCounter++,"once"==z.loadMore&&(z.limit=z.allItems.length),_.createGallery())}_.init()},V.fn.justifiedImageGrid=function(t){return this.each(function(){var e;void 0===V(this).data("justifiedImageGrid")&&(e=new V.justifiedImageGrid(this,t),V(this).data("justifiedImageGrid",e))})},V.extend(V.easing,{JIGswing:function(e){return.5-Math.cos(e*Math.PI)/2},JIGeaseInOutQuad:function(e){return e<.5?2*e*e:1-Math.pow(-2*e+2,2)/2}}),V.fn.JIGhoverFlow=function(t,i,e,r,a){if(-1==V.inArray(t,["mouseover","mouseenter","mouseout","mouseleave"]))return this;var o="object"==typeof e?e:{complete:a||!a&&r||"function"==typeof e&&e,duration:e,easing:a&&r||r&&"function"!=typeof r&&r};void 0===o.easing&&(o.easing="JIGswing"),o.queue=!1;var n=o.complete;return o.complete=function(){V(this).dequeue(),"function"==typeof n&&n.call(this)},this.each(function(){var e=V(this);"mouseover"==t||"mouseenter"==t?e.data("jQuery.JIGhoverFlow",!0):e.removeData("jQuery.JIGhoverFlow"),e.queue(function(){("mouseover"==t||"mouseenter"==t?void 0!==e.data("jQuery.JIGhoverFlow"):void 0===e.data("jQuery.JIGhoverFlow"))?e.animate(i,o):e.queue([])})})},function(l){"use strict";function s(e,t){return e-t}var d=function(e){4===e.length&&(e=e.replace(/(\w)(\w)(\w)/gi,"$1$1$2$2$3$3"));e=/(\w{2})(\w{2})(\w{2})/.exec(e);return[parseInt(e[1],16),parseInt(e[2],16),parseInt(e[3],16)]},c=function(e){return"#"+jQuery.map(e,function(e){e=e.toString(16);return e=1===e.length?"0"+e:e}).join("")};l.fn.tagcloud=function(e){var t,i,r,a,o=l.extend({},l.fn.tagcloud.defaults,e),e=this.map(function(){return l(this).attr("rel")}),n=(e=jQuery.makeArray(e).sort(s))[0],e=e.pop()-n;return 0===e&&(e=1),o.size&&(t=(o.size.end-o.size.start)/e),o.color&&(r=o.color,a=e,i=jQuery.map(d(r.end),function(e,t){return(e-d(r.start)[t])/a})),this.each(function(){var e=l(this).attr("rel")-n;o.size&&l(this).css({"font-size":o.size.start+e*t+o.size.unit}),o.color&&l(this).css({color:function(e,i,r){e=jQuery.map(d(e.start),function(e,t){t=Math.round(e+i[t]*r);return 255<t?t=255:t<0&&(t=0),t});return c(e)}(o.color,i,e)})})},l.fn.tagcloud.defaults={size:{start:14,end:18,unit:"pt"}}}(jQuery),V.JIGjQueryMinVersion=function(e,t){if(e){var i=V().jquery,e=e.split("."),i=i.split("."),r=[],a=[],o=!1;r[0]=isNaN(parseInt(e[0],10))?0:parseInt(e[0],10),r[1]=isNaN(parseInt(e[1],10))?0:parseInt(e[1],10),r[2]=isNaN(parseInt(e[2],10))?0:parseInt(e[2],10),r[3]=isNaN(parseInt(e[3],10))?0:parseInt(e[3],10),a[0]=isNaN(parseInt(i[0],10))?0:parseInt(i[0],10),a[1]=isNaN(parseInt(i[1],10))?0:parseInt(i[1],10),a[2]=isNaN(parseInt(i[2],10))?0:parseInt(i[2],10),a[3]=isNaN(parseInt(i[3],10))?0:parseInt(i[3],10);for(var n=0;n<4;n++){if(!(r[n]<=a[n])){o=!1;break}if(o=!0,r[n]!=a[n])break}if(!0===o)return!0;if(!0!==t)return!1;V(".justified-image-grid").html('<span style="color:red;font-weight:bold">Your jQuery version ('+V().jquery+") is old, this plugin needs at least 1.7, please go to the plugin settings and choose another jQuery source. If this does not work then your theme or a plugin is not using WordPress best practices and forces the loading of an old version. In that case contact the author of Justified Image Grid.</span>")}return!1}}loadJustifiedImageGrid(jQuery);
+function loadJustifiedImageGrid($) {
+    $.justifiedImageGrid = function (element, options) {
+        // set up default options
+        var defaults = {
+            targetHeight: 190,
+            heightDeviation: 40,
+            aspectRatio: '',
+            disableCropping: '',
+            randomizeWidth: '',
+            margins: 4,
+            animSpeed: 300,
+            limit: 0,
+            initiallyLoad: '',
+            maxRows: '',
+            linkClass: '',
+            linkRel: 'jig[*instance*]',
+            linkAttributeName: '',
+            linkAttributeValue: '',
+            linkAttribute: '',
+            linkTitleField: 'description',
+            imgAltField: 'title',
+            wrapText: 'no',
+            readingDirection: 'ltr',
+            loadMore: 'off',
+            loadMoreText: 'Load more',
+            loadMoreCountText: '(*count* images remaining)',
+            loadMoreOffset: 100,
+            loadMoreAutoWidth: 'on',
+            disableHover: 'no',
+            downloadLink: 'no',
+            lightboxLink: 'no',
+            verticalCenterCaptions: 'off',
+            customFonts: 'yes',
+            captionHeight: 54,
+            quality: 90,
+            retinaReady: 'yes',
+            retinaQuality: 'auto',
+            minRetinaQuality: 30,
+            maxRetinaDensity: 3,
+            caption: 'fade',
+            captionMatchWidth: 'no',
+            captionMatchWidthForceNo: false,
+            titleField: 'title',
+            captionField: 'description',
+            lightbox: 'prettyphoto',
+            lightboxInit: 'jigAddLightbox1',
+            overlay: 'hovered',
+            overlayIcon: 'off',
+            bordersTotal: 0,
+            innerBorder: 'always',
+            innerBorderWidth: 0,
+            innerBorderAnimate: 'width',
+            middleBorder: 'always',
+            middleBorderWidth: 0,
+            middleBorderColor: 'white',
+            outerBorder: 'always',
+            outerBorderColor: 'black',
+            specialFx: 'off',
+            specialFxType: 'desaturate',
+            specialFxOptions: '',
+            specialFxBlend: 1,
+            incompleteLastRow: 'normal',
+            errorChecking: 'yes',
+            suppressErrors: 'no',
+            retryCount: 0,
+            resizeCount: 0,
+            errorChecked: false,
+            errorImages: [],
+            filters: false,
+            filterMultiple: 'no',
+            filterStyle: 'buttons',
+            L2filters: false,
+            L2FilterMultiple: 'no',
+            L2FilterStyle: 'buttons',
+            filterSmallestColor: '#A3A3A3',
+            filterSmallestSize: 11,
+            filterLargestColor: '#000000',
+            filterLargestSize: 22,
+            separatorCharacter: ' - ',
+            thumbnailFilename: 'normal',
+            cropZone: '',
+            instance: 1,
+            element: $(element),
+            lastWindowWidth: $(window).width(),
+        };
+
+        var plugin = this;
+        var s = $.extend({}, defaults, options);
+        var oldIE = typeof $.support === 'object' && 'opacity' in $.support && !$.support.opacity;
+        var anyIE = '';
+        /* global navigator */
+        var Chrome = !!window.chrome && !/opera|opr/i.test(navigator.userAgent);
+
+        this.s = s;
+
+        try {
+            anyIE = window.navigator.userAgent.indexOf('MSIE ') > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
+            // Detect Edge too
+            if (
+                navigator.appName == 'Netscape' &&
+                navigator.appVersion.indexOf('Trident') === -1 &&
+                navigator.appVersion.indexOf('Edge') !== -1
+            ) {
+                anyIE = true;
+            }
+        } catch (e) {
+            anyIE = false;
+        }
+        var thisIsTouch = false;
+        if ('ontouchstart' in document.documentElement) {
+            thisIsTouch = true;
+        }
+        // base setup of settings, mouse interaction, images load event handler
+        plugin.init = function () {
+            s.originalTargetHeight = s.targetHeight;
+            s.minHeight = s.originalMinHeight = s.targetHeight - s.heightDeviation;
+            s.maxHeight = s.originalMaxHeight = s.targetHeight + s.heightDeviation;
+            s.prevScreenHeightLimitRatio = -1; // indicates first run for max height determination later
+            s.defaultHeightRatio = s.originalDefaultHeightRatio = s.targetHeight / s.maxHeight;
+            s.originalLimit = s.limit;
+            s.hiddenOpacity = !oldIE ? 0 : 0.01;
+            if (anyIE) {
+                s.element.addClass('jig-ua-ie');
+            }
+            if (oldIE) {
+                s.element.addClass('jig-ua-old-ie');
+            }
+            if (thisIsTouch === false) {
+                s.element.addClass('jig-no-touch');
+            } else {
+                s.element.addClass('jig-touch');
+            }
+
+            if (s.lightbox !== 'no' && s.lightbox !== 'links-off' && s.lightbox !== 'new_tab') {
+                s.hiddenLinkClass =
+                    s.linkClass !== ''
+                        ? 'class="jig-link jig-hiddenLink ' + s.linkClass + '" '
+                        : 'class="jig-link jig-hiddenLink" ';
+                s.linkClass = s.linkClass !== '' ? 'class="jig-link ' + s.linkClass + '" ' : 'class="jig-link" ';
+
+                if (s.linkRel.indexOf('*instance*') !== -1) {
+                    s.linkRel = 'rel="' + s.linkRel.replace('*instance*', s.instance) + '" ';
+                } else if (s.linkRel.indexOf('auto') !== -1) {
+                    switch (s.lightbox) {
+                        case 'prettyphoto':
+                            s.linkRel = 'rel="' + s.linkRel.replace('auto', 'prettyPhoto[' + s.instance + ']') + '" ';
+                            break;
+                        case 'colorbox':
+                            s.linkRel = 'rel="' + s.linkRel.replace('auto', 'colorBox[' + s.instance + ']') + '" ';
+                            break;
+                        default:
+                            s.linkRel = 'rel="' + s.linkRel.replace('auto', 'gallery[' + s.instance + ']') + '" ';
+                            break;
+                    }
+                } else {
+                    s.linkRel = 'rel="' + s.linkRel + '" ';
+                }
+            } else {
+                s.linkClass = '';
+                s.hiddenLinkClass = '';
+                s.linkRel = '';
+            }
+
+            if (s.linkAttributeName !== '') {
+                if (s.linkAttributeValue !== '') {
+                    s.linkAttribute = ' ' + s.linkAttributeName + '="' + s.linkAttributeValue + '"';
+                } else {
+                    s.linkAttribute = ' ' + s.linkAttributeName + '=""';
+                }
+            }
+            s.allItems = s.selectedItems = s.items.slice(); // Store the original value of All items because s.items will be modified
+
+            if (s.aspectRatio) {
+                s.maxWidth = Math.floor(s.maxHeight * parseFloat(s.aspectRatio));
+                if (s.incompleteLastRow == 'normal') {
+                    s.incompleteLastRow = 'match';
+                    if (s.loadMore !== 'off') {
+                        s.incompleteLastRow = 'flexible-match';
+                    }
+                }
+            }
+            if (s.retinaReady == 'yes') {
+                if (typeof window.devicePixelRatio === 'undefined' || window.devicePixelRatio == 1) {
+                    s.retinaReady = 'no';
+                    s.devicePixelRatio = 1;
+                } else {
+                    if (window.devicePixelRatio > s.maxRetinaDensity) {
+                        s.devicePixelRatio = s.maxRetinaDensity;
+                    } else {
+                        s.devicePixelRatio = window.devicePixelRatio;
+                    }
+                }
+            }
+
+            if (s.retinaReady == 'yes') {
+                if (s.retinaQuality == 'auto') {
+                    s.quality = Math.ceil(s.quality / s.devicePixelRatio);
+                    s.quality = s.quality > s.minRetinaQuality ? s.quality : s.minRetinaQuality;
+                } else {
+                    s.quality = s.retinaQuality;
+                }
+            }
+
+            if (s.disableCropping == 'yes') {
+                s.minHeight = s.originalMinHeight = 50;
+            }
+
+            if (s.specialFx == 'captions' && s.caption == 'below') {
+                s.specialFx = 'off';
+            }
+
+            if (
+                s.customFonts == 'yes' &&
+                s.caption !== 'off' &&
+                (s.caption == 'below' || s.verticalCenterCaptions !== 'off' || s.specialFx == 'captions')
+            ) {
+                var fontCheck = $('body').find('.jig-fontCheck');
+                if (fontCheck.length === 0) {
+                    $('body').append(
+                        '<div class="jig-fontCheck">!"\'\\#$%&amp;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~ A quick brown fox jumps over the lazy dog.</div>'
+                    );
+                    fontCheck = $('body').find('.jig-fontCheck');
+
+                    var fontCheckBaseWidth = fontCheck.width(),
+                        fontChecksCounter = 0,
+                        fontCheckInterval = setInterval(function () {
+                            fontChecksCounter++;
+                            var fontCheckCurrentWidth = fontCheck.width();
+                            if (fontCheckBaseWidth == fontCheckCurrentWidth || fontCheckCurrentWidth === 0) {
+                                // no change...
+                                if (fontChecksCounter > 50) {
+                                    fontCheck.remove(); // Important to remove it here
+                                    clearInterval(fontCheckInterval);
+                                }
+                                return;
+                            }
+
+                            $('body').trigger('jig-fontLoaded');
+                            fontCheck.remove();
+                            clearInterval(fontCheckInterval);
+                            return;
+                        }, 100);
+                }
+            }
+
+            // mouseenter and mouseleave functions
+            var emptyFunc = function () {
+                    return false;
+                },
+                overlayMouseEnter = emptyFunc,
+                overlayMouseLeave = emptyFunc,
+                specialFxMouseEnter = emptyFunc,
+                specialFxMouseLeave = emptyFunc,
+                captionMouseEnter = emptyFunc,
+                captionMouseLeave = emptyFunc,
+                innerBorderMouseEnter = emptyFunc,
+                innerBorderMouseLeave = emptyFunc,
+                middleBorderMouseEnter = emptyFunc,
+                middleBorderMouseLeave = emptyFunc,
+                outerBorderMouseEnter = emptyFunc,
+                outerBorderMouseLeave = emptyFunc,
+                animateOpacity = function (el, findVal, eType, animDirection) {
+                    if (s.specialFx !== 'captions' || findVal !== '.jig-caption-wrapper .jig-caption') {
+                        el.find(findVal).JIGhoverFlow(eType, {opacity: animDirection}, s.animSpeed);
+                    } else {
+                        var foundElements = el.find(findVal),
+                            captionObjects = getObjectsForCaptionSpecialEffect(foundElements, true);
+                        foundElements.JIGhoverFlow(
+                            eType,
+                            {opacity: animDirection},
+                            {
+                                duration: s.animSpeed,
+                                progress: function () {
+                                    if ($(this).closest('.jig-cw-role-real').length !== 0) {
+                                        alignCaptionSpecialEffect(captionObjects);
+                                    }
+                                },
+                            }
+                        );
+                    }
+                },
+                animateHeight = function (el, findVal, eType, animDirection) {
+                    if (s.specialFx !== 'captions') {
+                        el.find(findVal).JIGhoverFlow(eType, {height: animDirection}, s.animSpeed, 'JIGeaseInOutQuad');
+                    } else {
+                        var foundElements = el.find(findVal),
+                            captionObjects = getObjectsForCaptionSpecialEffect(foundElements);
+                        foundElements.JIGhoverFlow(
+                            eType,
+                            {height: animDirection},
+                            {
+                                duration: s.animSpeed,
+                                easing: 'JIGeaseInOutQuad',
+                                progress: function () {
+                                    if ($(this).closest('.jig-cw-role-real').length !== 0) {
+                                        alignCaptionSpecialEffect(captionObjects);
+                                    }
+                                },
+                            }
+                        );
+                    }
+                },
+                animateHeightFromCenter = function (el, findVal, eType, animDirection) {
+                    if (s.specialFx !== 'captions') {
+                        el.find(findVal).JIGhoverFlow(
+                            eType,
+                            {height: animDirection},
+                            {
+                                duration: s.animSpeed,
+                                easing: 'JIGeaseInOutQuad',
+                                progress: function () {
+                                    var captionWrapper = el.find('.jig-caption-wrapper'),
+                                        overflowElement = el.parent();
+                                    captionWrapper.css(
+                                        'top',
+                                        Math.round(overflowElement.height() / 2 - captionWrapper.height() / 2)
+                                    );
+                                },
+                            }
+                        );
+                    } else {
+                        var foundElements = el.find(findVal),
+                            captionObjects = getObjectsForCaptionSpecialEffect(foundElements),
+                            captionObject = foundElements.closest('.jig-caption');
+                        el.find(findVal).JIGhoverFlow(
+                            eType,
+                            {height: animDirection},
+                            {
+                                duration: s.animSpeed,
+                                easing: 'JIGeaseInOutQuad',
+                                progress: function () {
+                                    var captionWrapper = el.find('.jig-caption-wrapper'),
+                                        overflowElement = el.parent();
+                                    captionWrapper.css(
+                                        'top',
+                                        Math.round(overflowElement.height() / 2 - captionObject.height() / 2)
+                                    );
+                                    if ($(this).closest('.jig-cw-role-real').length !== 0) {
+                                        alignCaptionSpecialEffect(captionObjects);
+                                    }
+                                }, // some browser would not go all the way to almost 0 height (??)
+                                complete: function () {
+                                    if (
+                                        (s.caption == 'slide' || s.caption == 'reverse-slide') &&
+                                        animDirection == 'hide'
+                                    ) {
+                                        el.find('.jig-cw-role-effect').height(0.01);
+                                    }
+                                },
+                            }
+                        );
+                    }
+                },
+                animateSpecialFx = function (el, findVal, eType, opacity) {
+                    el.find(findVal).JIGhoverFlow(eType, {opacity: opacity}, s.animSpeed);
+                },
+                animateBorder = function (el, findVal, eType, borderWidth) {
+                    el.find(findVal).JIGhoverFlow(
+                        eType,
+                        {
+                            borderLeftWidth: borderWidth,
+                            borderTopWidth: borderWidth,
+                            borderRightWidth: borderWidth,
+                            borderBottomWidth: borderWidth,
+                        },
+                        s.animSpeed
+                    );
+                };
+
+            // overlay animation controls
+            switch (s.overlay) {
+                case 'hovered':
+                    if (s.overlayIcon === 'on') {
+                        overlayMouseEnter = function (el) {
+                            animateOpacity(
+                                el,
+                                'div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper',
+                                'mouseenter',
+                                'show'
+                            );
+                        };
+                        overlayMouseLeave = function (el) {
+                            animateOpacity(
+                                el,
+                                'div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper',
+                                'mouseleave',
+                                'hide'
+                            );
+                        };
+                    } else {
+                        overlayMouseEnter = function (el) {
+                            animateOpacity(el, 'div.jig-overlay-wrapper', 'mouseenter', 'show');
+                        };
+                        overlayMouseLeave = function (el) {
+                            animateOpacity(el, 'div.jig-overlay-wrapper', 'mouseleave', 'hide');
+                        };
+                    }
+                    break;
+                case 'others':
+                    if (s.overlayIcon === 'on') {
+                        overlayMouseEnter = function (el) {
+                            animateOpacity(
+                                el,
+                                'div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper',
+                                'mouseenter',
+                                'hide'
+                            );
+                        };
+                        overlayMouseLeave = function (el) {
+                            animateOpacity(
+                                el,
+                                'div.jig-overlay-wrapper, div.jig-overlay-icon-wrapper',
+                                'mouseleave',
+                                'show'
+                            );
+                        };
+                    } else {
+                        overlayMouseEnter = function (el) {
+                            animateOpacity(el, 'div.jig-overlay-wrapper', 'mouseenter', 'hide');
+                        };
+                        overlayMouseLeave = function (el) {
+                            animateOpacity(el, 'div.jig-overlay-wrapper', 'mouseleave', 'show');
+                        };
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            // border animation controls
+            switch (s.innerBorder) {
+                case 'hovered':
+                    switch (s.innerBorderAnimate) {
+                        case 'width':
+                            innerBorderMouseEnter = function (el) {
+                                animateBorder(el, 'div.jig-border', 'mouseenter', s.innerBorderWidth + 'px');
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                animateBorder(el, 'div.jig-border', 'mouseleave', 0);
+                            };
+                            break;
+                        case 'opacity':
+                            innerBorderMouseEnter = function (el) {
+                                animateOpacity(el, 'div.jig-border', 'mouseenter', 'show');
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                animateOpacity(el, 'div.jig-border', 'mouseleave', 'hide');
+                            };
+                            break;
+                        case 'off':
+                            innerBorderMouseEnter = function (el) {
+                                $(el).find('div.jig-border').show();
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                $(el).find('div.jig-border').hide();
+                            };
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                case 'others':
+                    switch (s.innerBorderAnimate) {
+                        case 'width':
+                            innerBorderMouseEnter = function (el) {
+                                animateBorder(el, 'div.jig-border', 'mouseenter', 0);
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                animateBorder(el, 'div.jig-border', 'mouseleave', s.innerBorderWidth + 'px');
+                            };
+                            break;
+                        case 'opacity':
+                            innerBorderMouseEnter = function (el) {
+                                animateOpacity(el, 'div.jig-border', 'mouseenter', 'hide');
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                animateOpacity(el, 'div.jig-border', 'mouseleave', 'show');
+                            };
+                            break;
+                        case 'off':
+                            innerBorderMouseEnter = function (el) {
+                                $(el).find('div.jig-border').hide();
+                            };
+                            innerBorderMouseLeave = function (el) {
+                                $(el).find('div.jig-border').show();
+                            };
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            switch (s.middleBorder) {
+                case 'hovered':
+                    middleBorderMouseEnter = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('background', s.middleBorderColor);
+                    };
+                    middleBorderMouseLeave = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('background', 'transparent');
+                    };
+                    break;
+                case 'others':
+                    middleBorderMouseEnter = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('background', 'transparent');
+                    };
+                    middleBorderMouseLeave = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('background', s.middleBorderColor);
+                    };
+                    break;
+                default:
+                    break;
+            }
+
+            switch (s.outerBorder) {
+                case 'hovered':
+                    outerBorderMouseEnter = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('border-color', s.outerBorderColor);
+                    };
+                    outerBorderMouseLeave = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('border-color', 'transparent');
+                    };
+                    break;
+                case 'others':
+                    outerBorderMouseEnter = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('border-color', 'transparent');
+                    };
+                    outerBorderMouseLeave = function (el) {
+                        $(el).parent().parent('div.jig-imageContainer').css('border-color', s.outerBorderColor);
+                    };
+                    break;
+                default:
+                    break;
+            }
+
+            // specialfx animation controls
+            if (!oldIE) {
+                switch (s.specialFx) {
+                    case 'others':
+                        specialFxMouseEnter = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseenter', 0.01);
+                        };
+                        specialFxMouseLeave = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseleave', s.specialFxBlend);
+                        };
+                        break;
+                    case 'hovered':
+                        specialFxMouseEnter = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseenter', s.specialFxBlend);
+                        };
+                        specialFxMouseLeave = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseleave', 0.01);
+                        };
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                // for some reason old IE doesn't like the grayscale filter and opacity 0 at the same time
+                switch (s.specialFx) {
+                    case 'others':
+                        specialFxMouseEnter = function (el) {
+                            //fxOpacityOutIE(el, ".jig-pixastic", 'mouseenter');
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseleave', 0.01);
+                        };
+                        specialFxMouseLeave = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseleave', s.specialFxBlend);
+                        };
+                        break;
+                    case 'hovered':
+                        specialFxMouseEnter = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseenter', s.specialFxBlend);
+                        };
+                        specialFxMouseLeave = function (el) {
+                            animateSpecialFx(el, '.jig-pixastic', 'mouseleave', 0.01);
+                            //fxOpacityOutIE(el, ".jig-pixastic", 'mouseleave');
+                        };
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            // caption animation controls
+            switch (s.caption) {
+                case 'fade':
+                    captionMouseEnter = function (el) {
+                        animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'show');
+                    };
+                    captionMouseLeave = function (el) {
+                        animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'hide');
+                    };
+                    break;
+                case 'reverse-fade':
+                    captionMouseEnter = function (el) {
+                        animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'hide');
+                    };
+                    captionMouseLeave = function (el) {
+                        animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'show');
+                    };
+                    break;
+                case 'slide':
+                    if (!oldIE) {
+                        if (s.verticalCenterCaptions == 'off' || s.verticalCenterCaptions == 'simple') {
+                            captionMouseEnter = function (el) {
+                                animateHeight(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'show');
+                            };
+                            captionMouseLeave = function (el) {
+                                animateHeight(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'hide');
+                            };
+                        } else {
+                            captionMouseEnter = function (el) {
+                                animateHeightFromCenter(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'show');
+                            };
+                            captionMouseLeave = function (el) {
+                                animateHeightFromCenter(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'hide');
+                            };
+                        }
+                    } else {
+                        captionMouseEnter = function (el) {
+                            animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'show');
+                        };
+                        captionMouseLeave = function (el) {
+                            animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'hide');
+                        };
+                    }
+                    break;
+                case 'reverse-slide':
+                    if (!oldIE) {
+                        if (s.verticalCenterCaptions == 'off' || s.verticalCenterCaptions == 'simple') {
+                            captionMouseEnter = function (el) {
+                                animateHeight(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'hide');
+                            };
+                            captionMouseLeave = function (el) {
+                                animateHeight(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'show');
+                            };
+                        } else {
+                            captionMouseEnter = function (el) {
+                                animateHeightFromCenter(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'hide');
+                            };
+                            captionMouseLeave = function (el) {
+                                animateHeightFromCenter(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'show');
+                            };
+                        }
+                    } else {
+                        captionMouseEnter = function (el) {
+                            animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseenter', 'hide');
+                        };
+                        captionMouseLeave = function (el) {
+                            animateOpacity(el, '.jig-caption-wrapper .jig-caption', 'mouseleave', 'show');
+                        };
+                    }
+                    break;
+                case 'mixed':
+                    if (s.verticalCenterCaptions == 'off' || s.verticalCenterCaptions == 'simple') {
+                        captionMouseEnter = function (el) {
+                            animateHeight(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseenter',
+                                'show'
+                            );
+                        };
+                        captionMouseLeave = function (el) {
+                            animateHeight(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseleave',
+                                'hide'
+                            );
+                        };
+                    } else {
+                        captionMouseEnter = function (el) {
+                            animateHeightFromCenter(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseenter',
+                                'show'
+                            );
+                        };
+                        captionMouseLeave = function (el) {
+                            animateHeightFromCenter(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseleave',
+                                'hide'
+                            );
+                        };
+                    }
+                    break;
+                case 'reverse-mixed':
+                    if (s.verticalCenterCaptions == 'off' || s.verticalCenterCaptions == 'simple') {
+                        captionMouseEnter = function (el) {
+                            animateHeight(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseenter',
+                                'hide'
+                            );
+                        };
+                        captionMouseLeave = function (el) {
+                            animateHeight(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseleave',
+                                'show'
+                            );
+                        };
+                    } else {
+                        captionMouseEnter = function (el) {
+                            animateHeightFromCenter(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseenter',
+                                'hide'
+                            );
+                        };
+                        captionMouseLeave = function (el) {
+                            animateHeightFromCenter(
+                                el,
+                                '.jig-caption-wrapper .jig-caption-description-wrapper',
+                                'mouseleave',
+                                'show'
+                            );
+                        };
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            // calls the animation functions on mouse interaction, also removes and readds title to avoid ugly tooltips
+            if (s.disableHover !== 'yes') {
+                s.element.on('mouseenter mouseleave', 'a', function (event) {
+                    var $this = $(this);
+                    if ($this.css('display') !== 'none') {
+                        event.stopImmediatePropagation();
+                        if (event.type === 'mouseenter') {
+                            overlayMouseEnter($this);
+                            specialFxMouseEnter($this);
+                            captionMouseEnter($this);
+                            innerBorderMouseEnter($this);
+                            middleBorderMouseEnter($this);
+                            outerBorderMouseEnter($this);
+                            $this.data('title', $this.attr('title'));
+                            $this.removeAttr('title');
+                        } else {
+                            overlayMouseLeave($this);
+                            specialFxMouseLeave($this);
+                            captionMouseLeave($this);
+                            innerBorderMouseLeave($this);
+                            middleBorderMouseLeave($this);
+                            outerBorderMouseLeave($this);
+                            $this.attr('title', $this.data('title'));
+                        }
+                    }
+                });
+                // re-adds title upon mousedown (for lightbox scripts)
+                s.element.on('mousedown', 'a', function (event) {
+                    $(this).attr('title', $(this).data('title'));
+                });
+            }
+
+            $('body').one('jig-fontLoaded', alignAllCaptions);
+
+            if (s.loadMore !== 'off') {
+                s.loadMoreCounter = 0;
+                if (s.lightbox == 'carousel') {
+                    s.element.on('click', function (event) {
+                        if ($(event.target).hasClass('justified-image-grid')) {
+                            event.stopPropagation();
+                            event.preventDefault();
+                            return;
+                        }
+                    });
+                }
+                s.element.on('click', '.jig-loadMoreButton', loadMore);
+            }
+            if (s.lightbox == 'prettyphoto' && typeof jigOtherPrettyPhotoIsPresent !== 'undefined') {
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        // This ensures that prettyPhoto is called with the settings values from JIG
+                        // if another prettyPhoto is in the page, assuming that there is a script calling it
+                        window[s.lightboxInit]();
+                    }, 10); // some tiny delay so other document ready calls execute, this can override them
+                });
+            }
+            // Filtering features (layout mostly)
+            if (s.filters || s.L2filters) {
+                s.filteredImages = [];
+                if (s.filters) {
+                    s.filterMultiple = s.filterMultiple || 'no';
+                    s.filterStyle = s.filterStyle || 'buttons';
+                    var filterElementType, filterSlug;
+                    if (s.filterStyle == 'buttons') {
+                        s.filterType = 'Button';
+                        filterElementType = 'div';
+                    } else {
+                        s.filterType = 'Tag';
+                        filterElementType = 'span';
+                    }
+
+                    // Creating the filter buttons or tags interface
+                    var filterButtons =
+                        '<div id="jig' +
+                        s.instance +
+                        '-filter' +
+                        s.filterType +
+                        's" class="jig-filter' +
+                        s.filterType +
+                        's ' +
+                        (s.filterMultiple !== 'no' ? 'jig-filterMultiple ' : 'jig-filterSingle ') +
+                        (!thisIsTouch ? 'jig-no-touch ' : 'jig-touch ') +
+                        (anyIE ? 'jig-ua-ie' : '') +
+                        'jig-clearfix" data-filter-level="1">';
+                    for (filterSlug in s.filters) {
+                        if (ownProp(s.filters, filterSlug)) {
+                            // p isn't inherited, do stuff with obj[p]
+                            s.filteredImages[filterSlug] = [];
+                            filterButtons +=
+                                '<' +
+                                filterElementType +
+                                ' class="jig-filter' +
+                                s.filterType +
+                                '" data-filter-slug="' +
+                                filterSlug +
+                                '">' +
+                                s.filters[filterSlug] +
+                                '</' +
+                                filterElementType +
+                                '>';
+                        }
+                    }
+
+                    filterButtons += '</div>';
+                    s.element.before(filterButtons); // Adding it above the grid
+
+                    if (typeof s.filteredImages['all-items-nofilter'] !== 'undefined') {
+                        s.filteredImages['all-items-nofilter'] = s.selectedItems.slice();
+                    }
+
+                    for (var i = 0, j = s.selectedItems.length; i < j; i += 1) {
+                        if (s.selectedItems[i].filters) {
+                            for (var k = 0, l = s.selectedItems[i].filters.length; k < l; k += 1) {
+                                // If something is undefined here then PHP filters the actually needed filters and if an image is tagged with a tag which is not really needed, it doesn't exist
+                                if (
+                                    typeof s.filteredImages[s.selectedItems[i].filters[k][0]] !== 'undefined' &&
+                                    typeof s.filteredImages[s.selectedItems[i].filters[k][0]].push == 'function'
+                                ) {
+                                    s.filteredImages[s.selectedItems[i].filters[k][0]].push(s.selectedItems[i]); // add to an array like s.filteredImages['blue']
+                                }
+                            }
+                        }
+                    }
+
+                    var allButton = $(
+                        '#jig' +
+                            s.instance +
+                            '-filter' +
+                            s.filterType +
+                            's .jig-filter' +
+                            s.filterType +
+                            '[data-filter-slug="all-items-nofilter"]'
+                    );
+                    if (allButton.length > 0) {
+                        if (
+                            $('#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType)
+                                .first()
+                                .attr('data-filter-slug') !== allButton.attr('data-filter-slug')
+                        ) {
+                            allButton.parent().prepend(allButton); // Force all button to be first, even if a slug makes another term alphabetically first in the array
+                        }
+                    }
+
+                    if (s.filterStyle == 'tags') {
+                        for (filterSlug in s.filters) {
+                            if (ownProp(s.filters, filterSlug)) {
+                                $(
+                                    '#jig' +
+                                        s.instance +
+                                        '-filter' +
+                                        s.filterType +
+                                        's .jig-filterTag[data-filter-slug="' +
+                                        filterSlug +
+                                        '"]'
+                                ).attr('rel', s.filteredImages[filterSlug].length);
+                            }
+                        }
+
+                        $.fn.tagcloud.defaults = {
+                            size: {start: s.filterSmallestSize, end: s.filterLargestSize, unit: 'px'},
+                            color: {start: s.filterSmallestColor, end: s.filterLargestColor},
+                        };
+                        if (allButton.length > 0) {
+                            allButton.css({'font-size': s.filterLargestSize, color: s.filterLargestColor});
+                            $('#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType)
+                                .slice(1)
+                                .tagcloud(); // don't auto-tagcloud the All button
+                        } else {
+                            $(
+                                '#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType
+                            ).tagcloud();
+                        }
+                    }
+
+                    // Click handling for each filter button or tag, except the one that is currently selected
+                    $('#jig' + s.instance + '-filter' + s.filterType + 's').on(
+                        'click',
+                        '.jig-filter' + s.filterType,
+                        doTheFilter
+                    );
+                }
+                if (s.L2filters) {
+                    s.L2filterMultiple = s.L2filterMultiple || 'no';
+                    s.L2filterStyle = s.L2filterStyle || 'buttons';
+                    var L2filterElementType, L2filterSlug;
+                    if (s.L2filterStyle == 'buttons') {
+                        s.L2filterType = 'Button';
+                        L2filterElementType = 'div';
+                    } else {
+                        s.L2filterType = 'Tag';
+                        L2filterElementType = 'span';
+                    }
+                    s.L2filteredImages = [];
+                    // Creating the filter buttons or tags interface
+                    var L2filterButtons =
+                        '<div id="jig' +
+                        s.instance +
+                        '-L2filter' +
+                        s.L2filterType +
+                        's" class="jig-filter' +
+                        s.L2filterType +
+                        's ' +
+                        (s.L2filterMultiple !== 'no' ? 'jig-filterMultiple ' : 'jig-filterSingle ') +
+                        (!thisIsTouch ? 'jig-no-touch ' : 'jig-touch ') +
+                        (anyIE ? 'jig-ua-ie' : '') +
+                        'jig-clearfix" data-filter-level="2">';
+                    for (L2filterSlug in s.L2filters) {
+                        if (ownProp(s.L2filters, L2filterSlug)) {
+                            // p isn't inherited, do stuff with obj[p]
+                            s.L2filteredImages[L2filterSlug] = [];
+                            L2filterButtons +=
+                                '<' +
+                                L2filterElementType +
+                                ' class="jig-filter' +
+                                s.L2filterType +
+                                '" data-filter-slug="' +
+                                L2filterSlug +
+                                '">' +
+                                s.L2filters[L2filterSlug] +
+                                '</' +
+                                L2filterElementType +
+                                '>';
+                        }
+                    }
+
+                    L2filterButtons += '</div>';
+                    s.element.before(L2filterButtons); // Adding it above the grid
+
+                    if (typeof s.L2filteredImages['all-items-nofilter'] !== 'undefined') {
+                        s.L2filteredImages['all-items-nofilter'] = s.selectedItems.slice();
+                    }
+
+                    for (var ii = 0, jj = s.selectedItems.length; ii < jj; ii += 1) {
+                        if (s.selectedItems[ii].L2filters) {
+                            for (var kk = 0, ll = s.selectedItems[ii].L2filters.length; kk < ll; kk += 1) {
+                                // If something is undefined here then PHP filters the actually needed filters and if an image is tagged with a tag which is not really needed, it doesn't exist
+                                if (
+                                    typeof s.L2filteredImages[s.selectedItems[ii].L2filters[kk][0]] !== 'undefined' &&
+                                    typeof s.L2filteredImages[s.selectedItems[ii].L2filters[kk][0]].push === 'function'
+                                ) {
+                                    s.L2filteredImages[s.selectedItems[ii].L2filters[kk][0]].push(s.selectedItems[ii]); // add to an array like s.L2filteredImages['blue']
+                                }
+                            }
+                        }
+                    }
+
+                    var L2allButton = $(
+                        '#jig' +
+                            s.instance +
+                            '-L2filter' +
+                            s.L2filterType +
+                            's .jig-filter' +
+                            s.L2filterType +
+                            '[data-filter-slug="all-items-nofilter"]'
+                    );
+                    if (L2allButton.length > 0) {
+                        if (
+                            $('#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType)
+                                .first()
+                                .attr('data-filter-slug') !== L2allButton.attr('data-filter-slug')
+                        ) {
+                            L2allButton.parent().prepend(L2allButton); // Force all button to be first, even if a slug makes another term alphabetically first in the array
+                        }
+                    }
+
+                    if (s.L2filterStyle == 'tags') {
+                        for (L2filterSlug in s.L2filters) {
+                            if (ownProp(s.L2filters, L2filterSlug)) {
+                                $(
+                                    '#jig' +
+                                        s.instance +
+                                        '-L2filter' +
+                                        s.L2filterType +
+                                        's .jig-filterTag[data-filter-slug="' +
+                                        L2filterSlug +
+                                        '"]'
+                                ).attr('rel', s.L2filteredImages[L2filterSlug].length);
+                            }
+                        }
+
+                        $.fn.tagcloud.defaults = {
+                            size: {start: s.filterSmallestSize, end: s.filterLargestSize, unit: 'px'},
+                            color: {start: s.filterSmallestColor, end: s.filterLargestColor},
+                        };
+
+                        if (L2allButton.length > 0) {
+                            L2allButton.css({'font-size': s.filterLargestSize, color: s.filterLargestColor});
+                            $('#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType)
+                                .slice(1)
+                                .tagcloud(); // don't auto-tagcloud the All button
+                        } else {
+                            $(
+                                '#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType
+                            ).tagcloud();
+                        }
+                    }
+
+                    // Click handling for each filter button or tag, except the one that is currently selected
+                    $('#jig' + s.instance + '-L2filter' + s.L2filterType + 's').on(
+                        'click',
+                        '.jig-filter' + s.L2filterType,
+                        doTheFilter
+                    );
+                }
+
+                // Start the filtering by activating the first filter button (automatic)
+                doTheFilter();
+            } else {
+                plugin.createGallery(); // calls the gallery creation function
+            }
+            s.element.trigger('jig-created');
+            var autoResize;
+            $(window).resize(function () {
+                if (typeof autoResize !== 'undefined') {
+                    clearTimeout(autoResize);
+                }
+                autoResize = setTimeout(function () {
+                    plugin.createGallery('resize');
+                    s.element.trigger('jig-resized');
+                }, 100);
+            });
+        }; // end of init
+
+        // builds/rebuilds the gallery, calls functions that create the rows and the adds/updates all the image elements
+        plugin.createGallery = function (mode) {
+            if ($.JIGjQueryMinVersion('1.7') === false) {
+                JIGjQueryMinVersion('1.7', true);
+                return false;
+            }
+            var previousWidth = Math.round(s.element.width()),
+                currentWindowWidth = $(window).width(),
+                extraWidth;
+            if (s.fixedWidth === undefined) {
+                // If there is no fixed width
+                s.element.css('width', '').css('width', Math.round(s.element.width()));
+                // If the width would be 0 and there is an fallbackWidth
+                if (s.element.width() === 0) {
+                    if (s.fallbackWidth === undefined) {
+                        // defaults to previous width as window didn't change
+                        if (previousWidth !== 0 && currentWindowWidth == s.lastWindowWidth) {
+                            s.element.css('width', previousWidth + 'px');
+                        } else {
+                            // Figures out the width even if the container is initially invisible
+                            extraWidth = 0; // Margins and paddings need to be accounted for
+                            s.element.parents().each(function (parentIndex, oneParent) {
+                                // Each parent up the tree
+                                var $oneParent = $(oneParent),
+                                    $oneParentParent = $(oneParent).parent(),
+                                    oneParentWidth = $oneParent.width();
+
+                                if ($oneParent.is(':visible') && oneParentWidth !== 0) {
+                                    // At the first parent that is visible AND width a width, stop and use its width
+                                    s.element.css('width', oneParentWidth - extraWidth + 'px'); // Set the found parent's width minus any extra
+                                    // The following is necessary to detect scrollbar appear/disappear - changes window width that could change the tabs
+                                    // Checks if this handler has been added to this common parent
+                                    if (typeof $oneParentParent.data('jigAddedTabsHandler') == 'undefined') {
+                                        $oneParentParent.on('click', function (event) {
+                                            // Click handler on the nearby elements all subelements (supposedly tab heads)
+                                            if (currentWindowWidth !== $(window).width()) {
+                                                // s.lastWindowWidth would be a proper value but to extend it over for the other instances, need to use the currentWindowWidth that was added at the same time as the handler
+                                                $oneParentParent.find('.justified-image-grid').each(function () {
+                                                    // Each JIG instance nearby
+                                                    var $this = $(this);
+                                                    if ($this.is(':visible')) {
+                                                        // Only if this is the currently visible
+                                                        $this.data('justifiedImageGrid').createGallery('resize'); // Resize this very instance only
+                                                    }
+                                                });
+                                            }
+                                            return;
+                                        });
+                                        $oneParentParent.data('jigAddedTabsHandler', true);
+                                    }
+                                    return false;
+                                } else {
+                                    extraWidth += $oneParent.outerWidth(true) - $oneParent.width(); // since margins and paddings etc are calculated even for invisible elements, it's possible to add them together to remove that amount from the result, giving a good guess - but this is not needed to include the visible element's extra values
+                                }
+                            });
+                        }
+                    } else {
+                        s.element.css('width', s.fallbackWidth + 'px');
+                    }
+                } else if (s.element.width() > 10000) {
+                    s.element.css('width', currentWindowWidth);
+                    $(window).on('load', function () {
+                        plugin.createGallery('resize');
+                    });
+                }
+            } else {
+                // If there is fixed width
+                s.element.css('width', '').css('width', s.fixedWidth);
+            }
+
+            var newAreaWidth = Math.round(s.element.width());
+            if (newAreaWidth < 9) {
+                if (s.retryCount > 10) {
+                    s.element
+                        .find('.jig-clearfix')
+                        .html(
+                            'The element is invisible or too thin, upon page loading. In case of using tabs, try a Custom width in the General settings and you may also use a fixed width. (Justified Image Grid)'
+                        );
+                    return;
+                }
+                s.retryBuilding = setTimeout(function () {
+                    s.retryCount++;
+                    plugin.createGallery();
+                }, 100);
+                return;
+            } else {
+                if (s.retryBuilding) {
+                    clearTimeout(s.retryBuilding);
+                }
+                s.element.find('.jig-clearfix').empty();
+            }
+            s.justResized = false;
+            if (mode === 'resize') {
+                if (s.areaWidth && s.areaWidth == newAreaWidth) {
+                    return;
+                } else {
+                    s.justResized = true;
+                }
+            }
+
+            s.element.find('.jig-overflow a *:not(div)').off();
+            s.areaWidth = newAreaWidth;
+            s.row = [];
+            s.fullWidth = s.extra = 0;
+            s.rows = [];
+            s.unshifts = [];
+
+            s.screenHeight = $(window).height();
+            s.screenHeightLimitRatio = Math.min(s.screenHeight / s.originalMaxHeight, 1);
+
+            if (s.prevScreenHeightLimitRatio !== s.screenHeightLimitRatio) {
+                if (s.screenHeightLimitRatio < 1) {
+                    // If the image height trick is needed at all
+                    // If max desired height could make the thumbnail taller than screen space
+                    // This limits the maximum height to current screen height
+                    // Sets up smaller height deviation that is proportional to the smaller height
+                    s.maxHeight = s.screenHeight;
+                    s.targetHeight = Math.round(s.maxHeight - s.heightDeviation * s.screenHeightLimitRatio);
+                    s.minHeight =
+                        s.minHeight != 50
+                            ? Math.round(s.targetHeight - s.heightDeviation * s.screenHeightLimitRatio)
+                            : 50;
+                    s.defaultHeightRatio = s.targetHeight / s.maxHeight;
+                } else {
+                    // revert things
+                    s.maxHeight = s.originalMaxHeight;
+                    s.targetHeight = s.originalTargetHeight;
+                    s.minHeight = s.originalMinHeight;
+                    s.defaultHeightRatio = s.originalDefaultHeightRatio;
+                }
+                // changes the calculated with of thumbs at that max height
+                if (!(s.prevScreenHeightLimitRatio == -1 && s.screenHeightLimitRatio == 1)) {
+                    for (var o in s.selectedItems) {
+                        if (ownProp(s.selectedItems, o)) {
+                            if (typeof s.selectedItems[o].originalWidth === 'undefined') {
+                                s.selectedItems[o].originalWidth = s.selectedItems[o].width;
+                            }
+                            s.selectedItems[o].width = Math.round(
+                                s.selectedItems[o].originalWidth * s.screenHeightLimitRatio
+                            );
+                        }
+                    }
+                }
+                s.prevScreenHeightLimitRatio = s.screenHeightLimitRatio;
+            }
+
+            s.items = s.selectedItems.slice(); // refreshing from the selected items (all items or filtered items)
+            if (s.errorChecked === true && s.justResized === false) {
+                for (var p in s.items) {
+                    if (ownProp(s.items, p)) {
+                        // p isn't inherited, do stuff with obj[p]
+                        if (
+                            $.inArray(
+                                s.items[p].photon === undefined
+                                    ? s.items[p].thumbUrl === undefined
+                                        ? s.items[p].url
+                                        : s.items[p].thumbUrl
+                                    : s.items[p].photon,
+                                s.errorImages
+                            ) != -1
+                        ) {
+                            // p numerical index
+                            // s.items[p] the object itself
+                            var removedItem = s.items[p];
+                            s.items.splice(p, 1);
+                            if (s.filters) {
+                                var slug = $('#jig' + s.instance + '-filterButtons .jig-filterButtonSelected').attr(
+                                    'data-filter-slug'
+                                );
+                                s.filteredImages[slug] = s.items.slice();
+                                for (var i = 1, j = s.filters.length; i < j; i += 1) {
+                                    // for each filter
+                                    for (var k = 0, l = s.filteredImages[s.filters[i][0]].length; k < l; k += 1) {
+                                        // for each image in a filter
+                                        var inArrayIndex = $.inArray(removedItem, s.filteredImages[s.filters[i][0]]);
+                                        if (inArrayIndex != -1) {
+                                            s.filteredImages[s.filters[i][0]].splice(inArrayIndex, 1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                s.selectedItems = s.items.slice(); // removing erroneous images from the selected items (it's only useful without filtering, as filtering recreates the selected items from all items every time, anyway)
+
+                s.errorImages = [];
+                if (s.selectedItems.length === 0) {
+                    tryToShowTimThumbError();
+                    return;
+                }
+
+                s.errorChecked = false;
+            }
+
+            if (s.maxRows === '' || s.maxRows === 0) {
+                s.maxRows = 1000;
+            }
+            s.rowcount = 0;
+            s.imagesShown = 0;
+            if (s.initiallyLoad !== '' && s.loadMore !== 'off' && s.loadMoreCounter === 0) {
+                s.limit = parseInt(s.initiallyLoad, 10);
+            }
+            if (s.limit === 0) {
+                s.whileUntil = 0;
+            } else if (s.limit < s.selectedItems.length) {
+                s.whileUntil = s.items.length - s.limit;
+            } else {
+                s.whileUntil = 0;
+            }
+
+            // calculates dimensions and everything else for all the image elements, builds the rows
+            // until the image source is depleted or the rows reach maximum set, whichever occurs first
+            while (s.items.length > s.whileUntil && s.rowcount < s.maxRows) {
+                var row = buildImageRow();
+                if (row !== false) {
+                    s.rows.push(row);
+                    s.rowcount++;
+                }
+            }
+            // keeps track of images that should be loaded
+            s.imagesShown += s.selectedItems.length - s.items.length;
+
+            // removes leftover images
+            s.element.find('.jig-imageContainer').slice(s.imagesShown).remove();
+
+            // keeps track of images that are actually added
+            s.imagesAlreadyAdded = s.element.find('.jig-imageContainer').length;
+
+            // goes through every image of every row
+            var imageCount = 0;
+            var item;
+            for (var r = 0, t = s.rows.length; r < t; r += 1) {
+                for (var u = 0, v = s.rows[r].length; u < v; u += 1) {
+                    imageCount++;
+                    item = s.rows[r][u];
+                    if (item.container && imageCount <= s.imagesAlreadyAdded) {
+                        // updates image elements that already exist
+                        updateImageElement(item, s.rows[r].length, u);
+                    } else {
+                        // adds image elements not yet created
+                        createImageElement(item, s.rows[r].length, u);
+                    }
+                }
+            }
+            if (s.lightbox !== 'links-off' && s.lightbox !== 'no' && s.lightbox !== 'new_tab' && s.linkrel !== '') {
+                while (s.unshifts.length > 0) {
+                    item = s.unshifts.shift();
+                    if (item.linkContainer === undefined) {
+                        buildHiddenLink(item);
+                    } else {
+                        s.currentHiddenLink = item.linkContainer;
+                    }
+                }
+                while (s.items.length > 0) {
+                    item = s.items.shift();
+                    if (item.linkContainer === undefined) {
+                        buildHiddenLink(item);
+                    } else {
+                        s.currentHiddenLink = item.linkContainer;
+                    }
+                }
+                s.currentHiddenLink = undefined;
+            }
+
+            // This is needed to quickly recheck width for fluid layouts
+            if (s.fixedWidth === undefined) {
+                // If there is no fixed width
+                s.element.css('width', '').css('width', Math.round(s.element.width()));
+                if (s.element.width() === 0) {
+                    s.element.css('width', s.areaWidth + 'px'); // Don't change anything if it's invisible otherwise
+                }
+            }
+
+            $('img', s.element)
+                .not('.jig-hiddenImg')
+                .on('load', function () {
+                    if (
+                        this.complete ||
+                        (this.naturalWidth !== undefined && this.naturalWidth !== 0) ||
+                        (this.readyState !== undefined && (this.readyState === 'complete' || this.readyState === 4)) ||
+                        oldIE
+                    ) {
+                        var a = $(this).closest('a'),
+                            o = $(this).closest('.jig-overflow');
+
+                        if (a.length !== 0 && a.hasClass('jig-loaded') !== true) {
+                            a.addClass('jig-loaded');
+                            if (o.css('opacity') === '0') {
+                                o.css('opacity', 1);
+                                //o.animate({opacity:1}, {duration: s.animSpeed, easing:"swing"});
+                            }
+                            if (s.specialFx != 'off') {
+                                var imgClone = $(this).clone().addClass('jig-pixastic').insertAfter($(this));
+                                imgClone.on('load', imgCloneOnLoad).each(function () {
+                                    if (
+                                        this.complete ||
+                                        (this.naturalWidth !== undefined && this.naturalWidth !== 0) ||
+                                        (this.readyState !== undefined &&
+                                            (this.readyState === 'complete' || this.readyState === 4))
+                                    ) {
+                                        $(this).trigger('load');
+                                    }
+                                });
+                            }
+                        }
+                        $(this).off('load');
+                    } else {
+                        if (s.errorChecking == 'yes') {
+                            var match = /(?:\?src=)(.*)(?:&h=)|^(https?:\/\/.+?wp\.com.*)$/g.exec($(this).attr('src'));
+                            if (match !== null) {
+                                if (match[1] !== undefined) {
+                                    s.errorImages.push(match[1]);
+                                } else if (match[2] !== undefined) {
+                                    s.errorImages.push(match[2]);
+                                }
+                            } else {
+                                s.errorImages.push($(this).attr('src'));
+                            }
+                            $(this).closest('.jig-imageContainer').addClass('jig-unloadable');
+                            checkLoadResults();
+                        }
+                    }
+                })
+                .on('error', function () {
+                    if (s.errorChecking == 'yes') {
+                        var match = /(?:\?src=)(.*)(?:&h=)|^(https?:\/\/.+?wp\.com.*)$/g.exec($(this).attr('src'));
+                        if (match !== null) {
+                            if (match[1] !== undefined) {
+                                s.errorImages.push(match[1]);
+                            } else if (match[2] !== undefined) {
+                                s.errorImages.push(match[2]);
+                            }
+                        } else {
+                            s.errorImages.push($(this).attr('src'));
+                        }
+                        $(this).closest('.jig-imageContainer').addClass('jig-unloadable');
+                        checkLoadResults();
+                    }
+                })
+                .each(function () {
+                    if (
+                        this.complete ||
+                        (this.naturalWidth !== undefined && this.naturalWidth !== 0) ||
+                        (this.readyState !== undefined && (this.readyState === 'complete' || this.readyState === 4))
+                    ) {
+                        $(this).trigger('load');
+                    }
+                });
+            if (mode !== 'resize') {
+                // removes clickability and hand cursor when links are turned off
+                // registers lightbox scripts
+                initLightbox();
+            } else {
+                if (s.lightbox == 'prettyphoto' && typeof jigReCallPrettyPhotoAfterPossibleResize !== 'undefined') {
+                    setTimeout(function () {
+                        // This ensures that prettyPhoto is called with the settings values from JIG
+                        // if another prettyPhoto is in the page, assuming that there is a script calling it
+                        window[s.lightboxInit]();
+                        jigReCallPrettyPhotoAfterPossibleResize = undefined;
+                    }, 10); // some tiny delay so other document ready calls execute, this can override them
+                } else {
+                    if (s.visibleImageCount != $('.jig-imageContainer', s.element).length) {
+                        // changed amount of visible images, needs lightbox reinit
+                        initLightbox();
+                    }
+                }
+            }
+            if (s.loadMore == 'click' || s.loadMore == 'scroll' || s.loadMore == 'hybrid' || s.loadMore == 'once') {
+                s.loadMoreButton = s.element.find('.jig-loadMoreButton');
+                var remainingCount = s.selectedItems.length - s.limit,
+                    preciseRemainingCount = s.element.find('.jig-hiddenLink').length;
+                if (s.loadMoreButton.length == 1) {
+                    // When there is already a Load more button
+                    if (remainingCount > 0) {
+                        s.loadMoreButton
+                            .find('.jig-loadMoreButton-count')
+                            .text(preciseRemainingCount !== 0 ? preciseRemainingCount : remainingCount);
+                        if (s.loadMoreAutoWidth === 'yes') {
+                            s.loadMoreButton.css('width', s.loadMoreButton.find('.jig-loadMoreButton-inner').width());
+                        }
+                    } else {
+                        s.loadMoreButton.remove();
+                    }
+                } else {
+                    // When there is no Load more button yet
+                    if (remainingCount > 0) {
+                        // When there are remaining images
+                        var countText = '';
+                        if (s.loadMoreCountText && s.loadMoreCountText !== 'none') {
+                            countText = s.loadMoreCountText;
+                            countText = countText.replace(
+                                '*count*',
+                                '<span class="jig-loadMoreButton-count">' +
+                                    (preciseRemainingCount !== 0 ? preciseRemainingCount : remainingCount) +
+                                    '</span>'
+                            );
+                        }
+                        s.loadMoreButton = $(
+                            '<div class="jig-loadMoreButton"><span class="jig-loadMoreButton-inner">' +
+                                s.loadMoreText +
+                                (countText !== '' ? '<br />' + countText : '') +
+                                '</span></div>'
+                        );
+
+                        //s.element.on("click", ".jig-loadMoreButton", loadMore);
+                        s.element.find('.jig-clearfix').after(s.loadMoreButton);
+                        if (s.loadMoreAutoWidth === 'yes') {
+                            s.loadMoreButton.css('width', s.loadMoreButton.find('.jig-loadMoreButton-inner').width());
+                        }
+                    }
+                }
+                if (s.loadMore == 'scroll' || s.loadMore == 'hybrid') {
+                    $(window).scroll(function () {
+                        if (s.loadMore == 'scroll' || (s.loadMore == 'hybrid' && s.loadMoreCounter > 0)) {
+                            var remainingCount = s.selectedItems.length - s.limit;
+                            if (remainingCount > 0) {
+                                var elementOffset = s.element.find('.jig-loadMoreButton').offset();
+                                if (
+                                    $(window).scrollTop() >=
+                                    elementOffset.top - parseInt(s.loadMoreOffset, 10) - $(window).height()
+                                ) {
+                                    loadMore();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+            if (s.wrapText !== 'no') {
+                var lastForWrap = s.element.find('.jig-imageContainer').last();
+                if (s.element.find('.jig-flowSpacer').length === 0) {
+                    s.element.find('.jig-imageContainer').last().after('<div class="jig-flowSpacer"></div>');
+                }
+                var flowSpacer = s.element.find('.jig-flowSpacer').css({
+                    width: '1px',
+                    height: lastForWrap.height() + 3,
+                    float: s.readingDirection == 'ltr' ? 'left' : 'right',
+                });
+                setTimeout(function () {
+                    if (s.readingDirection == 'ltr') {
+                        if (s.element.offset().left == flowSpacer.offset().left) {
+                            flowSpacer.css('margin-right', 0);
+                        } else {
+                            flowSpacer.css('margin-right', s.margins * 2);
+                        }
+                    } else {
+                        if (s.element.offset().left == flowSpacer.offset().left) {
+                            flowSpacer.css('margin-left', 0);
+                        } else {
+                            flowSpacer.css('margin-left', s.margins * 2);
+                        }
+                    }
+                }, 1);
+            }
+
+            if (
+                s.customFonts == 'yes' &&
+                s.caption !== 'off' &&
+                (s.caption == 'below' || s.verticalCenterCaptions !== 'off' || s.specialFx == 'captions')
+            ) {
+                alignAllCaptions(true);
+            }
+
+            // recalculates everything if the available width has been clipped due to the scrollbar that just appeared
+            s.prevInstanceID = '#jig' + (s.instance - 1);
+
+            if ($(window).width() != currentWindowWidth || s.areaWidth != Math.round(s.element.width())) {
+                s.resizeCount++;
+                if (s.resizeCount > 1) {
+                    s.element.css('min-height', s.element.height());
+                }
+                // calling CG due to changed window / JIG dimensions
+                plugin.createGallery('resize');
+
+                if (s.instance > 1 && $(s.prevInstanceID).length !== 0) {
+                    // calling previous instance's CG due to changed window dimensions
+                    $(s.prevInstanceID).data('justifiedImageGrid').createGallery('resize');
+                }
+                s.element.css('min-height', '');
+                return;
+            }
+
+            if (s.instance > 1 && $(s.prevInstanceID).length !== 0) {
+                s.prevInstanceData = $(s.prevInstanceID).data('justifiedImageGrid');
+                s.prevInstanceData.s.element.css('width', '').css('width', s.prevInstanceData.s.element.width());
+                if (s.prevInstanceData.s.areaWidth != s.prevInstanceData.s.element.width()) {
+                    // calling previous instance's CG due to the fact that the previous instance is supposedly changed
+                    s.prevInstanceData.createGallery('resize');
+                }
+            }
+            s.resizeCount = 0;
+            s.lastWindowWidth = currentWindowWidth;
+            s.visibleImageCount = $('.jig-imageContainer', s.element).length;
+        }; // end  of createGallery
+
+        // Aligns all captions, for vertical align feature, caption special effects and caption truncation for "below" style. Called once after the gallery is created (or resized) AND when custom fonts are loaded.
+        var alignAllCaptions = function (instantAlign) {
+            // When explicitly set to true, it's part of the createGallery function, a sort of post processing
+            if (instantAlign !== true) {
+                // this is called by custom fonts being loaded, instantAlign won't be a boolean at all
+                if (s.specialFx == 'captions') {
+                    instantAlign = true;
+                } else {
+                    instantAlign = false;
+                }
+            }
+
+            s.element.find('.jig-imageContainer').each(function (index, imageContainer) {
+                var $imageContainer = $(imageContainer),
+                    captionWrappers;
+
+                if (s.verticalCenterCaptions !== 'off') {
+                    captionWrappers = $imageContainer.find('.jig-caption-wrapper');
+                    var roleReal = captionWrappers.filter('.jig-cw-role-real'),
+                        roleRealHeight = roleReal.height(),
+                        captionObject = roleReal.find('.jig-caption'),
+                        captionDescriptionWrapper =
+                            s.caption == 'mixed' || s.caption == 'reverse-mixed'
+                                ? roleReal.find('.jig-caption-description-wrapper')
+                                : false;
+
+                    if (!((s.caption == 'slide' || s.caption == 'reverse-slide') && captionObject.is(':animated'))) {
+                        if (
+                            !(
+                                (s.caption == 'mixed' || s.caption == 'reverse-mixed') &&
+                                captionDescriptionWrapper.is(':animated')
+                            )
+                        ) {
+                            // the caption is not animated at the moment
+                            if (roleRealHeight === 0) {
+                                captionObject.css({opacity: 0, display: 'block'});
+                                roleRealHeight = roleReal.height();
+                                captionObject.removeAttr('style');
+                            }
+                            if (instantAlign === true) {
+                                captionWrappers.css({
+                                    bottom: 'auto',
+                                    top: Math.round(
+                                        roleReal.closest('.jig-imageContainer').height() / 2 - roleRealHeight / 2
+                                    ),
+                                });
+                            } else {
+                                captionWrappers.css({bottom: 'auto'}).animate(
+                                    {
+                                        top: Math.round(
+                                            roleReal.closest('.jig-imageContainer').height() / 2 - roleRealHeight / 2
+                                        ),
+                                    },
+                                    s.animSpeed,
+                                    'JIGeaseInOutQuad'
+                                );
+                            }
+                        } else {
+                            // the caption is mixed or reverse-mixed AND animated at the moment
+                            captionDescriptionWrapper.promise().done(function () {
+                                roleRealHeight = roleReal.height();
+                                var captionDescriptionWrapperHeight = captionDescriptionWrapper.height();
+                                if (s.caption == 'mixed' && captionDescriptionWrapperHeight !== 0) {
+                                    captionDescriptionWrapper.css({display: 'none'});
+                                    roleRealHeight = roleReal.height();
+                                    captionDescriptionWrapper.css({display: 'block'});
+                                } else if (s.caption == 'reverse-mixed' && captionDescriptionWrapperHeight === 0) {
+                                    captionDescriptionWrapper.css({display: 'block'});
+                                    roleRealHeight = roleReal.height();
+                                    captionDescriptionWrapper.css({display: 'none'});
+                                }
+                                captionWrappers.css({bottom: 'auto'}).animate(
+                                    {
+                                        top: Math.round(
+                                            roleReal.closest('.jig-imageContainer').height() / 2 - roleRealHeight / 2
+                                        ),
+                                    },
+                                    s.animSpeed,
+                                    'JIGeaseInOutQuad'
+                                );
+                            });
+                        }
+                    } else {
+                        // the caption is slide or reverse-slide AND animated at the moment
+                        captionObject.promise().done(function () {
+                            roleRealHeight = roleReal.height();
+                            if (roleRealHeight === 0) {
+                                captionObject.css({opacity: 0, display: 'block'});
+                                roleRealHeight = roleReal.height();
+                                captionObject.removeAttr('style');
+                            }
+                            captionWrappers.css({bottom: 'auto'}).animate(
+                                {
+                                    top: Math.round(
+                                        roleReal.closest('.jig-imageContainer').height() / 2 - roleRealHeight / 2
+                                    ),
+                                },
+                                s.animSpeed,
+                                'JIGeaseInOutQuad'
+                            );
+                        });
+                    }
+                }
+
+                if (s.caption == 'below') {
+                    truncateCaptions($imageContainer, true);
+                }
+
+                if (s.specialFx == 'captions') {
+                    // Chrome subpixel thing. Positioning the caption background is off by 1 pixel, when the parent container and/or the caption container is not of an even width. Only if it's "special effects behind the captions" + Chrome browser + caption background matches text width scenario, an edge case.
+                    if (Chrome && s.captionMatchWidth !== 'no') {
+                        $imageContainer.find('.jig-caption-title, .jig-caption-wrapper').each(function () {
+                            var $this = $(this),
+                                origWidth = $this.css('width', '')[0].getBoundingClientRect().width;
+                            if (origWidth % 2 !== 0) {
+                                origWidth = Math.ceil(origWidth);
+                                $this.css({width: origWidth % 2 !== 0 ? origWidth + 1 : origWidth});
+                            }
+                        });
+                    }
+                    captionWrappers = captionWrappers ? captionWrappers : $imageContainer.find('.jig-caption-wrapper');
+                    alignCaptionSpecialEffect(getObjectsForCaptionSpecialEffect(captionWrappers));
+                }
+            });
+        };
+
+        var initLightbox = function () {
+            switch (s.lightbox) {
+                case 'prettyphoto':
+                case 'colorbox':
+                case 'magnific':
+                case 'photoswipe':
+                case 'photoswipe3':
+                case 'foobox':
+                case 'custom':
+                    window[s.lightboxInit]();
+                    break;
+                case 'links-off':
+                    s.element.find('a').css('cursor', 'default');
+                    s.element.on('click', 'a', function (event) {
+                        event.preventDefault();
+                        return;
+                    });
+                    //middle click prevention
+                    $(s.element).on('click', 'a', function (event) {
+                        if (event.which === 2) {
+                            event.preventDefault();
+                        }
+                    });
+                    break;
+                default:
+                    break;
+            }
+        };
+        var doTheFilter = function (event) {
+            var $this = $(this),
+                slug = $this.attr('data-filter-slug'),
+                okToCreate = false,
+                filterLevel,
+                m,
+                n,
+                o,
+                p; // loop variables pre defined for re-use
+            // If the function is called manually (not via the click) then it' should select the first filter button
+            if (typeof event === 'undefined') {
+                if (s.filters !== false) {
+                    $this = $('#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType).first();
+                    slug = $this.attr('data-filter-slug');
+                } else {
+                    $this = $(
+                        '#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType
+                    ).first();
+                    slug = $this.attr('data-filter-slug');
+                }
+            }
+            filterLevel = $this.parent().attr('data-filter-level');
+            if (filterLevel == 1) {
+                // If a level 1 filter button is clicked
+                if (s.filterMultiple == 'no' || slug == 'all-items-nofilter') {
+                    if ($this.hasClass('jig-filter' + s.filterType + 'Selected') === false) {
+                        $this
+                            .siblings('.jig-filter' + s.filterType + 'Selected')
+                            .removeClass('jig-filter' + s.filterType + 'Selected');
+                        $this.addClass('jig-filter' + s.filterType + 'Selected');
+                        s.selectedItems = s.filteredImages[slug];
+                        okToCreate = true;
+                    }
+                } else {
+                    var selectedCount = $this.parent().find('.jig-filter' + s.filterType + 'Selected').length;
+                    if (
+                        selectedCount == 1 &&
+                        $this.siblings('.jig-filter' + s.filterType + 'Selected').attr('data-filter-slug') ==
+                            'all-items-nofilter'
+                    ) {
+                        $this
+                            .siblings('.jig-filter' + s.filterType + 'Selected')
+                            .removeClass('jig-filter' + s.filterType + 'Selected');
+                    }
+                    if ($this.hasClass('jig-filter' + s.filterType + 'Selected') === false) {
+                        $this.addClass('jig-filter' + s.filterType + 'Selected');
+                        selectedCount++;
+                    } else {
+                        if (selectedCount == 1) {
+                            if (
+                                $('#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType)
+                                    .first()
+                                    .attr('data-filter-slug') == 'all-items-nofilter'
+                            ) {
+                                $('#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType)
+                                    .first()
+                                    .click()
+                                    .addClass('jig-filter' + s.filterType + 'Selected');
+                            } else {
+                                return;
+                            }
+                        }
+                        $this.removeClass('jig-filter' + s.filterType + 'Selected');
+                        selectedCount--;
+                    }
+
+                    var filterCombination = [];
+                    $this
+                        .parent()
+                        .find('.jig-filter' + s.filterType + 'Selected')
+                        .each(function () {
+                            filterCombination.push($(this).attr('data-filter-slug'));
+                        });
+
+                    slug = filterCombination.toString();
+
+                    if (typeof s.filteredImages[slug] === 'undefined') {
+                        s.filteredImages[slug] = [];
+                        var filterMatches = 0;
+                        n = s.allItems.length;
+                        for (m = 0; m < n; m += 1) {
+                            if (s.allItems[m].filters) {
+                                filterMatches = 0;
+                                // for each filter of the image
+                                p = s.allItems[m].filters.length;
+                                for (o = 0; o < p; o += 1) {
+                                    if (s.filterMultiple == 'or') {
+                                        // OR: expanding, union
+                                        // checks if the slug is in the array of the combination
+                                        // also avoids double images
+                                        if (
+                                            $.inArray(s.allItems[m].filters[o][0], filterCombination) > -1 &&
+                                            $.inArray(s.allItems[m], s.filteredImages[slug]) == -1
+                                        ) {
+                                            // push the image in the results array that is used to display the gallery
+                                            s.filteredImages[slug].push(s.allItems[m]);
+                                        }
+                                    } else {
+                                        // AND: narrowing, intersect
+                                        // checks if the slug is in the array of the combination
+                                        if ($.inArray(s.allItems[m].filters[o][0], filterCombination) > -1) {
+                                            filterMatches++;
+                                        }
+                                        // if the image has all of the selected filters
+                                        // push the image in the results array that is used to display the gallery
+                                        // also avoids double images
+                                        if (
+                                            filterMatches == filterCombination.length &&
+                                            $.inArray(s.allItems[m], s.filteredImages[slug]) == -1
+                                        ) {
+                                            s.filteredImages[slug].push(s.allItems[m]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    s.selectedItems = s.filteredImages[slug];
+                    okToCreate = true;
+
+                    /*
+					s.element.find('.jig-imageContainer, .jig-hiddenLink').remove();
+					for(var v = 0, x = s.selectedItems.length; v < x; v += 1){ // get rid of references to hidden links
+						s.selectedItems[v].linkContainer = undefined;
+					}
+
+					plugin.createGallery('filter');
+					*/
+                }
+                if (okToCreate && s.L2filters) {
+                    s.L1selectedItems = s.selectedItems;
+                }
+            }
+            // If Level 2 filters are there (not necessarily clicked yet)
+            if (s.L2filters) {
+                // If the function is called manually (not via the click) then it' should select the first filter button
+                if (typeof event === 'undefined') {
+                    $this = $(
+                        '#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType
+                    ).first();
+                    filterLevel = $this.parent().attr('data-filter-level');
+                }
+                // If a level 2 filtering is not just there but something from level 2was actually clicked
+                if (filterLevel == 2) {
+                    // manage selecting/deselecting the filter buttons or tags according to single or multiple filters
+                    // generate the l2 filtercombination and the l2 slug
+                    // not a single thing more
+
+                    if (s.L2filterMultiple == 'no' || slug == 'all-items-nofilter') {
+                        $this
+                            .siblings('.jig-filter' + s.L2filterType + 'Selected')
+                            .removeClass('jig-filter' + s.L2filterType + 'Selected');
+                        $this.addClass('jig-filter' + s.L2filterType + 'Selected');
+                    } else {
+                        var L2selectedCount = $this.parent().find('.jig-filter' + s.L2filterType + 'Selected').length;
+                        if (
+                            L2selectedCount == 1 &&
+                            $this.siblings('.jig-filter' + s.L2filterType + 'Selected').attr('data-filter-slug') ==
+                                'all-items-nofilter'
+                        ) {
+                            $this
+                                .siblings('.jig-filter' + s.L2filterType + 'Selected')
+                                .removeClass('jig-filter' + s.L2filterType + 'Selected');
+                        }
+                        if ($this.hasClass('jig-filter' + s.L2filterType + 'Selected') === false) {
+                            $this.addClass('jig-filter' + s.L2filterType + 'Selected');
+                            L2selectedCount++;
+                        } else {
+                            if (L2selectedCount == 1) {
+                                if (
+                                    $(
+                                        '#jig' +
+                                            s.instance +
+                                            '-L2filter' +
+                                            s.L2filterType +
+                                            's .jig-filter' +
+                                            s.L2filterType
+                                    )
+                                        .first()
+                                        .attr('data-filter-slug') == 'all-items-nofilter'
+                                ) {
+                                    $(
+                                        '#jig' +
+                                            s.instance +
+                                            '-L2filter' +
+                                            s.L2filterType +
+                                            's .jig-filter' +
+                                            s.L2filterType
+                                    )
+                                        .first()
+                                        .click()
+                                        .addClass('jig-filter' + s.L2filterType + 'Selected');
+                                } else {
+                                    return;
+                                }
+                            }
+                            $this.removeClass('jig-filter' + s.L2filterType + 'Selected');
+                            L2selectedCount--;
+                        }
+                    }
+                }
+
+                // create a filter combination of level 2 selected filters
+                var L2filterCombination = [];
+                $(
+                    '#jig' + s.instance + '-L2filter' + s.L2filterType + 's .jig-filter' + s.L2filterType + 'Selected'
+                ).each(function () {
+                    L2filterCombination.push($(this).attr('data-filter-slug'));
+                });
+
+                // create a slug combination of level 1 AND level 2 selected filter slugs
+
+                // Get the (combined) slug of level 1
+                slug = [];
+                if (s.filters) {
+                    $(
+                        '#jig' + s.instance + '-filter' + s.filterType + 's .jig-filter' + s.filterType + 'Selected'
+                    ).each(function () {
+                        slug.push($(this).attr('data-filter-slug'));
+                    });
+                }
+                var slugCombination = slug.concat(L2filterCombination).toString();
+
+                // s.L1selectedItems should be used instead of the s.allItems
+                // if level 1 filters are false then make s.L1selectedItems the s.allItems manually
+                if (s.filters === false) {
+                    s.L1selectedItems = s.allItems;
+                }
+
+                // do the filtering for level 2, if that slug combination is not yet cached already
+                if (typeof s.filteredImages[slugCombination] === 'undefined') {
+                    if (L2filterCombination.length == 1 && L2filterCombination[0] == 'all-items-nofilter') {
+                        s.filteredImages[slugCombination] = s.L1selectedItems;
+                        s.selectedItems = s.filteredImages[slugCombination];
+                    } else {
+                        s.filteredImages[slugCombination] = [];
+                        var L2filterMatches = 0;
+                        n = s.L1selectedItems.length;
+                        for (m = 0; m < n; m += 1) {
+                            if (s.L1selectedItems[m].L2filters) {
+                                L2filterMatches = 0;
+                                // for each filter of the image
+                                p = s.L1selectedItems[m].L2filters.length;
+                                for (o = 0; o < p; o += 1) {
+                                    if (s.L2filterMultiple == 'or') {
+                                        // OR: expanding, union
+                                        // checks if the slugCombination is in the array of the combination
+                                        // also avoids double images
+                                        if (
+                                            $.inArray(s.L1selectedItems[m].L2filters[o][0], L2filterCombination) > -1 &&
+                                            $.inArray(s.L1selectedItems[m], s.filteredImages[slugCombination]) == -1
+                                        ) {
+                                            // push the image in the results array that is used to display the gallery
+                                            s.filteredImages[slugCombination].push(s.L1selectedItems[m]);
+                                        }
+                                    } else {
+                                        // AND: narrowing, intersect
+                                        // checks if the slugCombination is in the array of the combination
+                                        if ($.inArray(s.L1selectedItems[m].L2filters[o][0], L2filterCombination) > -1) {
+                                            L2filterMatches++;
+                                        }
+                                        // if the image has all of the selected filters
+                                        // push the image in the results array that is used to display the gallery
+                                        // also avoids double images
+                                        if (
+                                            L2filterMatches == L2filterCombination.length &&
+                                            $.inArray(s.L1selectedItems[m], s.filteredImages[slugCombination]) == -1
+                                        ) {
+                                            s.filteredImages[slugCombination].push(s.L1selectedItems[m]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // leave the selected items in the filtered state
+                s.selectedItems = s.filteredImages[slugCombination];
+                // then indicate that it's ok to create the gallery
+                okToCreate = true;
+            }
+            if (okToCreate) {
+                s.element.find('.jig-imageContainer, .jig-hiddenLink').remove();
+                for (var t = 0, u = s.selectedItems.length; t < u; t += 1) {
+                    // get rid of references to hidden links
+                    s.selectedItems[t].linkContainer = undefined;
+                }
+                plugin.createGallery('filter');
+            }
+        }; // end  of doTheFilter
+
+        // builds the rows of images
+        // takes the overall average aspect ratio of the row into consideration,
+        // to decide whether to shrink or enlarge the images when row height deviation is enabled
+        // when it's not enabled (fixed row height), or it can't fit the images into the row
+        // by enlarging or shrinking while maintaining aspect ratio,
+        // then it'll just crop off left and right sides of the images, keeping them at the target height
+        var buildImageRow = function () {
+            s.row = [];
+            s.validRow = true;
+            s.fullWidth = 0;
+            s.extra = 0;
+
+            // builds a row to see how wide it would be when the last image pokes out of the row
+            while (s.items.length > s.whileUntil && s.extra < s.areaWidth) {
+                var item = s.items.shift();
+                item.newHeight = item.newWidth = item.containerHeight = item.containerWidth = item.marLeft = undefined;
+                item.ratio = item.width / s.maxHeight;
+                s.row.push(item);
+                s.fullWidth += Math.round(item.width * s.defaultHeightRatio) + s.margins + s.bordersTotal;
+                s.extra = s.fullWidth - s.margins;
+            }
+            // s.extra is the extra pixels the last image uses after the available width
+            s.extra -= s.areaWidth;
+            // if the line is too long, make images smaller/larger(by popping one)
+            if ((s.row.length > 0 && s.extra > 0) || (s.rows.length === 0 && s.items.length > s.whileUntil)) {
+                var orientation = 'landscape';
+                for (var i = 0, j = s.row.length; i < j; i += 1) {
+                    if (s.row[i].ratio < 1) {
+                        orientation = 'portrait';
+                        break;
+                    }
+                }
+                if (orientation == 'landscape') {
+                    // if they are only landscape
+                    tryShrink(); // tries to shrink
+                } else {
+                    // if they have a portrait
+                    if (s.disableCropping !== 'yes') {
+                        tryGrow(); // tries to enlarge
+                    } else {
+                        tryShrink();
+                    }
+                }
+            } else {
+                // rare case when all images fit in (and/or under) the row with the default height (commonly the last row)
+                if (s.rows.length > 0 && s.items.length == s.whileUntil) {
+                    // this is the last row because no more images left
+                    switch (s.incompleteLastRow) {
+                        case 'flexible':
+                            tryGrow('flexible');
+                            break;
+                        case 'flexible-center':
+                            tryGrow('flexible-center');
+                            break;
+                        case 'hide':
+                            tryGrow('hide');
+                            break;
+                        case 'flexible-match':
+                            if (s.loadMore !== 'off' && s.selectedItems.length - s.limit <= 0) {
+                                matchRow();
+                            } else {
+                                tryGrow('flexible');
+                            }
+                            break;
+                        case 'flexible-match-center':
+                            if (s.loadMore !== 'off' && s.selectedItems.length - s.limit <= 0) {
+                                matchRow('center');
+                            } else {
+                                tryGrow('flexible-center');
+                            }
+                            break;
+                        case 'match':
+                            matchRow();
+                            break;
+                        case 'match-center':
+                            matchRow('center');
+                            break;
+                        case 'center':
+                            tryGrow('center');
+                            break;
+                        default:
+                            tryGrow('lastRow');
+                            break;
+                    }
+                    if (s.validRow === true) {
+                        return s.row;
+                    } else {
+                        //if it is the only row (first one do something to make the row visible)
+                        s.imagesShown -= s.row.length;
+                        s.unshifts = s.row;
+                        s.whileUntil += s.unshifts.length;
+                        return false;
+                    }
+                } else {
+                    if (
+                        s.incompleteLastRow !== 'center' &&
+                        s.incompleteLastRow !== 'match-center' &&
+                        s.incompleteLastRow !== 'flexible-match-center'
+                    ) {
+                        tryGrow('lastRow');
+                    } else {
+                        tryGrow('center');
+                    }
+                }
+            }
+            return s.row;
+        }; // end of buildImageRow
+
+        // tries to match the last row to the previous one if the images have the same aspect ratio
+        // called by the switch in buildImageRow function
+        var matchRow = function (mode) {
+            var prevRowHeight;
+            var lastRowID = 0;
+            for (var k = 0, l = s.rows.length; k < l; k += 1) {
+                lastRowID = k;
+            }
+            if (s.rows[lastRowID] === undefined || s.rows[lastRowID][0] === undefined) {
+                tryGrow('lastRow');
+                return;
+            }
+            prevRowHeight = s.rows[lastRowID][0].containerHeight
+                ? s.rows[lastRowID][0].containerHeight
+                : s.rows[lastRowID][0].newHeight; // this doesn't change over the previous row
+            s.marginsTotal = (s.row.length - 1) * s.margins + s.row.length * s.bordersTotal;
+            s.rowlen = 0;
+            for (var m = 0, n = s.row.length; m < n; m += 1) {
+                if (s.rows[lastRowID][m] !== undefined && s.row[m].width == s.rows[lastRowID][m].width) {
+                    // if the source picture is same kind, treat it the same way
+                    s.row[m].newHeight = s.rows[lastRowID][m].newHeight;
+                    s.row[m].containerHeight = s.rows[lastRowID][m].containerHeight;
+                    s.row[m].newWidth = s.rows[lastRowID][m].newWidth;
+                    s.row[m].containerWidth = s.rows[lastRowID][m].containerWidth;
+                    s.row[m].marLeft = s.rows[lastRowID][m].marLeft;
+                } else {
+                    s.row[m].newHeight = prevRowHeight;
+                    s.row[m].newWidth = Math.round(s.row[m].newHeight * s.row[m].ratio);
+                }
+
+                s.rowlen += s.row[m].newWidth;
+                if (typeof s.row[m].marLeft !== 'undefined') {
+                    s.rowlen -= s.row[m].marLeft * 2;
+                }
+            }
+            if (prevRowHeight > s.targetHeight) {
+                s.remaining = s.rowlen + s.marginsTotal - s.areaWidth;
+                if (s.remaining > 0) {
+                    finalize();
+                }
+            }
+            if (typeof mode !== 'undefined' && s.rowlen + s.marginsTotal < s.areaWidth) {
+                s.row[0].spaceLeft = Math.floor((s.areaWidth - s.rowlen - s.marginsTotal) * 0.5);
+            }
+        };
+
+        // tries to build the row by shrinking the images
+        // failure happens when it can only do that by going below the minimum height
+        // then it'll skip to the enlarge function
+        var tryShrink = function () {
+            var doFinalize = true;
+            s.marginsTotal = (s.row.length - 1) * s.margins + s.row.length * s.bordersTotal;
+            s.rowlen = 0;
+            s.heights = [];
+            for (var i = 0, j = s.row.length; i < j; i += 1) {
+                var targetWidth = Math.round(s.row[i].width * s.defaultHeightRatio),
+                    shrinkby = Math.round(((targetWidth + s.marginsTotal / s.row.length) / s.fullWidth) * s.extra);
+                s.row[i].newWidth = targetWidth - shrinkby;
+                s.heights[i] = s.row[i].newWidth / s.row[i].ratio;
+                if (s.heights[i] < s.minHeight) {
+                    tryGrow();
+                    return;
+                }
+                if (s.heights[i] > s.maxHeight) {
+                    s.row[i].newHeight = s.targetHeight;
+                    s.row[i].newWidth = Math.round(s.row[i].newHeight * s.row[i].ratio);
+                    doFinalize = false;
+                    continue;
+                }
+                s.row[i].newHeight = s.heights[i];
+                s.rowlen += s.row[i].newWidth;
+            }
+            // there can be a few pixels that remain due to rounding, and they need to be taken care of later
+            if (doFinalize) {
+                s.remaining = s.rowlen + s.marginsTotal - s.areaWidth;
+                finalize();
+            }
+            return;
+        }; // end of tryShrink
+
+        // tries to build the row by enlarging the images (and moving the last one to the next row)
+        // it fails when the images go above the maximum height
+        // upon failure it'll give up enlarging or shrinking and will just crop (gets back the last image)
+        var tryGrow = function (incompleteLastRow) {
+            var doFinalize = true;
+            if (s.row.length != 1 && incompleteLastRow === undefined) {
+                var leftover = s.row.pop();
+                s.fullWidth -= Math.round(leftover.width * s.defaultHeightRatio) + s.margins + s.bordersTotal;
+                s.items.unshift(leftover);
+                s.extra = s.fullWidth - s.margins;
+                s.extra -= s.areaWidth;
+                var removed = true;
+            }
+            s.marginsTotal = (s.row.length - 1) * s.margins + s.row.length * s.bordersTotal;
+            s.rowlen = 0;
+            s.heights = [];
+
+            for (var i = 0, j = s.row.length; i < j; i += 1) {
+                var targetWidth = Math.round(s.row[i].width * s.defaultHeightRatio);
+                var growby = Math.round(((targetWidth + s.marginsTotal / s.row.length) / s.fullWidth) * s.extra);
+                s.row[i].newWidth = targetWidth - growby;
+                s.heights[i] = s.row[i].newWidth / s.row[i].ratio;
+                if (s.heights[i] > s.maxHeight) {
+                    if (incompleteLastRow === undefined) {
+                        var item = s.items.shift();
+                        s.row.push(item);
+                        s.fullWidth += Math.round(item.width * s.defaultHeightRatio) + s.margins + s.bordersTotal;
+                        s.extra = s.fullWidth - s.margins;
+                        s.extra -= s.areaWidth;
+                        doCrop();
+                        return;
+                    } else {
+                        if (s.loadMore !== 'off' && s.selectedItems.length - s.limit <= 0) {
+                            if (incompleteLastRow == 'flexible') {
+                                incompleteLastRow = 'lastRow';
+                            } else if (incompleteLastRow == 'flexible-center') {
+                                incompleteLastRow = 'center';
+                            }
+                        }
+                        if (incompleteLastRow == 'lastRow') {
+                            for (var k = 0, l = s.row.length; k < l; k += 1) {
+                                s.row[k].newHeight = s.targetHeight;
+                                s.row[k].newWidth = Math.round(s.row[k].newHeight * s.row[k].ratio);
+                            }
+                            return;
+                        } else if (incompleteLastRow == 'center') {
+                            // similar to the normal mode
+                            var temporaryRowlen = 0;
+                            for (var kk = 0, ll = s.row.length; kk < ll; kk += 1) {
+                                s.row[kk].newHeight = s.targetHeight;
+                                s.row[kk].newWidth = Math.round(s.row[kk].newHeight * s.row[kk].ratio);
+                                temporaryRowlen += s.row[kk].newWidth;
+                            }
+
+                            s.row[0].spaceLeft = Math.floor((s.areaWidth - temporaryRowlen - s.marginsTotal) * 0.5);
+
+                            return;
+                        } else {
+                            s.validRow = false;
+                            s.row[i].newWidth = undefined;
+                            doFinalize = false;
+                        }
+                    }
+                } else if (s.heights[i] < s.minHeight && incompleteLastRow === undefined) {
+                    // it'll need to default to cropping after all, if it's fixed height
+                    doCrop();
+                    return;
+                }
+                if (s.row[i].newWidth !== undefined) {
+                    s.row[i].newHeight = s.heights[i];
+                    s.rowlen += s.row[i].newWidth;
+                }
+            }
+            if (doFinalize) {
+                s.remaining = s.rowlen + s.marginsTotal - s.areaWidth;
+                finalize();
+            }
+            return;
+        }; // end of tryGrow
+
+        // this makes the rows perfect by cropping or adding pixels whenever needed and possible
+        // it makes sure every row is truly justified even if it means cropping a few pixels off the bottom of some images
+        // that is because it'll re-shrink or re-enlarge images to make the +- pixels happen, then they won't have the same height anymore
+        // it'll distribute / take away pixels by taking into consideration the relative size of each image to the row
+        var finalize = function () {
+            if (s.remaining !== 0) {
+                if (s.remaining > 0) {
+                    // if positive, then an excess of pixels need to be removed (shrink images)
+                    while (s.remaining > 0) {
+                        for (var i = 0, j = s.row.length; i < j; i += 1) {
+                            s.row[i].newWidth--;
+                            s.row[i].newHeight = s.heights[i] = s.row[i].newWidth / s.row[i].ratio;
+                            s.remaining--;
+                            if (s.remaining === 0) {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    // if negative, the row needs more pixels (enlarge images)
+                    while (s.remaining < 0) {
+                        for (var k = 0, l = s.row.length; k < l; k += 1) {
+                            s.row[k].newWidth++;
+                            s.row[k].newHeight = s.heights[k] = s.row[k].newWidth / s.row[k].ratio;
+                            s.remaining++;
+                            if (s.remaining === 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            // finds the smallest (safe) height and matches all the other images to that height by cropping
+            var safeMinimumHeight = Math.floor(Math.min.apply(null, s.heights));
+            for (var m = 0, n = s.row.length; m < n; m += 1) {
+                s.row[m].containerHeight = safeMinimumHeight;
+                s.row[m].newHeight = Math.round(s.row[m].newHeight);
+            }
+        }; // end of finalize
+
+        // does the croppnig by reducing the image container's width and by setting a left border
+        // cropping happens often if the row height is fixed
+        var doCrop = function () {
+            var crop = getCrop();
+            for (var i = 0, j = s.row.length; i < j; i += 1) {
+                var unWanted = crop[i];
+                var item = s.row[i];
+                item.marLeft = Math.round(unWanted / 2);
+                item.containerWidth = item.newWidth - unWanted;
+            }
+            return;
+        }; // end of doCrop
+
+        // calculates the actual pixels to crop by and distributes them over all the images
+        // taking into consideration their relative size to the row
+        var getCrop = function () {
+            var crop = [];
+            var cropTotal = 0;
+            s.marginsTotal = (s.row.length - 1) * s.margins + s.row.length * s.bordersTotal;
+            for (var i = 0, j = s.row.length; i < j; i += 1) {
+                var item = s.row[i],
+                    targetWidth = Math.round(s.row[i].width * s.defaultHeightRatio);
+                item.newHeight = s.targetHeight;
+                item.newWidth = targetWidth;
+                crop[i] = Math.round(((targetWidth + s.marginsTotal / s.row.length) / s.fullWidth) * s.extra);
+                cropTotal += crop[i];
+            }
+
+            // similar to finalize after shrink/grow, there can be a few  +- pixels that remain due to rounding
+            var cropRemain = s.extra - cropTotal;
+            if (cropRemain !== 0) {
+                if (cropRemain > 0) {
+                    while (cropRemain > 0) {
+                        for (var k = 0, l = crop.length; k < l; k += 1) {
+                            // add pixels
+                            crop[k]++;
+                            cropRemain--;
+                            if (cropRemain === 0) {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    while (cropRemain < 0) {
+                        for (var m = 0, n = crop.length; m < n; m += 1) {
+                            // remove pixels
+                            crop[m]--;
+                            cropRemain++;
+                            if (cropRemain === 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return crop;
+        }; // end of getCrop
+
+        // creates the actual container element that holds the link, image, captions, overlay, and all the wrapper divs
+        // used by createGallery
+        var createImageElement = function (item, rowlength, id) {
+            if (isNaN(item.newWidth) || !item.width) {
+                return false;
+            }
+            if (item.linkContainer !== undefined) {
+                $(item.linkContainer).remove();
+                item.linkContainer = undefined;
+            }
+            if (typeof item[s.linkTitleField] === 'undefined') {
+                item[s.linkTitleField] = '';
+            }
+            if (typeof item[s.imgAltField] === 'undefined') {
+                item[s.imgAltField] = '';
+            }
+            if (typeof item[s.titleField] === 'undefined') {
+                item[s.titleField] = '';
+            }
+            if (typeof item[s.captionField] === 'undefined') {
+                item[s.captionField] = '';
+            }
+            if (typeof item['gallery'] === 'undefined') {
+                item['gallery'] = '';
+            }
+
+            var extraClass = '';
+            if (!item.carousel_data) {
+                item.carousel_data = '';
+            } else {
+                item.carousel_data = ' ' + item.carousel_data + ' ';
+                extraClass = ' tiled-gallery-item';
+            }
+            if (item.extra_class) {
+                extraClass += ' ' + item.extra_class;
+            }
+            item.off = '';
+            item.url = !item.link ? item.url : item.url;
+            var imageContainer = $('<div class="jig-imageContainer' + extraClass + '"/>'),
+                overflow = $('<div class="jig-overflow"/>'),
+                href = item.url,
+                target = item.link_target ? item.link_target : '_self',
+                linkClass = s.linkClass,
+                linkRel = s.linkRel,
+                titleFragment = '',
+                altFragment = '',
+                downloadLink,
+                lightboxLink,
+                urlDecodeNeeded = true;
+
+            if (item.gallery !== '') {
+                imageContainer.append(item.gallery['html']);
+                linkRel = ' rel="' + item.gallery['rel'] + '" ';
+                imageContainer.addClass(item.gallery['lightbox_class']);
+                imageContainer.attr('id', item.gallery['id']);
+            }
+
+            if (item.link) {
+                href = item.link;
+                if (target !== 'video' && target !== 'videoplayer') {
+                    // video here means video / iframe / another picture in the lightbox!
+                    if (target !== 'foobox') {
+                        linkClass = 'target="' + target + '" ' + linkClass.replace('jig-link', 'jig-customLink');
+                    } else {
+                        linkClass = 'target="' + target + '" ' + linkClass.replace('jig-link', '');
+                    }
+                    linkRel = item.link_rel ? 'rel="' + item.link_rel + '"' : '';
+                } else if (s.lightbox == 'magnific') {
+                    if (linkClass.indexOf('mfp-') == -1) {
+                        linkClass = linkClass.replace('jig-link', 'jig-link mfp-iframe');
+                    }
+                }
+                if (target == 'videoplayer' || target == 'foobox') {
+                    if (href.indexOf('&poster=') !== -1 || href.indexOf('|poster=') !== -1) {
+                        urlDecodeNeeded = false;
+                    }
+                }
+            }
+
+            if (urlDecodeNeeded === true) {
+                href = (href + '').replace(/\+/g, '%20');
+                if (href.substr(0, 14) === 'https%3A%2F%2F' || href.substr(0, 13) === 'http%3A%2F%2F') {
+                    try {
+                        href = decodeURIComponent(href);
+                    } catch (exception) {}
+                }
+            }
+            titleFragment = item[s.linkTitleField];
+            altFragment = item[s.imgAltField];
+
+            if (item.download) {
+                if (s.downloadLink == 'yes') {
+                    downloadLink = (titleFragment.length !== 0 ? s.separatorCharacter : '') + item.download;
+                    titleFragment += downloadLink;
+                } else if (s.downloadLink == 'alt') {
+                    downloadLink = (altFragment.length !== 0 ? s.separatorCharacter : '') + item.download;
+                    altFragment += downloadLink;
+                }
+            }
+            if (item.lightbox_link) {
+                if (s.lightboxLink == 'yes') {
+                    lightboxLink = (titleFragment.length !== 0 ? s.separatorCharacter : '') + item.lightbox_link;
+                    titleFragment += lightboxLink;
+                } else if (s.lightboxLink == 'alt') {
+                    lightboxLink = (altFragment.length !== 0 ? s.separatorCharacter : '') + item.lightbox_link;
+                    altFragment += lightboxLink;
+                }
+            }
+            if (titleFragment !== '') {
+                titleFragment = 'title="' + titleFragment + '" ';
+            }
+            if (altFragment !== '') {
+                altFragment = 'alt="' + altFragment + '" ';
+            }
+            if (s.lightbox == 'new_tab') {
+                linkClass = 'target="_blank" ';
+            }
+            var linkAttribute = s.linkAttribute;
+            if (item.extra_class) {
+                linkAttribute = linkAttribute.replace(
+                    '*content*',
+                    item.extra_class.replace(/.*jig-contentID-[A-Z]{2}-(\d+).*/gm, '$1')
+                );
+            }
+            var link = $(
+                    '<a ' +
+                        linkClass +
+                        linkRel +
+                        linkAttribute +
+                        titleFragment +
+                        (item.wh ? 'data-wh="' + item.wh + '" ' : '') +
+                        'href="' +
+                        (s.lightbox != 'links-off' ? href : '#') +
+                        '" />'
+                ),
+                img = $('<img ' + altFragment + item.carousel_data + '/>');
+            if (item.carousel_data) {
+                if (item.download) {
+                    if (s.downloadLink == 'yes') {
+                        downloadLink =
+                            (img.attr('data-image-title').length !== 0 ? s.separatorCharacter : '') +
+                            $('<textarea />').html(item.download).val();
+                        img.attr('data-image-title', img.attr('data-image-title') + downloadLink);
+                    } else if (s.downloadLink == 'alt') {
+                        downloadLink =
+                            (img.attr('data-image-description').length !== 0 ? '<br />' : '') +
+                            $('<textarea />').html(item.download).val();
+                        img.attr('data-image-description', img.attr('data-image-description') + downloadLink);
+                    }
+                }
+            }
+            if (typeof item.geo !== 'undefined') {
+                img.attr('data-geo', item.geo);
+            }
+
+            //overflow.css('opacity',0); // not needed since show up is with CSS3
+            if (id == rowlength - 1) {
+                imageContainer.addClass('jig-last');
+            }
+            overflow.css('width', (item.containerWidth ? item.containerWidth : item.newWidth) + 'px');
+            overflow.css('height', (item.containerHeight ? item.containerHeight : item.newHeight) + 'px');
+            if (!item.photon) {
+                var itemurl = !item.thumbUrl ? item.url : item.thumbUrl,
+                    timthumbHeight = s.originalMaxHeight,
+                    timthumbWidth,
+                    match,
+                    ext = '';
+                if (s.thumbnailFilename == 'normal') {
+                    match = /.*\.(jpe?g|gif|bmp|png|webp)/im.exec(itemurl);
+                    if (match !== null) {
+                        ext = '&f=.' + match[1];
+                    }
+                }
+
+                if (!s.aspectRatio && !s.randomizeWidth) {
+                    if (s.retinaReady == 'yes') {
+                        timthumbHeight = Math.floor(timthumbHeight * s.devicePixelRatio);
+                        timthumbWidth = Math.floor(
+                            (typeof item.originalWidth !== 'undefined' ? item.originalWidth : item.width) *
+                                s.devicePixelRatio
+                        );
+                        img.attr(
+                            'src',
+                            s.timthumb +
+                                '?src=' +
+                                itemurl +
+                                '&h=' +
+                                timthumbHeight +
+                                '&w=' +
+                                timthumbWidth +
+                                '&q=' +
+                                s.quality +
+                                s.cropZone +
+                                ext
+                        );
+                    } else {
+                        img.attr(
+                            'src',
+                            s.timthumb +
+                                '?src=' +
+                                itemurl +
+                                '&h=' +
+                                timthumbHeight +
+                                '&q=' +
+                                s.quality +
+                                s.cropZone +
+                                ext
+                        );
+                    }
+                } else {
+                    timthumbWidth = s.maxWidth;
+                    if (s.randomizeWidth !== '') {
+                        timthumbWidth = typeof item.originalWidth !== 'undefined' ? item.originalWidth : item.width;
+                    }
+                    if (s.retinaReady == 'yes') {
+                        timthumbHeight = Math.floor(timthumbHeight * s.devicePixelRatio);
+                        timthumbWidth = Math.floor(timthumbWidth * s.devicePixelRatio);
+                    }
+
+                    img.attr(
+                        'src',
+                        s.timthumb +
+                            '?src=' +
+                            itemurl +
+                            '&h=' +
+                            timthumbHeight +
+                            '&w=' +
+                            timthumbWidth +
+                            '&q=' +
+                            s.quality +
+                            s.cropZone +
+                            ext
+                    );
+                }
+            } else {
+                img.attr('src', decodeURIComponent((item.photon + '').replace(/\+/g, '%20')));
+            }
+            img.attr('width', item.newWidth).css('width', item.newWidth + 'px');
+            img.attr('height', item.newHeight).css('height', item.newHeight + 'px');
+            if (item.marLeft) {
+                img.css('margin-left', -item.marLeft + 'px');
+            }
+
+            if (
+                (s.incompleteLastRow == 'center' ||
+                    s.incompleteLastRow == 'flexible-center' ||
+                    s.incompleteLastRow == 'flexible-match-center' ||
+                    s.incompleteLastRow == 'match-center') &&
+                item.spaceLeft &&
+                item.spaceLeft > 0
+            ) {
+                imageContainer.css(s.readingDirection == 'ltr' ? 'margin-left' : 'margin-right', item.spaceLeft + 'px');
+                item.spaceLeft = 0;
+            }
+
+            img.css('margin-top', 0);
+            link.append(img);
+            if (s.overlay !== 'off') {
+                link.append(
+                    '<div class="jig-overlay-wrapper"><div class="jig-overlay"></div></div>' +
+                        (s.overlayIcon === 'on'
+                            ? '<div class="jig-overlay-icon-wrapper"><div class="jig-overlay-icon"></div></div>'
+                            : '')
+                );
+            }
+
+            if (s.caption !== 'off') {
+                if (item.gallery !== '') {
+                    item[s.titleField] =
+                        typeof item.gallery[s.titleField] !== 'undefined' &&
+                        item.gallery[s.titleField] !== '' &&
+                        item.gallery[s.titleField] !== ' '
+                            ? item.gallery[s.titleField]
+                            : '';
+                    item[s.captionField] =
+                        typeof item.gallery[s.captionField] !== 'undefined' &&
+                        item.gallery[s.captionField] !== '' &&
+                        item.gallery[s.captionField] !== ' '
+                            ? item.gallery[s.captionField]
+                            : '';
+                }
+                var captionContent = '';
+                if (item[s.titleField] !== '' && item[s.titleField] !== ' ') {
+                    captionContent +=
+                        '<div class="jig-caption-title">' +
+                        strip_tags(item[s.titleField], '<br><hr><em><strong><mark><i><b><font><span><ul><ol><li>') +
+                        '</div>';
+                }
+                if (item[s.captionField] !== '' && item[s.captionField] !== ' ') {
+                    captionContent +=
+                        '<div class="jig-caption-description-wrapper"><div class="jig-caption-description' +
+                        (captionContent !== '' ? '' : ' jig-alone') +
+                        '">' +
+                        strip_tags(item[s.captionField], '<br><hr><em><strong><mark><i><b><font><span><ul><ol><li>') +
+                        '</div></div>';
+                }
+                if (captionContent !== '') {
+                    item.$captionWrapper = $(
+                        '<div class="jig-caption-wrapper jig-cw-role-real"><div class="jig-caption">' +
+                            captionContent +
+                            '</div></div>'
+                    );
+
+                    if (s.caption !== 'below') {
+                        link.append(item.$captionWrapper);
+                    } else if (s.middleBorderWidth !== 0 && s.innerBorder == 'always' && s.middleBorder !== 'always') {
+                        imageContainer.append(
+                            item.$captionWrapper.width(overflow.width() - 2 * parseFloat(s.innerBorderWidth))
+                        );
+                    } else {
+                        imageContainer.append(item.$captionWrapper.css({width: overflow.css('width')}));
+                    }
+                } else if (s.caption == 'below') {
+                    item.$captionWrapper = $('<div class="jig-caption-wrapper"></div>');
+                    if (s.middleBorderWidth !== 0 && s.innerBorder == 'always' && s.middleBorder !== 'always') {
+                        imageContainer.append(
+                            item.$captionWrapper.width(overflow.width() - 2 * parseFloat(s.innerBorderWidth))
+                        );
+                    } else {
+                        imageContainer.append(item.$captionWrapper.css({width: overflow.css('width')}));
+                    }
+                }
+            }
+            if (s.bordersTotal !== 0 || s.innerBorderWidth !== 0) {
+                link.append('<div class="jig-border"></div>');
+            }
+
+            overflow.append(link);
+            if (item.carousel_data && item['caption']) {
+                overflow.append('<div class="tiled-gallery-caption">' + strip_tags(item['caption']) + '</div>');
+            }
+            imageContainer.prepend(overflow);
+
+            s.element.find('.jig-clearfix').before(imageContainer);
+
+            if (s.caption !== 'off') {
+                if (s.caption == 'below') {
+                    truncateCaptions(imageContainer);
+                } else {
+                    if (s.specialFx == 'captions') {
+                        var roleEffect,
+                            roleReal = imageContainer.find('.jig-cw-role-real');
+                        if (roleReal.length !== 0) {
+                            if (s.captionMatchWidth == 'no' || s.captionMatchWidthForceNo) {
+                                roleEffect = $(roleReal[0].cloneNode(false));
+                            } else {
+                                roleEffect = roleReal.clone();
+                            }
+                            roleEffect.removeClass('jig-cw-role-real').addClass('jig-cw-role-effect');
+                            if (s.overlay !== 'off') {
+                                imageContainer.find('.jig-overlay-wrapper').before(roleEffect);
+                            } else {
+                                roleReal.before(roleEffect);
+                            }
+                        }
+                    }
+                }
+            }
+
+            item.container = imageContainer;
+            item.overflow = overflow;
+            item.img = img;
+            item.linkElement = link;
+            return imageContainer;
+        }; // end of createImageElement
+
+        // updates an existing image container element with the newly calculated dimensions and margin data
+        // used by createGallery
+        // checks for pixastic neighbour
+        var updateImageElement = function (item, rowlength, id) {
+            if (id == rowlength - 1) {
+                item.container.addClass('jig-last');
+            } else {
+                item.container.removeClass('jig-last');
+            }
+
+            var overflow = item.overflow,
+                img = item.img;
+
+            // the .width(); at the end of this line that seemingly does nothing, forces some kind of repaint on Firefox 40 and newer, where the grid would fall apart as width: auto; fails to work on the image container element - unexplainable rendering bug, it seems.
+            overflow.css('width', (item.containerWidth ? item.containerWidth : item.newWidth) + 'px').width();
+            overflow.css('height', (item.containerHeight ? item.containerHeight : item.newHeight) + 'px');
+            img.attr('width', item.newWidth).css('width', item.newWidth + 'px');
+            img.attr('height', item.newHeight).css('height', item.newHeight + 'px');
+            if (item.marLeft) {
+                img.css('margin-left', -item.marLeft + 'px');
+            } else {
+                img.css('margin-left', '');
+            }
+            if (
+                s.incompleteLastRow == 'center' ||
+                s.incompleteLastRow == 'flexible-center' ||
+                s.incompleteLastRow == 'flexible-match-center' ||
+                s.incompleteLastRow == 'match-center'
+            ) {
+                if (item.spaceLeft && item.spaceLeft > 0) {
+                    item.container.css(
+                        s.readingDirection == 'ltr' ? 'margin-left' : 'margin-right',
+                        item.spaceLeft + 'px'
+                    );
+                    item.spaceLeft = 0;
+                } else {
+                    item.container.css(s.readingDirection == 'ltr' ? 'margin-left' : 'margin-right', '');
+                }
+            }
+            if (s.specialFx != 'off') {
+                var neighbour = img.siblings('.jig-pixastic');
+                if (neighbour.length === 0 && s.specialFx == 'captions') {
+                    neighbour = img.siblings('.jig-cw-role-effect').find('.jig-pixastic');
+                }
+                checkForPixastic(neighbour, img);
+            }
+
+            if (s.caption == 'below') {
+                if (s.middleBorderWidth !== 0 && s.innerBorder == 'always' && s.middleBorder !== 'always') {
+                    item.$captionWrapper.width(
+                        (item.containerWidth ? item.containerWidth : item.newWidth) - 2 * parseFloat(s.innerBorderWidth)
+                    );
+                } else {
+                    item.container.css({width: (item.containerWidth ? item.containerWidth : item.newWidth) + 'px'});
+                }
+            }
+
+            if (s.caption !== 'off' && s.verticalCenterCaptions !== 'off') {
+                var clonedCaption = item.container.find('.jig-cw-role-real').clone();
+                clonedCaption.find('.jig-caption').css('display', 'block');
+                clonedCaption
+                    .appendTo(item.linkElement)
+                    .css({bottom: 'auto', opacity: 0.01})
+                    .css(
+                        'top',
+                        Math.round(
+                            (item.containerHeight ? item.containerHeight : item.newHeight) / 2 -
+                                clonedCaption.height() / 2
+                        )
+                    );
+                var finalTopDistance = clonedCaption.css('top');
+                clonedCaption.remove();
+                item.container
+                    .find('.jig-caption-wrapper')
+                    .css({bottom: 'auto'})
+                    .animate({top: finalTopDistance}, s.animSpeed, 'JIGeaseInOutQuad');
+            }
+        }; // end of updateImageElement
+
+        // create dummy item link for the lightboxes if hidden images are to be added too
+        // used by createGallery
+        var buildHiddenLink = function (item) {
+            if (typeof item[s.linkTitleField] === 'undefined') {
+                item[s.linkTitleField] = '';
+            }
+            if (typeof item[s.imgAltField] === 'undefined') {
+                item[s.imgAltField] = '';
+            }
+            if (typeof item[s.titleField] === 'undefined') {
+                item[s.titleField] = '';
+            }
+            if (typeof item[s.captionField] === 'undefined') {
+                item[s.captionField] = '';
+            }
+
+            item.off = '';
+
+            var extraClass = '';
+            if (!item.carousel_data) {
+                item.carousel_data = '';
+            } else {
+                item.carousel_data = ' ' + item.carousel_data + ' ';
+                extraClass = ' tiled-gallery-item';
+            }
+            if (item.extra_class) {
+                extraClass += ' ' + item.extra_class;
+            }
+            var href = item.url,
+                titleFragment = '',
+                altFragment = '',
+                linkClass = s.hiddenLinkClass,
+                target = item.link_target ? item.link_target : '_self',
+                linkRel = s.linkRel,
+                downloadLink,
+                lightboxLink,
+                urlDecodeNeeded = true;
+
+            if (extraClass !== '') {
+                linkClass = linkClass.replace('jig-hiddenLink"', 'jig-hiddenLink' + extraClass + '"');
+            }
+
+            if (item.link) {
+                href = item.link;
+                if (target !== 'video' && target !== 'videoplayer') {
+                    // video here means video / iframe / another picture in the lightbox!
+                    if (target !== 'foobox') {
+                        linkClass =
+                            'target="' + target + '" ' + linkClass.replace('jig-link', 'jig-customLink jig-hiddenLink');
+                    } else {
+                        linkClass = 'target="' + target + '" ' + linkClass.replace('jig-link', 'jig-hiddenLink');
+                    }
+                    linkRel = item.link_rel ? 'rel="' + item.link_rel + '"' : '';
+                } else if (s.lightbox == 'magnific') {
+                    if (linkClass.indexOf('mfp-') == -1) {
+                        linkClass = linkClass.replace('jig-link', 'jig-link mfp-iframe');
+                    }
+                }
+                if (target == 'videoplayer' || target == 'foobox') {
+                    if (href.indexOf('&poster=') !== -1 || href.indexOf('|poster=') !== -1) {
+                        urlDecodeNeeded = false;
+                    }
+                }
+            }
+
+            if (urlDecodeNeeded === true) {
+                href = (href + '').replace(/\+/g, '%20');
+                if (href.substr(0, 14) === 'https%3A%2F%2F' || href.substr(0, 13) === 'http%3A%2F%2F') {
+                    try {
+                        href = decodeURIComponent(href);
+                    } catch (exception) {}
+                }
+            }
+
+            titleFragment = item[s.linkTitleField];
+            altFragment = item[s.imgAltField];
+
+            if (item.download) {
+                if (s.downloadLink == 'yes') {
+                    downloadLink = (titleFragment.length !== 0 ? s.separatorCharacter : '') + item.download;
+                    titleFragment += downloadLink;
+                } else if (s.downloadLink == 'alt') {
+                    downloadLink = (altFragment.length !== 0 ? s.separatorCharacter : '') + item.download;
+                    altFragment += downloadLink;
+                }
+            }
+            if (item.lightbox_link) {
+                if (s.lightboxLink == 'yes') {
+                    lightboxLink = (titleFragment.length !== 0 ? s.separatorCharacter : '') + item.lightbox_link;
+                    titleFragment += lightboxLink;
+                } else if (s.lightboxLink == 'alt') {
+                    lightboxLink = (altFragment.length !== 0 ? s.separatorCharacter : '') + item.lightbox_link;
+                    altFragment += lightboxLink;
+                }
+            }
+
+            if (titleFragment !== '') {
+                titleFragment = 'title="' + titleFragment + '" ';
+            }
+            if (altFragment !== '') {
+                altFragment = 'alt="' + altFragment + '" ';
+            }
+            var linkAttribute = s.linkAttribute;
+            if (item.extra_class) {
+                linkAttribute = linkAttribute.replace(
+                    '*content*',
+                    item.extra_class.replace(/.*jig-contentID-[A-Z]{2}-(\d+).*/gm, '$1')
+                );
+            }
+            var link = $(
+                    '<a ' +
+                        linkClass +
+                        linkRel +
+                        linkAttribute +
+                        titleFragment +
+                        (item.wh ? 'data-wh="' + item.wh + '" ' : '') +
+                        'href="' +
+                        (s.lightbox != 'links-off' ? href : '#') +
+                        '"/>'
+                ),
+                img = $('<img class="jig-hiddenImg" ' + altFragment + item.carousel_data + '/>');
+            if (item.carousel_data) {
+                if (item.download) {
+                    if (s.downloadLink == 'yes') {
+                        downloadLink =
+                            (img.attr('data-image-title').length !== 0 ? s.separatorCharacter : '') +
+                            $('<textarea />').html(item.download).val();
+                        img.attr('data-image-title', img.attr('data-image-title') + downloadLink);
+                    } else if (s.downloadLink == 'alt') {
+                        downloadLink =
+                            (img.attr('data-image-description').length !== 0 ? '<br />' : '') +
+                            $('<textarea />').html(item.download).val();
+                        img.attr('data-image-description', img.attr('data-image-description') + downloadLink);
+                    }
+                }
+            }
+
+            img.attr('src', 'data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw%3D%3D');
+            link.append(img);
+            item.linkContainer = link;
+            if (s.currentHiddenLink !== undefined) {
+                $(s.currentHiddenLink).after(link);
+            } else {
+                s.element.find('.jig-clearfix').after(link);
+            }
+            s.currentHiddenLink = link;
+            return;
+        }; // end of buildHiddenLink
+
+        // function that stops all special effects from being created or removes all existing special effects
+        // it's necessary because it could be queued at the time of check (when the original image isn't loaded yet)
+        // as the window can be resized at any time, the spoecialfx processes will need to start over with the new dimensions
+        // so it'll wait for it then get rid of the specialfx neighbour and will replace it with a new one
+        var checkForPixastic = function (neighbour, img) {
+            img.off('load');
+            if (neighbour.length !== 0) {
+                neighbour.off('load').remove();
+            }
+
+            var imgClone = img.clone().addClass('jig-pixastic').insertAfter(img);
+
+            imgClone.on('load', imgCloneOnLoad).each(function () {
+                if (this.complete || (this.naturalWidth !== undefined && this.naturalWidth !== 0)) {
+                    $(this).trigger('load');
+                }
+            });
+        }; // end of checkForPixastic
+
+        // Callback function when the image is cloned and to be processed by pixastic
+        var imgCloneOnLoad = function () {
+            if ($(this).hasClass('jig-specialfx-complete') !== true) {
+                $(this).stop().css('display', 'block').css('opacity', 1);
+                if (s.specialFxOptions === '') {
+                    switch (s.specialFxType) {
+                        case 'desaturate':
+                            Pixastic.process(
+                                this,
+                                'desaturate',
+                                {retinaReady: s.retinaReady, devicePixelRatio: s.devicePixelRatio, average: false},
+                                pixasticDone
+                            );
+                            break;
+                        case 'blur':
+                            Pixastic.process(
+                                this,
+                                'blurfast',
+                                {retinaReady: s.retinaReady, devicePixelRatio: s.devicePixelRatio, amount: 0.5},
+                                pixasticDone
+                            );
+                            break;
+                        case 'glow':
+                            Pixastic.process(
+                                this,
+                                'glow',
+                                {
+                                    retinaReady: s.retinaReady,
+                                    devicePixelRatio: s.devicePixelRatio,
+                                    amount: 0.3,
+                                    radius: 0.2,
+                                },
+                                pixasticDone
+                            );
+                            break;
+                        case 'sepia':
+                            Pixastic.process(
+                                this,
+                                'sepia',
+                                {retinaReady: s.retinaReady, devicePixelRatio: s.devicePixelRatio},
+                                pixasticDone
+                            );
+                            break;
+                        case 'laplace_dark':
+                            Pixastic.process(
+                                this,
+                                'laplace',
+                                {
+                                    retinaReady: s.retinaReady,
+                                    devicePixelRatio: s.devicePixelRatio,
+                                    edgeStrength: 2,
+                                    invert: false,
+                                    greyLevel: 0,
+                                },
+                                pixasticDone
+                            );
+                            break;
+                        case 'laplace_light':
+                            Pixastic.process(
+                                this,
+                                'laplace',
+                                {
+                                    retinaReady: s.retinaReady,
+                                    devicePixelRatio: s.devicePixelRatio,
+                                    edgeStrength: 2,
+                                    invert: true,
+                                    greyLevel: 0,
+                                },
+                                pixasticDone
+                            );
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    var specialOption = pixasticOptionsObject(s.specialFxOptions, pixasticDone);
+                    switch (s.specialFxType) {
+                        case 'desaturate':
+                            Pixastic.process(this, 'desaturate', specialOption, pixasticDone);
+                            break;
+                        case 'blur':
+                            Pixastic.process(this, 'blurfast', specialOption, pixasticDone);
+                            break;
+                        case 'glow':
+                            Pixastic.process(this, 'glow', specialOption, pixasticDone);
+                            break;
+                        case 'sepia':
+                            Pixastic.process(this, 'sepia', pixasticDone);
+                            break;
+                        case 'laplace_dark':
+                            Pixastic.process(this, 'laplace', specialOption, pixasticDone);
+                            break;
+                        case 'laplace_light':
+                            Pixastic.process(this, 'laplace', specialOption, pixasticDone);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                // Anything that has to do with the pixastic element is in the callback, pixasticDone
+            }
+            $(this).off('load');
+        };
+
+        // passed as callback for pixastic's process function, treats the result element
+        var pixasticDone = function (pixasticElement, img) {
+            if (pixasticElement === false) {
+                // If not supported, clean up the clone of the image pixastic left
+                var $img = $(img);
+                $img.siblings('.jig-cw-role-effect').remove();
+                $img.remove();
+                return;
+            }
+            pixasticElement = $(pixasticElement);
+
+            if (s.specialFx === 'hovered') {
+                pixasticElement.css('opacity', s.hiddenOpacity);
+            } else {
+                pixasticElement.css('opacity', s.specialFxBlend);
+            }
+            pixasticElement.addClass('jig-specialfx-complete');
+
+            if (s.specialFx == 'captions') {
+                var roleEffect = pixasticElement.closest('.jig-imageContainer').find('.jig-cw-role-effect');
+
+                if (s.captionMatchWidth == 'no') {
+                    pixasticElement.appendTo(roleEffect);
+                } else {
+                    try {
+                        var jpegUrl = pixasticElement[0].toDataURL('image/jpeg'),
+                            backgroundSize = pixasticElement.css('width') + ' ' + pixasticElement.css('height');
+                        pixasticElement.remove();
+
+                        roleEffect.find('.jig-caption-title').css({
+                            'background-image': 'url(' + jpegUrl + ')',
+                            'background-size': backgroundSize,
+                        });
+
+                        roleEffect.find('.jig-caption-description').css({
+                            'background-image': 'url(' + jpegUrl + ')',
+                            'background-size': backgroundSize,
+                        });
+                    } catch (e) {
+                        // It's not possible to copy the canvas data to caption element background
+                        // as there is no canvas. But since the effect is created by other means
+                        // use it the same way as s.captionMatchWidth = 'no'
+                        s.captionMatchWidthForceNo = true;
+                        var imageContainer = pixasticElement.closest('.jig-imageContainer');
+                        imageContainer.find('.jig-cw-role-effect .jig-caption').remove();
+                        imageContainer.find('.jig-caption-title').css({display: 'block'});
+                        pixasticElement.appendTo(roleEffect);
+                    }
+                }
+
+                // All align is handled by this
+                alignCaptionSpecialEffect(getObjectsForCaptionSpecialEffect(roleEffect));
+            }
+        };
+
+        // get objects at mouse event for alignCaptionSpecialEffect
+        // saves some performance as it's not needed to run at every animationprogress
+        var getObjectsForCaptionSpecialEffect = function (foundElements, fadeZeroHeight) {
+            var captionObjects = {};
+            //captionObjects.roleEffect = foundElements.filter('.jig-cw-role-effect');
+            captionObjects.roleEffect = foundElements.eq(0).closest('.jig-caption-wrapper');
+            if (captionObjects.roleEffect.length === 0) {
+                return false;
+            }
+
+            if (s.captionMatchWidth == 'no' || s.captionMatchWidthForceNo) {
+                if (!captionObjects.roleEffect.hasClass('jig-cw-role-effect')) {
+                    captionObjects.roleReal = captionObjects.roleEffect;
+                    captionObjects.roleEffect = captionObjects.roleEffect.siblings('.jig-cw-role-effect');
+                } else {
+                    captionObjects.roleReal = captionObjects.roleEffect.siblings('.jig-cw-role-real');
+                }
+
+                if (fadeZeroHeight) {
+                    captionObjects.fadeZeroHeight = fadeZeroHeight;
+                }
+                captionObjects.captionElement = captionObjects.roleReal.find('.jig-caption');
+            } else {
+                captionObjects.roleEffect = captionObjects.roleEffect.filter('.jig-cw-role-effect');
+                if (!captionObjects.roleEffect.hasClass('jig-cw-role-effect')) {
+                    return false;
+                }
+                captionObjects.img = captionObjects.roleEffect.siblings('img');
+                captionObjects.captionTitle = captionObjects.roleEffect.find('.jig-caption-title');
+                captionObjects.captionDescription = captionObjects.roleEffect.find('.jig-caption-description');
+            }
+
+            return captionObjects;
+        };
+
+        // adjust the background position for the special effect background of captions per animation progress
+        var alignCaptionSpecialEffect = function (captionObjects) {
+            if (captionObjects === false) {
+                return false;
+            }
+            if (s.captionMatchWidth == 'no' || s.captionMatchWidthForceNo) {
+                var roleRealPosition = captionObjects.roleReal.position(),
+                    roleRealHeight = captionObjects.roleReal.height();
+                if (roleRealHeight !== 0) {
+                    captionObjects.roleEffect
+                        .css({
+                            height: captionObjects.captionElement.height() + 'px',
+                        })
+                        .find('.jig-pixastic')
+                        .css({
+                            top: -roleRealPosition.top + 'px',
+                        });
+                    if (captionObjects.fadeZeroHeight) {
+                        captionObjects.roleEffect.css({
+                            opacity: captionObjects.captionElement.css('opacity'),
+                        });
+                    }
+                } else {
+                    captionObjects.roleEffect.find('.jig-pixastic').css({
+                        top: -roleRealPosition.top + 'px',
+                    });
+                }
+            } else {
+                var roleEffectPosition = captionObjects.roleEffect.position(),
+                    titlePosition = captionObjects.captionTitle.position(),
+                    descriptionPosition = captionObjects.captionDescription.position(),
+                    imageMargin = parseInt(captionObjects.img.css('margin-left'), 10);
+                if (titlePosition) {
+                    captionObjects.captionTitle.css({
+                        'background-position':
+                            imageMargin - titlePosition.left + 'px ' + -roleEffectPosition.top + 'px',
+                    });
+                }
+                if (descriptionPosition) {
+                    captionObjects.captionDescription.css({
+                        'background-position':
+                            imageMargin + 'px ' + (-descriptionPosition.top - roleEffectPosition.top) + 'px',
+                    });
+                }
+            }
+        };
+
+        // Truncates captions with dotdotdot plugin, used by the "below" caption style
+        var truncateCaptions = function (imageContainer) {
+            var captionWrapper = imageContainer.find('.jig-caption-wrapper');
+            captionWrapper.dotdotdot({watch: true, keep: 'br'});
+        };
+
+        // checks if all images have been loaded, restarts when an error image is encountered
+        s.errorChecked = false;
+        var checkLoadResults = function () {
+            if ($('.jig-unloadable').length > 0) {
+                s.errorChecked = true;
+                s.element.find('.jig-unloadable').remove();
+                plugin.createGallery('errorCheck');
+            }
+            /*
+			if(($('.jig-loaded').length === s.imagesShown || $('.jig-loaded').length+s.loadError === s.imagesShown)){
+				if(s.loadError !== 0){
+					s.loadSuccess = 0;
+					s.loadError = 0;
+					s.errorChecked = true;
+					s.element.find('.jig-unloadable').remove();
+					plugin.createGallery('errorCheck');
+				}else{
+					s.loadSuccess = 0;
+					s.loadError = 0;
+				}
+			}
+			*/
+        };
+
+        var tryToShowTimThumbError = function () {
+            if (s.suppressErrors === 'yes') {
+                return;
+            }
+            if (s.suppressErrors === 'publicly') {
+                if (!$('body').hasClass('logged-in')) {
+                    return;
+                }
+            }
+            s.element.html(
+                '<a href="https://justifiedgrid.com/support/fix/all-of-the-images-have-failed-to-load/" target="_blank" rel="external nofollow" style="border-style:none; text-decoration: none; font-weight: bold;"><div style="background-color: #212121; color: white; padding: 10px; display: inline-block;">JIG</div><div style="background-color: #b71c1c; color:white; color: rgba(255, 255, 255, 0.87); padding: 10px; display: inline-block;">All of the images have failed to load. Please click here to reach the troubleshooting fix.</div></a>'
+            );
+        };
+
+        // creates an object for pixastic
+        function pixasticOptionsObject(o) {
+            var finalObject = {};
+            for (var i = 0, j = o.length; i < j; i += 1) {
+                var pairs = o[i].split(':');
+                finalObject[pairs[0]] = pairs[1];
+            }
+            finalObject['retinaReady'] = s.retinaReady;
+            finalObject['devicePixelRatio'] = s.devicePixelRatio;
+            return finalObject;
+        }
+
+        // IE compatible hasOwnProperty
+        function ownProp(o, prop) {
+            if ('hasOwnProperty' in o) {
+                return o.hasOwnProperty(prop);
+            } else {
+                return Object.prototype.hasOwnProperty.call(o, prop);
+            }
+        }
+
+        function strip_tags(input, allowed) {
+            input = htmlspecialchars_decode(input);
+            if (s.caption == 'below') {
+                return input; // Allowing links or anything when the caption is below the image (still need to decode)
+            }
+            allowed = (((allowed || '') + '').toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join(''); // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
+            var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+                commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+            return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+                return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+            });
+        }
+        function htmlspecialchars_decode(string, quote_style) {
+            if (string === undefined) {
+                return '';
+            }
+            var optTemp = 0,
+                noquotes = false;
+            if (typeof quote_style === 'undefined') {
+                quote_style = 2;
+            }
+            string = string.toString().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+            var OPTS = {
+                ENT_NOQUOTES: 0,
+                ENT_HTML_QUOTE_SINGLE: 1,
+                ENT_HTML_QUOTE_DOUBLE: 2,
+                ENT_COMPAT: 2,
+                ENT_QUOTES: 3,
+                ENT_IGNORE: 4,
+            };
+            if (quote_style === 0) {
+                noquotes = true;
+            }
+            if (typeof quote_style !== 'number') {
+                // Allow for a single string or an array of string flags
+                quote_style = [].concat(quote_style);
+                for (var i = 0, j = quote_style.length; i < j; i += 1) {
+                    // Resolve string input to bitwise e.g. 'PATHINFO_EXTENSION' becomes 4
+                    if (OPTS[quote_style[i]] === 0) {
+                        noquotes = true;
+                    } else if (OPTS[quote_style[i]]) {
+                        optTemp = optTemp | OPTS[quote_style[i]];
+                    }
+                }
+                quote_style = optTemp;
+            }
+            if (quote_style & OPTS.ENT_HTML_QUOTE_SINGLE) {
+                string = string.replace(/&#0*39;/g, "'"); // PHP doesn't currently escape if more than one 0, but it should
+                // string = string.replace(/&apos;|&#x0*27;/g, "'"); // This would also be useful here, but not a part of PHP
+            }
+            if (!noquotes) {
+                string = string.replace(/&quot;/g, '"');
+            }
+            // Put this in last place to avoid escape being double-decoded
+            string = string.replace(/&amp;/g, '&');
+
+            return string;
+        }
+
+        // loads more images into the grid, on demand
+        function loadMore(event) {
+            if (typeof event !== 'undefined') {
+                event.stopPropagation();
+            }
+            var loaded = s.element.find('.jig-overflow > a.jig-loaded').length,
+                toBeLoaded = s.element.find('.jig-imageContainer .jig-overflow > a').length;
+            // Some tolerance of unloadable images when error checking is off
+            if (s.errorChecking == 'no') {
+                toBeLoaded -= 5;
+            }
+            if (typeof s.loadCheckTimeout !== 'undefined') {
+                clearTimeout(s.loadCheckTimeout);
+            }
+            if (loaded < toBeLoaded) {
+                s.loadCheckTimeout = setTimeout(function () {
+                    loadMore();
+                    return;
+                }, 500);
+                s.loadMoreButton.animate({opacity: 0.5}, 300, 'JIGswing');
+            } else {
+                s.loadMoreButton.animate({opacity: 1}, 300, 'JIGswing');
+
+                s.limit += s.originalLimit;
+                s.loadMoreCounter++;
+                if (s.loadMore == 'once') {
+                    s.limit = s.allItems.length;
+                }
+
+                plugin.createGallery();
+            }
+        }
+
+        plugin.init();
+    }; // end of 'class'
+
+    // sets up the plugin to be used conveniently and makes later access possible
+    $.fn.justifiedImageGrid = function (options) {
+        return this.each(function () {
+            if (undefined === $(this).data('justifiedImageGrid')) {
+                var plugin = new $.justifiedImageGrid(this, options);
+                $(this).data('justifiedImageGrid', plugin);
+            }
+        });
+    };
+
+    // jQuery v3 *requires* easing functions in this new format..
+    // if the site uses old (pre-v1.4) jQuery easing plugins, animations don't work, hence the need to create JIG's own
+    // jQuery v1-v2 uses the new format but is fine with the legacy format too..
+    $.extend($.easing, {
+        // opacity changes and fades are fine with swing
+        JIGswing: function (p) {
+            return 0.5 - Math.cos(p * Math.PI) / 2;
+        },
+        // for 2D movements
+        JIGeaseInOutQuad: function (x) {
+            return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        },
+    });
+
+    /*
+     * JIGhoverFlow - A Solution to Animation Queue Buildup in jQuery
+     * Version 1.00
+     *
+     * Copyright (c) 2009 Ralf Stoltze, www.2meter3.de/code/hoverFlow
+     * Dual-licensed under the MIT and GPL licenses.
+     * https://www.opensource.org/licenses/mit-license.php
+     * https://www.gnu.org/licenses/gpl-3.0.html
+     */
+
+    $.fn.JIGhoverFlow = function (type, prop, speed, easing, callback) {
+        // only allow hover events
+        if ($.inArray(type, ['mouseover', 'mouseenter', 'mouseout', 'mouseleave']) == -1) {
+            return this;
+        }
+
+        // build animation options object from arguments
+        // based on internal speed function from jQuery core
+        var opt =
+            typeof speed === 'object'
+                ? speed
+                : {
+                      complete: callback || (!callback && easing) || (typeof speed === 'function' && speed),
+                      duration: speed,
+                      easing: (callback && easing) || (easing && typeof easing !== 'function' && easing),
+                  };
+
+        if (typeof opt.easing == 'undefined') {
+            opt.easing = 'JIGswing';
+        }
+
+        // run immediately
+        opt.queue = false;
+
+        // wrap original callback and add dequeue
+        var origCallback = opt.complete;
+        opt.complete = function () {
+            // execute next function in queue
+            $(this).dequeue();
+            // execute original callback
+            if (typeof origCallback === 'function') {
+                origCallback.call(this);
+            }
+        };
+
+        // keep the chain intact
+        return this.each(function () {
+            var $this = $(this);
+
+            // set flag when mouse is over element
+            if (type == 'mouseover' || type == 'mouseenter') {
+                $this.data('jQuery.JIGhoverFlow', true);
+            } else {
+                $this.removeData('jQuery.JIGhoverFlow');
+            }
+
+            // enqueue function
+            $this.queue(function () {
+                // check mouse position at runtime
+                var condition =
+                    type == 'mouseover' || type == 'mouseenter'
+                        ? // read: true if mouse is over element
+                          $this.data('jQuery.JIGhoverFlow') !== undefined
+                        : // read: true if mouse is _not_ over element
+                          $this.data('jQuery.JIGhoverFlow') === undefined;
+
+                // only execute animation if condition is met, which is:
+                // - only run mouseover animation if mouse _is_ currently over the element
+                // - only run mouseout animation if the mouse is currently _not_ over the element
+                if (condition) {
+                    $this.animate(prop, opt);
+                    // else, clear queue, since there's nothing more to do
+                } else {
+                    $this.queue([]);
+                }
+            });
+        });
+    };
+
+    /*
+     * jquery.tagcloud.js
+     * A Simple Tag Cloud Plugin for JQuery
+     *
+     * https://github.com/addywaddy/jquery.tagcloud.js
+     * created by Adam Groves
+     * LICENSE: https://github.com/addywaddy/jquery.tagcloud.js/blob/master/LICENSE
+     */
+
+    (function ($) {
+        /*global jQuery*/
+        'use strict';
+
+        var compareWeights = function (a, b) {
+            return a - b;
+        };
+
+        // Converts hex to an RGB array
+        var toRGB = function (code) {
+            if (code.length === 4) {
+                code = code.replace(/(\w)(\w)(\w)/gi, '$1$1$2$2$3$3');
+            }
+            var hex = /(\w{2})(\w{2})(\w{2})/.exec(code);
+            return [parseInt(hex[1], 16), parseInt(hex[2], 16), parseInt(hex[3], 16)];
+        };
+
+        // Converts an RGB array to hex
+        var toHex = function (ary) {
+            return (
+                '#' +
+                jQuery
+                    .map(ary, function (i) {
+                        var hex = i.toString(16);
+                        hex = hex.length === 1 ? '0' + hex : hex;
+                        return hex;
+                    })
+                    .join('')
+            );
+        };
+
+        var colorIncrement = function (color, range) {
+            return jQuery.map(toRGB(color.end), function (n, i) {
+                return (n - toRGB(color.start)[i]) / range;
+            });
+        };
+
+        var tagColor = function (color, increment, weighting) {
+            var rgb = jQuery.map(toRGB(color.start), function (n, i) {
+                var ref = Math.round(n + increment[i] * weighting);
+                if (ref > 255) {
+                    ref = 255;
+                } else {
+                    if (ref < 0) {
+                        ref = 0;
+                    }
+                }
+                return ref;
+            });
+            return toHex(rgb);
+        };
+
+        $.fn.tagcloud = function (options) {
+            var opts = $.extend({}, $.fn.tagcloud.defaults, options);
+            var tagWeights = this.map(function () {
+                return $(this).attr('rel');
+            });
+            tagWeights = jQuery.makeArray(tagWeights).sort(compareWeights);
+            var lowest = tagWeights[0];
+            var highest = tagWeights.pop();
+            var range = highest - lowest;
+            if (range === 0) {
+                range = 1;
+            }
+            // Sizes
+            var fontIncr, colorIncr;
+            if (opts.size) {
+                fontIncr = (opts.size.end - opts.size.start) / range;
+            }
+            // Colors
+            if (opts.color) {
+                colorIncr = colorIncrement(opts.color, range);
+            }
+            return this.each(function () {
+                var weighting = $(this).attr('rel') - lowest;
+                if (opts.size) {
+                    $(this).css({'font-size': opts.size.start + weighting * fontIncr + opts.size.unit});
+                }
+                if (opts.color) {
+                    $(this).css({color: tagColor(opts.color, colorIncr, weighting)});
+                }
+            });
+        };
+
+        $.fn.tagcloud.defaults = {
+            size: {start: 14, end: 18, unit: 'pt'},
+        };
+    })(jQuery);
+
+    /**
+     * Used for version test cases.
+     *
+     * @param {string} left A string containing the version that will become
+     *        the left hand operand.
+     * @param {string} oper The comparison operator to test against. By
+     *        default, the "==" operator will be used.
+     * @param {string} right A string containing the version that will
+     *        become the right hand operand. By default, the current jQuery
+     *        version will be used.
+     *
+     * @return {boolean} Returns the evaluation of the expression, either
+     *         true or false.
+     */
+    $.JIGjQueryMinVersion = function (min, displayError) {
+        if (min) {
+            var current = $().jquery,
+                m = min.split('.'),
+                c = current.split('.'),
+                mi = [],
+                cu = [],
+                met = false;
+            mi[0] = !isNaN(parseInt(m[0], 10)) ? parseInt(m[0], 10) : 0;
+            mi[1] = !isNaN(parseInt(m[1], 10)) ? parseInt(m[1], 10) : 0;
+            mi[2] = !isNaN(parseInt(m[2], 10)) ? parseInt(m[2], 10) : 0;
+            mi[3] = !isNaN(parseInt(m[3], 10)) ? parseInt(m[3], 10) : 0;
+            cu[0] = !isNaN(parseInt(c[0], 10)) ? parseInt(c[0], 10) : 0;
+            cu[1] = !isNaN(parseInt(c[1], 10)) ? parseInt(c[1], 10) : 0;
+            cu[2] = !isNaN(parseInt(c[2], 10)) ? parseInt(c[2], 10) : 0;
+            cu[3] = !isNaN(parseInt(c[3], 10)) ? parseInt(c[3], 10) : 0;
+            for (var i = 0; i < 4; i++) {
+                if (mi[i] <= cu[i]) {
+                    met = true;
+                    if (mi[i] == cu[i]) {
+                        continue;
+                    } else {
+                        break;
+                    }
+                } else {
+                    met = false;
+                    break;
+                }
+            }
+            if (met === true) {
+                return true;
+            } else {
+                if (displayError === true) {
+                    $('.justified-image-grid').html(
+                        '<span style="color:red;font-weight:bold">Your jQuery version (' +
+                            $().jquery +
+                            ') is old, this plugin needs at least 1.7, please go to the plugin settings and choose another jQuery source. If this does not work then your theme or a plugin is not using WordPress best practices and forces the loading of an old version. In that case contact the author of Justified Image Grid.</span>'
+                    );
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    };
+}
+(function () {
+    loadJustifiedImageGrid(jQuery); // adds ability to re-add to the jQuery object if a newly loaded jQuery 'reset' it
+})();
