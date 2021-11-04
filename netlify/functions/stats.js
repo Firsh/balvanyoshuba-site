@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 const cyrb53 = function (str, seed = 0) {
     let h1 = 0xdeadbeef ^ seed,
