@@ -1,3 +1,6 @@
+[functions]
+  node_bundler = "esbuild"
+
 [[redirects]]
   from = "/?kategoria=fooldal&oldal=fooldal"
   to = "/?atiranyitva"
