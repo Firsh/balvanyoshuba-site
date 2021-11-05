@@ -13,7 +13,7 @@ const cyrb53 = function (str, seed = 0) {
     return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-const handler = async (event) => {
+export async function handler(event) {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
@@ -38,6 +38,7 @@ const handler = async (event) => {
     const visitorIP = event.headers['x-nf-client-connection-ip'];
     const rawClientID = visitorIP + ';' + event.headers['user-agent'] + ';' + body.language + ';';
     const hashedClientID = cyrb53(rawClientID).toString(16);
+    // https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
     const params = [
         ['v', '1'],
         ['t', body.type], // pageview/event (ec/ea - category/action required for event)
@@ -83,5 +84,4 @@ const handler = async (event) => {
     } catch (err) {
         console.error('Error: ' + err);
     }
-};
-module.exports = {handler};
+}
