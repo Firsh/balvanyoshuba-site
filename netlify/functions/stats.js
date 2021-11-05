@@ -48,7 +48,7 @@ const handler = async (event) => {
         ['cid', hashedClientID],
         ['geoid', event.headers['x-country']],
         ['ul', body.language],
-        ['ua', event.headers['useragent']],
+        ['ua', event.headers['user-agent']],
     ];
 
     if (body.type === 'pageview') {
@@ -73,11 +73,11 @@ const handler = async (event) => {
         if (response.ok) {
             return {
                 statusCode: response.status,
-                body: response.statusText /*+
-                ' payload: ' +
-                payload +
-                ' stringified headers obj: ' +
-                JSON.stringify(event.headers),*/,
+                body: JSON.stringify({
+                    responseStatusText: response.statusText,
+                    paramsSent: params,
+                    eventHeaders: event.headers,
+                }),
             };
         }
     } catch (err) {
