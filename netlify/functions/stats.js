@@ -74,11 +74,12 @@ export async function handler(event) {
         if (response.ok) {
             return {
                 statusCode: response.status,
-                body: JSON.stringify({
+                body: 'OK',
+                /*body: JSON.stringify({
                     responseStatusText: response.statusText,
                     paramsSent: params,
                     eventHeaders: event.headers,
-                }),
+                }),*/
             };
         }
     } catch (err) {
