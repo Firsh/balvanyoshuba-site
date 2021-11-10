@@ -61,26 +61,24 @@
             closeMenu();
         }
     });
-    let measureInterval;
+    let measureCount = 0; // Infinite loop/wait protection, CSS should be there within 2s of parsing this on DCL...
     // Without layout thrashing
     function measureMenus() {
-        console.log('measureMenus');
-        console.timeStamp('measureMenus');
+        measureCount++;
         // Has CSS arrived yet? body bg att should be fixed if so
         if (
+            measureCount <= 10 &&
             window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-attachment') ===
-            'scroll'
+                'scroll'
         ) {
+            console.log('wait');
             // If not, rerun this later yo
-            console.log('CSS not yet here, delaying');
-            measureInterval = setInterval(measureMenus, 200);
+            setTimeout(measureMenus, 200);
             return;
         }
+        // Either CSS has arrived or giving up
         console.log('CSS IS HERE');
-        if (typeof measureInterval !== 'undefined') {
-            console.log('interval existed');
-        }
-        clearInterval(measureInterval);
+
         const subs = document.querySelectorAll('.menu-item-has-children ul');
         // Write cycle
         subs.forEach((ul) => {
