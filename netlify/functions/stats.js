@@ -42,8 +42,8 @@ export async function handler(event) {
     const params = [
         ['v', '1'],
         ['t', body.type], // pageview/event (ec/ea - category/action required for event)
-        ['tid', 'UA-113124215-3'], // Netlifys temporary
-        //['tid', 'UA-4197479-3'], // Original
+        //['tid', 'UA-113124215-3'], // Netlifys temporary
+        ['tid', 'UA-4197479-3'], // Original
         ['aip', '1'],
         ['uip', visitorIP],
         ['cid', hashedClientID],
