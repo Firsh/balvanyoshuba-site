@@ -1,6 +1,15 @@
 [functions]
   node_bundler = "esbuild"
 
+[[headers]]
+  for = "*.js" # js files should be set this way
+  [headers.values]
+    Cache-Control = "public, max-age=15780000"
+[[headers]]
+  for = "*.css" # css files too
+  [headers.values]
+    Cache-Control = "public, max-age=15780000"
+
 [[redirects]]
   from = "/?kategoria=fooldal&oldal=fooldal"
   to = "/?atiranyitva"
