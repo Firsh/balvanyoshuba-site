@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /kereso/
+Sitemap: https://balvanyoshuba.hu/wp-sitemap.xml
